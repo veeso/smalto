@@ -57,18 +57,18 @@ def greet(name: str) -> str:
 The HTML renderer wraps each token in a `<span>` with a CSS class. Place the output within `<pre><code>...</code></pre>` and style the classes:
 
 ```css
-pre code .hl-keyword  { color: #ffd596; }
-pre code .hl-string   { color: #c8ffa7; }
-pre code .hl-number   { color: #c8ffa7; }
-pre code .hl-comment  { color: #d4d4d4; font-style: italic; }
-pre code .hl-function { color: #9ce7ff; }
-pre code .hl-operator { color: #ffaff3; }
-pre code .hl-type     { color: #ffddfa; }
-pre code .hl-module   { color: #ffddfa; }
-pre code .hl-tag      { color: #ff6b6b; }
-pre code .hl-attribute { color: #ffd596; }
-pre code .hl-selector { color: #9ce7ff; }
-pre code .hl-property { color: #ffd596; }
+pre code .smalto-keyword  { color: #ffd596; }
+pre code .smalto-string   { color: #c8ffa7; }
+pre code .smalto-number   { color: #c8ffa7; }
+pre code .smalto-comment  { color: #d4d4d4; font-style: italic; }
+pre code .smalto-function { color: #9ce7ff; }
+pre code .smalto-operator { color: #ffaff3; }
+pre code .smalto-type     { color: #ffddfa; }
+pre code .smalto-module   { color: #ffddfa; }
+pre code .smalto-tag      { color: #ff6b6b; }
+pre code .smalto-attribute { color: #ffd596; }
+pre code .smalto-selector { color: #9ce7ff; }
+pre code .smalto-property { color: #ffd596; }
 ```
 
 ## Supported languages

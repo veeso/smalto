@@ -4,9 +4,9 @@ title: haskell highlighting
 file: ./test/languages_test.gleam
 test_name: haskell_highlighting_test
 ---
-<span class="hl-comment">-- Comment</span>
-<span class="hl-keyword">module</span> Main <span class="hl-keyword">where</span>
-greet <span class="hl-operator">::</span> String <span class="hl-operator">-&gt;</span> String
-greet name <span class="hl-operator">=</span> <span class="hl-string">&quot;Hello&quot;</span>
-main <span class="hl-operator">::</span> IO <span class="hl-punctuation">(</span><span class="hl-punctuation">)</span>
-main <span class="hl-operator">=</span> <span class="hl-builtin">putStrLn</span> <span class="hl-punctuation">(</span>greet <span class="hl-string">&quot;world&quot;</span><span class="hl-punctuation">)</span>
+<span class="smalto-comment">-- Comment</span>
+<span class="smalto-keyword">module</span> Main <span class="smalto-keyword">where</span>
+greet <span class="smalto-operator">::</span> String <span class="smalto-operator">-&gt;</span> String
+greet name <span class="smalto-operator">=</span> <span class="smalto-string">&quot;Hello&quot;</span>
+main <span class="smalto-operator">::</span> IO <span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span>
+main <span class="smalto-operator">=</span> <span class="smalto-builtin">putStrLn</span> <span class="smalto-punctuation">(</span>greet <span class="smalto-string">&quot;world&quot;</span><span class="smalto-punctuation">)</span>

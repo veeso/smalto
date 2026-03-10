@@ -1,0 +1,329 @@
+/**
+ * Smalto Theme: Coldark Cold
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/**
+ * Coldark Theme for Prism.js
+ * Theme variation: Cold
+ * Tested with HTML, CSS, JS, JSON, PHP, YAML, Bash script
+ * @author Armand Philippot <contact@armandphilippot.com>
+ * @homepage https://github.com/ArmandPhilippot/coldark-prism
+ * @license MIT
+ */
+.smalto, .smalto code {
+	color: #111b27;
+	background: none;
+	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+.smalto::-moz-selection,
+.smalto ::-moz-selection,
+.smalto code::-moz-selection,
+.smalto code ::-moz-selection {
+	background: #8da1b9;
+}
+
+.smalto::selection,
+.smalto ::selection,
+.smalto code::selection,
+.smalto code ::selection {
+	background: #8da1b9;
+}
+
+/* Code blocks */
+.smalto {
+	padding: 1em;
+	margin: 0.5em 0;
+	overflow: auto;
+}
+
+.smalto-inline,
+.smalto {
+	background: #e3eaf2;
+}
+
+/* Inline code */
+.smalto-inline {
+	padding: 0.1em 0.3em;
+	border-radius: 0.3em;
+	white-space: normal;
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-doctype,
+.smalto-cdata {
+	color: #3c526d;
+}
+
+.smalto-punctuation {
+	color: #111b27;
+}
+
+.smalto-delimiter.important,
+.smalto-selector .parent,
+.smalto-tag,
+.smalto-tag .smalto-punctuation {
+	color: #006d6d;
+}
+
+.smalto-attr-name,
+.smalto-boolean,
+.smalto-boolean.important,
+.smalto-number,
+.smalto-constant,
+.smalto-selector .smalto-attribute {
+	color: #755f00;
+}
+
+.smalto-class-name,
+.smalto-key,
+.smalto-parameter,
+.smalto-property,
+.smalto-property-access,
+.smalto-variable {
+	color: #005a8e;
+}
+
+.smalto-attr-value,
+.smalto-inserted,
+.smalto-color,
+.smalto-selector .smalto-value,
+.smalto-string,
+.smalto-string .smalto-url-link {
+	color: #116b00;
+}
+
+.smalto-builtin,
+.smalto-keyword-array,
+.smalto-package,
+.smalto-regex {
+	color: #af00af;
+}
+
+.smalto-function,
+.smalto-selector .smalto-class,
+.smalto-selector .smalto-id {
+	color: #7c00aa;
+}
+
+.smalto-atrule .smalto-rule,
+.smalto-combinator,
+.smalto-keyword,
+.smalto-operator,
+.smalto-pseudo-class,
+.smalto-pseudo-element,
+.smalto-selector,
+.smalto-unit {
+	color: #a04900;
+}
+
+.smalto-deleted,
+.smalto-important {
+	color: #c22f2e;
+}
+
+.smalto-keyword-this,
+.smalto-this {
+	color: #005a8e;
+}
+
+.smalto-important,
+.smalto-keyword-this,
+.smalto-this,
+.smalto-bold {
+	font-weight: bold;
+}
+
+.smalto-delimiter.important {
+	font-weight: inherit;
+}
+
+.smalto-italic {
+	font-style: italic;
+}
+
+.smalto-entity {
+	cursor: help;
+}
+
+.language-markdown .smalto-title,
+.language-markdown .smalto-title .smalto-punctuation {
+	color: #005a8e;
+	font-weight: bold;
+}
+
+.language-markdown .smalto-blockquote.punctuation {
+	color: #af00af;
+}
+
+.language-markdown .smalto-code {
+	color: #006d6d;
+}
+
+.language-markdown .smalto-hr.punctuation {
+	color: #005a8e;
+}
+
+.language-markdown .smalto-url > .smalto-content {
+	color: #116b00;
+}
+
+.language-markdown .smalto-url-link {
+	color: #755f00;
+}
+
+.language-markdown .smalto-list.punctuation {
+	color: #af00af;
+}
+
+.language-markdown .smalto-table-header {
+	color: #111b27;
+}
+
+.language-json .smalto-operator {
+	color: #111b27;
+}
+
+.language-scss .smalto-variable {
+	color: #006d6d;
+}
+
+/* overrides color-values for the Show Invisibles plugin
+ * https://prismjs.com/plugins/show-invisibles/
+ */
+.smalto-token.tab:not(:empty):before,
+.smalto-token.cr:before,
+.smalto-token.lf:before,
+.smalto-token.space:before {
+	color: #3c526d;
+}
+
+/* overrides color-values for the Toolbar plugin
+ * https://prismjs.com/plugins/toolbar/
+ */
+.smalto > .toolbar.toolbar > .toolbar-item > a,
+.smalto > .toolbar.toolbar > .toolbar-item > button {
+	color: #e3eaf2;
+	background: #005a8e;
+}
+
+.smalto > .toolbar.toolbar > .toolbar-item > a:hover,
+.smalto > .toolbar.toolbar > .toolbar-item > a:focus,
+.smalto > .toolbar.toolbar > .toolbar-item > button:hover,
+.smalto > .toolbar.toolbar > .toolbar-item > button:focus {
+	color: #e3eaf2;
+	background: #005a8eda;
+	text-decoration: none;
+}
+
+.smalto > .toolbar.toolbar > .toolbar-item > span,
+.smalto > .toolbar.toolbar > .toolbar-item > span:hover,
+.smalto > .toolbar.toolbar > .toolbar-item > span:focus {
+	color: #e3eaf2;
+	background: #3c526d;
+}
+
+/* overrides color-values for the Line Highlight plugin
+ * http://prismjs.com/plugins/line-highlight/
+ */
+.line-highlight.line-highlight {
+	background: #8da1b92f;
+	background: linear-gradient(to right, #8da1b92f 70%, #8da1b925);
+}
+
+.line-highlight.line-highlight:before,
+.line-highlight.line-highlight[data-end]:after {
+	background-color: #3c526d;
+	color: #e3eaf2;
+	box-shadow: 0 1px #8da1b9;
+}
+
+pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > span:hover:before {
+	background-color: #3c526d1f;
+}
+
+/* overrides color-values for the Line Numbers plugin
+ * http://prismjs.com/plugins/line-numbers/
+ */
+.line-numbers.line-numbers .line-numbers-rows {
+	border-right: 1px solid #8da1b97a;
+	background: #d0dae77a;
+}
+
+.line-numbers .line-numbers-rows > span:before {
+	color: #3c526dda;
+}
+
+/* overrides color-values for the Match Braces plugin
+ * https://prismjs.com/plugins/match-braces/
+ */
+.rainbow-braces .smalto-token.punctuation.brace-level-1,
+.rainbow-braces .smalto-token.punctuation.brace-level-5,
+.rainbow-braces .smalto-token.punctuation.brace-level-9 {
+	color: #755f00;
+}
+
+.rainbow-braces .smalto-token.punctuation.brace-level-2,
+.rainbow-braces .smalto-token.punctuation.brace-level-6,
+.rainbow-braces .smalto-token.punctuation.brace-level-10 {
+	color: #af00af;
+}
+
+.rainbow-braces .smalto-token.punctuation.brace-level-3,
+.rainbow-braces .smalto-token.punctuation.brace-level-7,
+.rainbow-braces .smalto-token.punctuation.brace-level-11 {
+	color: #005a8e;
+}
+
+.rainbow-braces .smalto-token.punctuation.brace-level-4,
+.rainbow-braces .smalto-token.punctuation.brace-level-8,
+.rainbow-braces .smalto-token.punctuation.brace-level-12 {
+	color: #7c00aa;
+}
+
+/* overrides color-values for the Diff Highlight plugin
+ * https://prismjs.com/plugins/diff-highlight/
+ */
+pre.diff-highlight > code .smalto-token.deleted:not(.prefix),
+pre > code.diff-highlight .smalto-token.deleted:not(.prefix) {
+	background-color: #c22f2e1f;
+}
+
+pre.diff-highlight > code .smalto-token.inserted:not(.prefix),
+pre > code.diff-highlight .smalto-token.inserted:not(.prefix) {
+	background-color: #116b001f;
+}
+
+/* overrides color-values for the Command Line plugin
+ * https://prismjs.com/plugins/command-line/
+ */
+.command-line .command-line-prompt {
+	border-right: 1px solid #8da1b97a;
+}
+
+.command-line .command-line-prompt > span:before {
+	color: #3c526dda;
+}

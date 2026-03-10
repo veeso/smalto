@@ -1,0 +1,171 @@
+/**
+ * Smalto Theme: Darcula
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/**
+ * Darcula theme
+ *
+ * Adapted from a theme based on:
+ * IntelliJ Darcula Theme (https://github.com/bulenkov/Darcula)
+ *
+ * @author Alexandre Paradis <service.paradis@gmail.com>
+ * @version 1.0
+ */
+
+.smalto, .smalto code {
+	color: #a9b7c6;
+	font-family: Consolas, Monaco, 'Andale Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+.smalto::-moz-selection, .smalto ::-moz-selection,
+.smalto code::-moz-selection, .smalto code ::-moz-selection {
+	color: inherit;
+	background: rgba(33, 66, 131, .85);
+}
+
+.smalto::selection, .smalto ::selection,
+.smalto code::selection, .smalto code ::selection {
+	color: inherit;
+	background: rgba(33, 66, 131, .85);
+}
+
+/* Code blocks */
+.smalto {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+.smalto-inline,
+.smalto {
+	background: #2b2b2b;
+}
+
+/* Inline code */
+.smalto-inline {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-cdata {
+	color: #808080;
+}
+
+.smalto-delimiter,
+.smalto-boolean,
+.smalto-keyword,
+.smalto-selector,
+.smalto-important,
+.smalto-atrule {
+	color: #cc7832;
+}
+
+.smalto-operator,
+.smalto-punctuation,
+.smalto-attr-name {
+	color: #a9b7c6;
+}
+
+.smalto-tag,
+.smalto-tag .punctuation,
+.smalto-doctype,
+.smalto-builtin {
+	color: #e8bf6a;
+}
+
+.smalto-entity,
+.smalto-number,
+.smalto-symbol {
+	color: #6897bb;
+}
+
+.smalto-property,
+.smalto-constant,
+.smalto-variable {
+	color: #9876aa;
+}
+
+.smalto-string,
+.smalto-char {
+	color: #6a8759;
+}
+
+.smalto-attr-value,
+.smalto-attr-value .punctuation {
+	color: #a5c261;
+}
+
+.smalto-attr-value .punctuation:first-child {
+	color: #a9b7c6;
+}
+
+.smalto-url {
+	color: #287bde;
+	text-decoration: underline;
+}
+
+.smalto-function {
+	color: #ffc66d;
+}
+
+.smalto-regex {
+	background: #364135;
+}
+
+.smalto-bold {
+	font-weight: bold;
+}
+
+.smalto-italic {
+	font-style: italic;
+}
+
+.smalto-inserted {
+	background: #294436;
+}
+
+.smalto-deleted {
+	background: #484a4a;
+}
+
+code.language-css .smalto-property,
+code.language-css .smalto-property + .smalto-punctuation {
+	color: #a9b7c6;
+}
+
+code.language-css .smalto-id {
+	color: #ffc66d;
+}
+
+code.language-css .smalto-selector > .smalto-class,
+code.language-css .smalto-selector > .smalto-attribute,
+code.language-css .smalto-selector > .smalto-pseudo-class,
+code.language-css .smalto-selector > .smalto-pseudo-element {
+	color: #ffc66d;
+}

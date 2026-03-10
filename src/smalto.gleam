@@ -39,7 +39,7 @@ pub fn to_tokens(code: String, grammar: Grammar) -> List(Token) {
 
 /// Render syntax-highlighted HTML from source code.
 ///
-/// Tokens are wrapped in `<span class="hl-{name}">` elements with
+/// Tokens are wrapped in `<span class="smalto-{name}">` elements with
 /// HTML-escaped content. Whitespace and unmatched text are output as-is.
 pub fn to_html(code: String, grammar: Grammar) -> String {
   to_tokens(code, grammar) |> renderer.to_html

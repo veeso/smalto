@@ -1,0 +1,184 @@
+/**
+ * Smalto Theme: Duotone Light
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/*
+Name:   Duotone Light
+Author: Simurai, adapted from DuoTone themes for Atom (http://simurai.com/projects/2016/01/01/duotone-themes)
+
+Conversion: Bram de Haan (http://atelierbram.github.io/Base2Tone-prism/output/prism/prism-base2tone-morning-light.css)
+Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
+*/
+
+.smalto, .smalto code {
+	font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+	font-size: 14px;
+	line-height: 1.375;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	background: #faf8f5;
+	color: #728fcb;
+}
+
+pre > .smalto code {
+	font-size: 1em;
+}
+
+.smalto::-moz-selection, .smalto ::-moz-selection,
+.smalto code::-moz-selection, .smalto code ::-moz-selection {
+	text-shadow: none;
+	background: #faf8f5;
+}
+
+.smalto::selection, .smalto ::selection,
+.smalto code::selection, .smalto code ::selection {
+	text-shadow: none;
+	background: #faf8f5;
+}
+
+/* Code blocks */
+.smalto {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+/* Inline code */
+.smalto-inline {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-doctype,
+.smalto-cdata {
+	color: #b6ad9a;
+}
+
+.smalto-punctuation {
+	color: #b6ad9a;
+}
+
+.smalto-namespace {
+	opacity: .7;
+}
+
+.smalto-tag,
+.smalto-operator,
+.smalto-number {
+	color: #063289;
+}
+
+.smalto-property,
+.smalto-function {
+	color: #b29762;
+}
+
+.smalto-tag-id,
+.smalto-selector,
+.smalto-atrule-id {
+	color: #2d2006;
+}
+
+code.language-javascript,
+.smalto-attr-name {
+	color: #896724;
+}
+
+code.language-css,
+code.language-scss,
+.smalto-boolean,
+.smalto-string,
+.smalto-entity,
+.smalto-url,
+.language-css .smalto-string,
+.language-scss .smalto-string,
+.style .smalto-string,
+.smalto-attr-value,
+.smalto-keyword,
+.smalto-control,
+.smalto-directive,
+.smalto-unit,
+.smalto-statement,
+.smalto-regex,
+.smalto-atrule {
+	color: #728fcb;
+}
+
+.smalto-placeholder,
+.smalto-variable {
+	color: #93abdc;
+}
+
+.smalto-deleted {
+	text-decoration: line-through;
+}
+
+.smalto-inserted {
+	border-bottom: 1px dotted #2d2006;
+	text-decoration: none;
+}
+
+.smalto-italic {
+	font-style: italic;
+}
+
+.smalto-important,
+.smalto-bold {
+	font-weight: bold;
+}
+
+.smalto-important {
+	color: #896724;
+}
+
+.smalto-entity {
+	cursor: help;
+}
+
+pre > code.highlight {
+	outline: .4em solid #896724;
+	outline-offset: .4em;
+}
+
+/* overrides color-values for the Line Numbers plugin
+ * http://prismjs.com/plugins/line-numbers/
+ */
+.line-numbers.line-numbers .line-numbers-rows {
+	border-right-color: #ece8de;
+}
+
+.line-numbers .line-numbers-rows > span:before {
+	color: #cdc4b1;
+}
+
+/* overrides color-values for the Line Highlight plugin
+ * http://prismjs.com/plugins/line-highlight/
+ */
+.line-highlight.line-highlight {
+	background: rgba(45, 32, 6, 0.2);
+	background: -webkit-linear-gradient(left, rgba(45, 32, 6, 0.2) 70%, rgba(45, 32, 6, 0));
+	background: linear-gradient(to right, rgba(45, 32, 6, 0.2) 70%, rgba(45, 32, 6, 0));
+}

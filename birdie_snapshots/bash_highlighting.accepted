@@ -4,10 +4,10 @@ title: bash highlighting
 file: ./test/languages_test.gleam
 test_name: bash_highlighting_test
 ---
-<span class="hl-important">#!/bin/bash</span>
-<span class="hl-comment"># Comment</span>
-name<span class="hl-operator">=</span><span class="hl-string">&quot;world&quot;</span>
-<span class="hl-class-name">echo</span> <span class="hl-string">&quot;Hello $name&quot;</span>
-<span class="hl-keyword">if</span> <span class="hl-punctuation">[</span> <span class="hl-variable">-f</span> file.txt <span class="hl-punctuation">]</span><span class="hl-punctuation">;</span> <span class="hl-keyword">then</span>
-  <span class="hl-function">cat</span> file.txt
-<span class="hl-keyword">fi</span>
+<span class="smalto-important">#!/bin/bash</span>
+<span class="smalto-comment"># Comment</span>
+name<span class="smalto-operator">=</span><span class="smalto-string">&quot;world&quot;</span>
+<span class="smalto-class-name">echo</span> <span class="smalto-string">&quot;Hello $name&quot;</span>
+<span class="smalto-keyword">if</span> <span class="smalto-punctuation">[</span> <span class="smalto-variable">-f</span> file.txt <span class="smalto-punctuation">]</span><span class="smalto-punctuation">;</span> <span class="smalto-keyword">then</span>
+  <span class="smalto-function">cat</span> file.txt
+<span class="smalto-keyword">fi</span>

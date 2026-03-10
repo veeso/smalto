@@ -4,8 +4,8 @@ title: xml highlighting
 file: ./test/languages_test.gleam
 test_name: xml_highlighting_test
 ---
-<span class="hl-prolog">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="hl-comment">&lt;!-- Comment --&gt;</span>
-<span class="hl-tag">&lt;root&gt;</span>
-  <span class="hl-tag">&lt;item id=&quot;1&quot;&gt;</span>Hello<span class="hl-tag">&lt;/item&gt;</span>
-<span class="hl-tag">&lt;/root&gt;</span>
+<span class="smalto-prolog">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="smalto-comment">&lt;!-- Comment --&gt;</span>
+<span class="smalto-tag">&lt;root&gt;</span>
+  <span class="smalto-tag">&lt;item id=&quot;1&quot;&gt;</span>Hello<span class="smalto-tag">&lt;/item&gt;</span>
+<span class="smalto-tag">&lt;/root&gt;</span>

@@ -4,11 +4,11 @@ title: html highlighting
 file: ./test/languages_test.gleam
 test_name: html_highlighting_test
 ---
-<span class="hl-comment">&lt;!-- Comment --&gt;</span>
-<span class="hl-punctuation">&lt;!</span><span class="hl-doctype-tag">DOCTYPE</span> <span class="hl-name">html</span><span class="hl-punctuation">&gt;</span>
-<span class="hl-tag">&lt;html lang=&quot;en&quot;&gt;</span>
-<span class="hl-tag">&lt;head&gt;</span><span class="hl-tag">&lt;title&gt;</span>Test<span class="hl-tag">&lt;/title&gt;</span><span class="hl-tag">&lt;/head&gt;</span>
-<span class="hl-tag">&lt;body&gt;</span>
-  <span class="hl-tag">&lt;h1 class=&quot;title&quot;&gt;</span>Hello<span class="hl-tag">&lt;/h1&gt;</span>
-<span class="hl-tag">&lt;/body&gt;</span>
-<span class="hl-tag">&lt;/html&gt;</span>
+<span class="smalto-comment">&lt;!-- Comment --&gt;</span>
+<span class="smalto-punctuation">&lt;!</span><span class="smalto-doctype-tag">DOCTYPE</span> <span class="smalto-name">html</span><span class="smalto-punctuation">&gt;</span>
+<span class="smalto-tag">&lt;html lang=&quot;en&quot;&gt;</span>
+<span class="smalto-tag">&lt;head&gt;</span><span class="smalto-tag">&lt;title&gt;</span>Test<span class="smalto-tag">&lt;/title&gt;</span><span class="smalto-tag">&lt;/head&gt;</span>
+<span class="smalto-tag">&lt;body&gt;</span>
+  <span class="smalto-tag">&lt;h1 class=&quot;title&quot;&gt;</span>Hello<span class="smalto-tag">&lt;/h1&gt;</span>
+<span class="smalto-tag">&lt;/body&gt;</span>
+<span class="smalto-tag">&lt;/html&gt;</span>

@@ -4,11 +4,11 @@ title: rust highlighting
 file: ./test/languages_test.gleam
 test_name: rust_highlighting_test
 ---
-<span class="hl-comment">// Comment</span>
-<span class="hl-keyword">fn</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span>name<span class="hl-punctuation">:</span> <span class="hl-operator">&amp;</span><span class="hl-keyword">str</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">-&gt;</span> <span class="hl-class-name">String</span> <span class="hl-punctuation">{</span>
-    <span class="hl-property">format!</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;Hello {}&quot;</span><span class="hl-punctuation">,</span> name<span class="hl-punctuation">)</span>
-<span class="hl-punctuation">}</span>
-<span class="hl-keyword">fn</span> <span class="hl-function">main</span><span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
-    <span class="hl-keyword">let</span> x<span class="hl-punctuation">:</span> <span class="hl-keyword">i32</span> <span class="hl-operator">=</span> <span class="hl-number">42</span><span class="hl-punctuation">;</span>
-    <span class="hl-property">println!</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;{}&quot;</span><span class="hl-punctuation">,</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;world&quot;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
-<span class="hl-punctuation">}</span>
+<span class="smalto-comment">// Comment</span>
+<span class="smalto-keyword">fn</span> <span class="smalto-function">greet</span><span class="smalto-punctuation">(</span>name<span class="smalto-punctuation">:</span> <span class="smalto-operator">&amp;</span><span class="smalto-keyword">str</span><span class="smalto-punctuation">)</span> <span class="smalto-punctuation">-&gt;</span> <span class="smalto-class-name">String</span> <span class="smalto-punctuation">{</span>
+    <span class="smalto-property">format!</span><span class="smalto-punctuation">(</span><span class="smalto-string">&quot;Hello {}&quot;</span><span class="smalto-punctuation">,</span> name<span class="smalto-punctuation">)</span>
+<span class="smalto-punctuation">}</span>
+<span class="smalto-keyword">fn</span> <span class="smalto-function">main</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span> <span class="smalto-punctuation">{</span>
+    <span class="smalto-keyword">let</span> x<span class="smalto-punctuation">:</span> <span class="smalto-keyword">i32</span> <span class="smalto-operator">=</span> <span class="smalto-number">42</span><span class="smalto-punctuation">;</span>
+    <span class="smalto-property">println!</span><span class="smalto-punctuation">(</span><span class="smalto-string">&quot;{}&quot;</span><span class="smalto-punctuation">,</span> <span class="smalto-function">greet</span><span class="smalto-punctuation">(</span><span class="smalto-string">&quot;world&quot;</span><span class="smalto-punctuation">)</span><span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+<span class="smalto-punctuation">}</span>

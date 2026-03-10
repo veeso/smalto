@@ -1,0 +1,145 @@
+/**
+ * Smalto Theme: Laserwave
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/*
+ * Laserwave Theme originally by Jared Jones for Visual Studio Code
+ * https://github.com/Jaredk3nt/laserwave
+ *
+ * Ported for PrismJS by Simon Jespersen [https://github.com/simjes]
+ */
+
+.smalto, .smalto code {
+	background: #27212e;
+	color: #ffffff;
+	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace; /* this is the default */
+	/* The following properties are standard, please leave them as they are */
+	font-size: 1em;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+	/* The following properties are also standard */
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+.smalto code::-moz-selection,
+.smalto code ::-moz-selection,
+.smalto::-moz-selection,
+.smalto ::-moz-selection {
+	background: #eb64b927;
+	color: inherit;
+}
+
+.smalto code::selection,
+.smalto code ::selection,
+.smalto::selection,
+.smalto ::selection {
+	background: #eb64b927;
+	color: inherit;
+}
+
+/* Properties specific to code blocks */
+.smalto {
+	padding: 1em; /* this is standard */
+	margin: 0.5em 0; /* this is the default */
+	overflow: auto; /* this is standard */
+	border-radius: 0.5em;
+}
+
+/* Properties specific to inline code */
+.smalto-inline {
+	padding: 0.2em 0.3em;
+	border-radius: 0.5rem;
+	white-space: normal; /* this is standard */
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-cdata {
+	color: #91889b;
+}
+
+.smalto-punctuation {
+	color: #7b6995;
+}
+
+.smalto-builtin,
+.smalto-constant,
+.smalto-boolean {
+	color: #ffe261;
+}
+
+.smalto-number {
+	color: #b381c5;
+}
+
+.smalto-important,
+.smalto-atrule,
+.smalto-property,
+.smalto-keyword {
+	color: #40b4c4;
+}
+
+.smalto-doctype,
+.smalto-operator,
+.smalto-inserted,
+.smalto-tag,
+.smalto-class-name,
+.smalto-symbol {
+	color: #74dfc4;
+}
+
+.smalto-attr-name,
+.smalto-function,
+.smalto-deleted,
+.smalto-selector {
+	color: #eb64b9;
+}
+
+.smalto-attr-value,
+.smalto-regex,
+.smalto-char,
+.smalto-string {
+	color: #b4dce7;
+}
+
+.smalto-entity,
+.smalto-url,
+.smalto-variable {
+	color: #ffffff;
+}
+
+/* The following rules are pretty similar across themes, but feel free to adjust them */
+.smalto-bold {
+	font-weight: bold;
+}
+
+.smalto-italic {
+	font-style: italic;
+}
+
+.smalto-entity {
+	cursor: help;
+}
+
+.smalto-namespace {
+	opacity: 0.7;
+}

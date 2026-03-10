@@ -4,8 +4,8 @@ title: markdown highlighting
 file: ./test/languages_test.gleam
 test_name: markdown_highlighting_test
 ---
-<span class="hl-important"># Heading</span>
-<span class="hl-important">## Subheading</span>
-This is <span class="hl-bold">**bold**</span> and <span class="hl-italic">*italic*</span>.
-<span class="hl-punctuation">-</span> List item
-<span class="hl-punctuation">-</span> Another item
+<span class="smalto-important"># Heading</span>
+<span class="smalto-important">## Subheading</span>
+This is <span class="smalto-bold">**bold**</span> and <span class="smalto-italic">*italic*</span>.
+<span class="smalto-punctuation">-</span> List item
+<span class="smalto-punctuation">-</span> Another item

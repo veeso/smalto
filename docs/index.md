@@ -18,7 +18,7 @@ Smalto tokenizes source code using Prism.js-inspired grammars and renders the re
 ## Features
 
 - **30 languages** — Gleam, Erlang, Elixir, JavaScript, TypeScript, Python, Rust, Go, C, C++, HTML, CSS, JSON, TOML, YAML, Bash, SQL, Java, Ruby, PHP, Swift, Kotlin, Haskell, Lua, Markdown, Dockerfile, XML, Zig, Scala, Dart
-- **HTML output** — tokens wrapped in `<span class="hl-{name}">` elements, ready for CSS theming
+- **HTML output** — tokens wrapped in `<span class="smalto-{name}">` elements, ready for CSS theming
 - **ANSI output** — terminal-colored output with configurable themes
 - **Structured tokens** — access the raw token list for custom rendering pipelines
 - **Custom grammars** — define your own grammars with regex patterns, greedy matching, and nested rules

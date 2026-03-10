@@ -6,10 +6,10 @@ import houdini
 import smalto/ansi_theme.{type AnsiTheme}
 import smalto/token.{Other, Whitespace}
 
-/// Render tokens as HTML with `hl-` prefixed CSS classes.
+/// Render tokens as HTML with `smalto-` prefixed CSS classes.
 ///
 /// Whitespace and Other tokens are output as HTML-escaped text without wrapping.
-/// All other tokens are wrapped in `<span class="hl-{name}">` elements.
+/// All other tokens are wrapped in `<span class="smalto-{name}">` elements.
 pub fn to_html(tokens: List(token.Token)) -> String {
   tokens
   |> list.fold(string_tree.new(), fn(tree, tok) {
@@ -19,7 +19,7 @@ pub fn to_html(tokens: List(token.Token)) -> String {
       _ -> {
         let class_name = token.name(tok)
         tree
-        |> string_tree.append("<span class=\"hl-")
+        |> string_tree.append("<span class=\"smalto-")
         |> string_tree.append(class_name)
         |> string_tree.append("\">")
         |> string_tree.append(val)

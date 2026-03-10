@@ -4,10 +4,10 @@ title: go highlighting
 file: ./test/languages_test.gleam
 test_name: go_highlighting_test
 ---
-<span class="hl-keyword">package</span> main
-<span class="hl-comment">// Comment</span>
-<span class="hl-keyword">import</span> <span class="hl-string">&quot;fmt&quot;</span>
-<span class="hl-keyword">func</span> <span class="hl-function">main</span><span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
-    name <span class="hl-operator">:=</span> <span class="hl-string">&quot;world&quot;</span>
-    fmt<span class="hl-punctuation">.</span><span class="hl-function">Println</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;Hello&quot;</span><span class="hl-punctuation">,</span> name<span class="hl-punctuation">)</span>
-<span class="hl-punctuation">}</span>
+<span class="smalto-keyword">package</span> main
+<span class="smalto-comment">// Comment</span>
+<span class="smalto-keyword">import</span> <span class="smalto-string">&quot;fmt&quot;</span>
+<span class="smalto-keyword">func</span> <span class="smalto-function">main</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span> <span class="smalto-punctuation">{</span>
+    name <span class="smalto-operator">:=</span> <span class="smalto-string">&quot;world&quot;</span>
+    fmt<span class="smalto-punctuation">.</span><span class="smalto-function">Println</span><span class="smalto-punctuation">(</span><span class="smalto-string">&quot;Hello&quot;</span><span class="smalto-punctuation">,</span> name<span class="smalto-punctuation">)</span>
+<span class="smalto-punctuation">}</span>

@@ -55,7 +55,7 @@ pub fn to_tokens_with_inline_inside_test() {
 pub fn to_html_renders_spans_test() {
   smalto.to_html("if 42", simple_grammar())
   |> should.equal(
-    "<span class=\"hl-keyword\">if</span> <span class=\"hl-number\">42</span>",
+    "<span class=\"smalto-keyword\">if</span> <span class=\"smalto-number\">42</span>",
   )
 }
 
@@ -74,7 +74,7 @@ pub fn to_html_with_inline_inside_test() {
     ])
 
   smalto.to_html("[x]", g)
-  |> should.equal("[<span class=\"hl-keyword\">x</span>]")
+  |> should.equal("[<span class=\"smalto-keyword\">x</span>]")
 }
 
 // -- to_ansi tests --

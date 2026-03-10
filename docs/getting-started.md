@@ -32,7 +32,7 @@ import smalto/languages/python
 pub fn main() {
   let code = "print('hello, world!')"
   let html = smalto.to_html(code, python.grammar())
-  // -> "<span class=\"hl-function\">print</span>..."
+  // -> "<span class=\"smalto-function\">print</span>..."
 }
 ```
 
@@ -42,24 +42,34 @@ Smalto supports three output formats from the same grammar and source code.
 
 ### HTML
 
-Tokens are wrapped in `<span>` elements with `hl-` prefixed CSS classes:
+Tokens are wrapped in `<span>` elements with `smalto-` prefixed CSS classes:
 
 ```gleam
 import smalto
 import smalto/languages/python
 
 let html = smalto.to_html("x = 42", python.grammar())
-// -> "x <span class=\"hl-operator\">=</span> <span class=\"hl-number\">42</span>"
+// -> "x <span class=\"smalto-operator\">=</span> <span class=\"smalto-number\">42</span>"
 ```
 
-Style them with CSS:
+Style them with CSS. Smalto ships with **45 pre-built themes** adapted from [Prism.js](https://prismjs.com) — just include one and wrap your output:
+
+```html
+<link rel="stylesheet" href="smalto-dracula.css">
+
+<pre class="smalto"><code><!-- output from smalto.to_html() --></code></pre>
+```
+
+Browse all available themes in the [`themes/`](https://github.com/veeso/smalto/tree/main/themes) directory.
+
+Or write your own CSS targeting the `smalto-` prefixed classes:
 
 ```css
-.hl-keyword { color: #c678dd; }
-.hl-string  { color: #98c379; }
-.hl-number  { color: #d19a66; }
-.hl-comment { color: #5c6370; font-style: italic; }
-.hl-function { color: #61afef; }
+.smalto-keyword { color: #c678dd; }
+.smalto-string  { color: #98c379; }
+.smalto-number  { color: #d19a66; }
+.smalto-comment { color: #5c6370; font-style: italic; }
+.smalto-function { color: #61afef; }
 ```
 
 ### ANSI

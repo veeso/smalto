@@ -1,0 +1,131 @@
+/**
+ * Smalto Theme: Holi Theme
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/**
+ * MIT License
+ * Copyright (c) 2021 Ayush Saini
+ * Holi Theme for prism.js
+ * @author Ayush Saini <@AyushCodes on Twitter>
+ */
+
+.smalto, .smalto code {
+	color: #d6e7ff;
+	background: #030314;
+	text-shadow: none;
+	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+	font-size: 1em;
+	line-height: 1.5;
+	letter-spacing: .2px;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	text-align: left;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+.smalto::-moz-selection,
+.smalto ::-moz-selection,
+.smalto code::-moz-selection,
+.smalto code ::-moz-selection,
+.smalto::selection,
+.smalto ::selection,
+.smalto code::selection,
+.smalto code ::selection {
+	color: inherit;
+	background: #1d3b54;
+	text-shadow: none;
+}
+
+.smalto {
+	border: 1px solid #2a4555;
+	border-radius: 5px;
+	padding: 1.5em 1em;
+	margin: 1em 0;
+	overflow: auto;
+}
+
+.smalto-inline {
+	color: #f0f6f6;
+	background: #2a4555;
+	padding: 0.2em 0.3em;
+	border-radius: 0.2em;
+	box-decoration-break: clone;
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-doctype,
+.smalto-cdata {
+	color: #446e69;
+}
+
+.smalto-punctuation {
+	color: #d6b007;
+}
+
+.smalto-property,
+.smalto-tag,
+.smalto-boolean,
+.smalto-number,
+.smalto-constant,
+.smalto-symbol,
+.smalto-deleted {
+	color: #d6e7ff;
+}
+
+.smalto-selector,
+.smalto-attr-name,
+.smalto-builtin,
+.smalto-inserted {
+	color: #e60067;
+}
+
+.smalto-string,
+.smalto-char {
+	color: #49c6ec;
+}
+
+.smalto-operator,
+.smalto-entity,
+.smalto-url,
+.language-css .smalto-string,
+.style .smalto-string {
+	color: #ec8e01;
+	background: transparent;
+}
+
+.smalto-atrule,
+.smalto-attr-value,
+.smalto-keyword {
+	color: #0fe468;
+}
+
+.smalto-function,
+.smalto-class-name {
+	color: #78f3e9;
+}
+
+.smalto-regex,
+.smalto-important,
+.smalto-variable {
+	color: #d6e7ff;
+}

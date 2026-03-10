@@ -16,7 +16,7 @@ fn default_theme() {
 
 pub fn html_keyword_wrapped_in_span_test() {
   renderer.to_html([Keyword("if")])
-  |> should.equal("<span class=\"hl-keyword\">if</span>")
+  |> should.equal("<span class=\"smalto-keyword\">if</span>")
 }
 
 pub fn html_whitespace_not_wrapped_test() {
@@ -36,18 +36,18 @@ pub fn html_escapes_special_chars_test() {
 
 pub fn html_escapes_inside_spans_test() {
   renderer.to_html([Keyword("<if>")])
-  |> should.equal("<span class=\"hl-keyword\">&lt;if&gt;</span>")
+  |> should.equal("<span class=\"smalto-keyword\">&lt;if&gt;</span>")
 }
 
 pub fn html_custom_token_uses_name_test() {
   renderer.to_html([Custom("decorator", "@app")])
-  |> should.equal("<span class=\"hl-decorator\">@app</span>")
+  |> should.equal("<span class=\"smalto-decorator\">@app</span>")
 }
 
 pub fn html_multiple_tokens_test() {
   renderer.to_html([Keyword("if"), Whitespace(" "), String("\"hello\"")])
   |> should.equal(
-    "<span class=\"hl-keyword\">if</span> <span class=\"hl-string\">&quot;hello&quot;</span>",
+    "<span class=\"smalto-keyword\">if</span> <span class=\"smalto-string\">&quot;hello&quot;</span>",
   )
 }
 
@@ -209,80 +209,80 @@ pub fn ansi_empty_theme_renders_plain_text_test() {
 
 pub fn html_string_wrapped_test() {
   renderer.to_html([String("hi")])
-  |> should.equal("<span class=\"hl-string\">hi</span>")
+  |> should.equal("<span class=\"smalto-string\">hi</span>")
 }
 
 pub fn html_number_wrapped_test() {
   renderer.to_html([Number("42")])
-  |> should.equal("<span class=\"hl-number\">42</span>")
+  |> should.equal("<span class=\"smalto-number\">42</span>")
 }
 
 pub fn html_comment_wrapped_test() {
   renderer.to_html([Comment("// x")])
-  |> should.equal("<span class=\"hl-comment\">// x</span>")
+  |> should.equal("<span class=\"smalto-comment\">// x</span>")
 }
 
 pub fn html_function_wrapped_test() {
   renderer.to_html([Function("main")])
-  |> should.equal("<span class=\"hl-function\">main</span>")
+  |> should.equal("<span class=\"smalto-function\">main</span>")
 }
 
 pub fn html_operator_wrapped_test() {
   renderer.to_html([Operator("+")])
-  |> should.equal("<span class=\"hl-operator\">+</span>")
+  |> should.equal("<span class=\"smalto-operator\">+</span>")
 }
 
 pub fn html_punctuation_wrapped_test() {
   renderer.to_html([Punctuation(";")])
-  |> should.equal("<span class=\"hl-punctuation\">;</span>")
+  |> should.equal("<span class=\"smalto-punctuation\">;</span>")
 }
 
 pub fn html_type_wrapped_test() {
   renderer.to_html([Type("Int")])
-  |> should.equal("<span class=\"hl-type\">Int</span>")
+  |> should.equal("<span class=\"smalto-type\">Int</span>")
 }
 
 pub fn html_module_wrapped_test() {
   renderer.to_html([Module("gleam")])
-  |> should.equal("<span class=\"hl-module\">gleam</span>")
+  |> should.equal("<span class=\"smalto-module\">gleam</span>")
 }
 
 pub fn html_variable_wrapped_test() {
   renderer.to_html([Variable("x")])
-  |> should.equal("<span class=\"hl-variable\">x</span>")
+  |> should.equal("<span class=\"smalto-variable\">x</span>")
 }
 
 pub fn html_constant_wrapped_test() {
   renderer.to_html([Constant("PI")])
-  |> should.equal("<span class=\"hl-constant\">PI</span>")
+  |> should.equal("<span class=\"smalto-constant\">PI</span>")
 }
 
 pub fn html_builtin_wrapped_test() {
   renderer.to_html([Builtin("print")])
-  |> should.equal("<span class=\"hl-builtin\">print</span>")
+  |> should.equal("<span class=\"smalto-builtin\">print</span>")
 }
 
 pub fn html_tag_wrapped_test() {
   renderer.to_html([Tag("div")])
-  |> should.equal("<span class=\"hl-tag\">div</span>")
+  |> should.equal("<span class=\"smalto-tag\">div</span>")
 }
 
 pub fn html_attribute_wrapped_test() {
   renderer.to_html([Attribute("id")])
-  |> should.equal("<span class=\"hl-attribute\">id</span>")
+  |> should.equal("<span class=\"smalto-attribute\">id</span>")
 }
 
 pub fn html_selector_wrapped_test() {
   renderer.to_html([Selector(".btn")])
-  |> should.equal("<span class=\"hl-selector\">.btn</span>")
+  |> should.equal("<span class=\"smalto-selector\">.btn</span>")
 }
 
 pub fn html_property_wrapped_test() {
   renderer.to_html([Property("color")])
-  |> should.equal("<span class=\"hl-property\">color</span>")
+  |> should.equal("<span class=\"smalto-property\">color</span>")
 }
 
 pub fn html_regex_wrapped_test() {
   renderer.to_html([Regex("/x/")])
-  |> should.equal("<span class=\"hl-regex\">/x/</span>")
+  |> should.equal("<span class=\"smalto-regex\">/x/</span>")
 }

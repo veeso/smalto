@@ -1,0 +1,144 @@
+/**
+ * Smalto Theme: Hopscotch
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Mono);
+/*
+ * Hopscotch
+ * by Jan T. Sott
+ * https://github.com/idleberg/Hopscotch
+ *
+ * This work is licensed under the Creative Commons CC0 1.0 Universal License
+ */
+
+.smalto, .smalto code {
+	font-family: "Fira Mono", Menlo, Monaco, "Lucida Console", "Courier New", Courier, monospace;
+	font-size: 16px;
+	line-height: 1.375;
+	direction: ltr;
+	text-align: left;
+	word-spacing: normal;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	white-space: pre;
+	white-space: pre-wrap;
+	word-break: break-all;
+	word-wrap: break-word;
+	background: #322931;
+	color: #b9b5b8;
+}
+
+pre > .smalto code {
+	font-size: 1em;
+}
+
+/* Code blocks */
+.smalto {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+/* Inline code */
+.smalto-inline {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-doctype,
+.smalto-cdata {
+	color: #797379;
+}
+
+.smalto-punctuation {
+	color: #b9b5b8;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.smalto-null,
+.smalto-operator,
+.smalto-boolean,
+.smalto-number {
+	color: #fd8b19;
+}
+
+.smalto-property {
+	color: #fdcc59;
+}
+
+.smalto-tag {
+	color: #1290bf;
+}
+
+.smalto-string {
+	color: #149b93;
+}
+
+.smalto-selector {
+	color: #c85e7c;
+}
+
+.smalto-attr-name {
+	color: #fd8b19;
+}
+
+.smalto-entity,
+.smalto-url,
+.language-css .smalto-string,
+.style .smalto-string {
+	color: #149b93;
+}
+
+.smalto-attr-value,
+.smalto-keyword,
+.smalto-control,
+.smalto-directive,
+.smalto-unit {
+	color: #8fc13e;
+}
+
+.smalto-statement,
+.smalto-regex,
+.smalto-atrule {
+	color: #149b93;
+}
+
+.smalto-placeholder,
+.smalto-variable {
+	color: #1290bf;
+}
+
+.smalto-important {
+	color: #dd464c;
+	font-weight: bold;
+}
+
+.smalto-entity {
+	cursor: help;
+}
+
+pre > code.highlight {
+	outline: .4em solid red;
+	outline-offset: .4em;
+}

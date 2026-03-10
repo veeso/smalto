@@ -4,9 +4,9 @@ title: elixir highlighting
 file: ./test/languages_test.gleam
 test_name: elixir_highlighting_test
 ---
-<span class="hl-comment"># Comment</span>
-<span class="hl-keyword">defmodule</span> <span class="hl-class-name">Greeter</span> <span class="hl-keyword">do</span>
-  <span class="hl-keyword">def</span> <span class="hl-function">hello</span><span class="hl-punctuation">(</span>name<span class="hl-punctuation">)</span> <span class="hl-keyword">do</span>
+<span class="smalto-comment"># Comment</span>
+<span class="smalto-keyword">defmodule</span> <span class="smalto-class-name">Greeter</span> <span class="smalto-keyword">do</span>
+  <span class="smalto-keyword">def</span> <span class="smalto-function">hello</span><span class="smalto-punctuation">(</span>name<span class="smalto-punctuation">)</span> <span class="smalto-keyword">do</span>
     &quot;Hello&quot;
-  <span class="hl-keyword">end</span>
-<span class="hl-keyword">end</span>
+  <span class="smalto-keyword">end</span>
+<span class="smalto-keyword">end</span>

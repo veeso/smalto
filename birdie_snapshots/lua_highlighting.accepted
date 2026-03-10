@@ -4,9 +4,9 @@ title: lua highlighting
 file: ./test/languages_test.gleam
 test_name: lua_highlighting_test
 ---
-<span class="hl-comment">-- Comment</span>
-<span class="hl-keyword">function</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span>name<span class="hl-punctuation">)</span>
-    <span class="hl-function">print</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;Hello &quot;</span> <span class="hl-operator">..</span> name<span class="hl-punctuation">)</span>
-<span class="hl-keyword">end</span>
-<span class="hl-keyword">local</span> x <span class="hl-operator">=</span> <span class="hl-number">42</span>
-<span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;world&quot;</span><span class="hl-punctuation">)</span>
+<span class="smalto-comment">-- Comment</span>
+<span class="smalto-keyword">function</span> <span class="smalto-function">greet</span><span class="smalto-punctuation">(</span>name<span class="smalto-punctuation">)</span>
+    <span class="smalto-function">print</span><span class="smalto-punctuation">(</span><span class="smalto-string">&quot;Hello &quot;</span> <span class="smalto-operator">..</span> name<span class="smalto-punctuation">)</span>
+<span class="smalto-keyword">end</span>
+<span class="smalto-keyword">local</span> x <span class="smalto-operator">=</span> <span class="smalto-number">42</span>
+<span class="smalto-function">greet</span><span class="smalto-punctuation">(</span><span class="smalto-string">&quot;world&quot;</span><span class="smalto-punctuation">)</span>

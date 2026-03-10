@@ -1,0 +1,140 @@
+/**
+ * Smalto Theme: Dark
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/**
+ * prism.js Dark theme for JavaScript, CSS and HTML
+ * Based on the slides of the talk “/Reg(exp){2}lained/”
+ * @author Lea Verou
+ */
+
+.smalto, .smalto code {
+	color: white;
+	background: none;
+	text-shadow: 0 -.1em .2em black;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+@media print {
+	.smalto, .smalto code {
+		text-shadow: none;
+	}
+}
+
+.smalto,
+.smalto-inline {
+	background: hsl(30, 20%, 25%);
+}
+
+/* Code blocks */
+.smalto {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border: .3em solid hsl(30, 20%, 40%);
+	border-radius: .5em;
+	box-shadow: 1px 1px .5em black inset;
+}
+
+/* Inline code */
+.smalto-inline {
+	padding: .15em .2em .05em;
+	border-radius: .3em;
+	border: .13em solid hsl(30, 20%, 40%);
+	box-shadow: 1px 1px .3em -.1em black inset;
+	white-space: normal;
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-doctype,
+.smalto-cdata {
+	color: hsl(30, 20%, 50%);
+}
+
+.smalto-punctuation {
+	opacity: .7;
+}
+
+.smalto-namespace {
+	opacity: .7;
+}
+
+.smalto-property,
+.smalto-tag,
+.smalto-boolean,
+.smalto-number,
+.smalto-constant,
+.smalto-symbol {
+	color: hsl(350, 40%, 70%);
+}
+
+.smalto-selector,
+.smalto-attr-name,
+.smalto-string,
+.smalto-char,
+.smalto-builtin,
+.smalto-inserted {
+	color: hsl(75, 70%, 60%);
+}
+
+.smalto-operator,
+.smalto-entity,
+.smalto-url,
+.language-css .smalto-string,
+.style .smalto-string,
+.smalto-variable {
+	color: hsl(40, 90%, 60%);
+}
+
+.smalto-atrule,
+.smalto-attr-value,
+.smalto-keyword {
+	color: hsl(350, 40%, 70%);
+}
+
+.smalto-regex,
+.smalto-important {
+	color: #e90;
+}
+
+.smalto-important,
+.smalto-bold {
+	font-weight: bold;
+}
+.smalto-italic {
+	font-style: italic;
+}
+
+.smalto-entity {
+	cursor: help;
+}
+
+.smalto-deleted {
+	color: red;
+}

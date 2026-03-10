@@ -4,11 +4,11 @@ title: cpp highlighting
 file: ./test/languages_test.gleam
 test_name: cpp_highlighting_test
 ---
-<span class="hl-directive-hash">#</span><span class="hl-keyword">include</span> <span class="hl-string">&lt;iostream&gt;</span>
-<span class="hl-comment">// Comment</span>
-<span class="hl-keyword">class</span> <span class="hl-class-name">Greeter</span> <span class="hl-punctuation">{</span>
-<span class="hl-keyword">public</span><span class="hl-operator">:</span>
-    <span class="hl-keyword">void</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-keyword">const</span> std<span class="hl-punctuation">::</span>string<span class="hl-operator">&amp;</span> name<span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
-        std<span class="hl-punctuation">::</span>cout <span class="hl-operator">&lt;&lt;</span> <span class="hl-string">&quot;Hello &quot;</span> <span class="hl-operator">&lt;&lt;</span> name <span class="hl-operator">&lt;&lt;</span> std<span class="hl-punctuation">::</span>endl<span class="hl-punctuation">;</span>
-    <span class="hl-punctuation">}</span>
-<span class="hl-punctuation">}</span><span class="hl-punctuation">;</span>
+<span class="smalto-directive-hash">#</span><span class="smalto-keyword">include</span> <span class="smalto-string">&lt;iostream&gt;</span>
+<span class="smalto-comment">// Comment</span>
+<span class="smalto-keyword">class</span> <span class="smalto-class-name">Greeter</span> <span class="smalto-punctuation">{</span>
+<span class="smalto-keyword">public</span><span class="smalto-operator">:</span>
+    <span class="smalto-keyword">void</span> <span class="smalto-function">greet</span><span class="smalto-punctuation">(</span><span class="smalto-keyword">const</span> std<span class="smalto-punctuation">::</span>string<span class="smalto-operator">&amp;</span> name<span class="smalto-punctuation">)</span> <span class="smalto-punctuation">{</span>
+        std<span class="smalto-punctuation">::</span>cout <span class="smalto-operator">&lt;&lt;</span> <span class="smalto-string">&quot;Hello &quot;</span> <span class="smalto-operator">&lt;&lt;</span> name <span class="smalto-operator">&lt;&lt;</span> std<span class="smalto-punctuation">::</span>endl<span class="smalto-punctuation">;</span>
+    <span class="smalto-punctuation">}</span>
+<span class="smalto-punctuation">}</span><span class="smalto-punctuation">;</span>

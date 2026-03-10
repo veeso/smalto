@@ -29,7 +29,7 @@ A general-purpose syntax highlighting library for Gleam, using regex-based gramm
 - Each language module exports a single `grammar() -> Grammar` function
 - Languages with inheritance (e.g., TypeScript extends JavaScript) resolve their parent grammar internally
 - Token names in `Rule` map to `Token` variants: `"keyword"` → `Keyword`, unknown → `Custom`
-- HTML output uses `hl-` prefixed CSS classes: `<span class="hl-keyword">`
+- HTML output uses `smalto-` prefixed CSS classes: `<span class="smalto-keyword">`
 - All HTML output must be escaped with `houdini`
 - Snapshot tests use `birdie` — one snapshot per language
 

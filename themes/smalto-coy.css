@@ -1,0 +1,231 @@
+/**
+ * Smalto Theme: Coy
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/**
+ * prism.js Coy theme for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/tshedor/workshop-wp-theme (Example: http://workshop.kansan.com/category/sessions/basics or http://workshop.timshedor.com/category/sessions/basics);
+ * @author Tim  Shedor
+ */
+
+.smalto, .smalto code {
+	color: black;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+.smalto {
+	position: relative;
+	margin: .5em 0;
+	overflow: visible;
+	padding: 1px;
+}
+
+.smalto code {
+	position: relative;
+	z-index: 1;
+	border-left: 10px solid #358ccb;
+	box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
+	background-color: #fdfdfd;
+	background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
+	background-size: 3em 3em;
+	background-origin: content-box;
+	background-attachment: local;
+}
+
+.smalto code {
+	max-height: inherit;
+	height: inherit;
+	padding: 0 1em;
+	display: block;
+	overflow: auto;
+}
+
+/* Margin bottom to accommodate shadow */
+.smalto-inline,
+.smalto {
+	background-color: #fdfdfd;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-bottom: 1em;
+}
+
+/* Inline code */
+.smalto-inline {
+	position: relative;
+	padding: .2em;
+	border-radius: 0.3em;
+	color: #c92c2c;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	display: inline;
+	white-space: normal;
+}
+
+.smalto:before,
+.smalto:after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0.75em;
+	left: 0.18em;
+	width: 40%;
+	height: 20%;
+	max-height: 13em;
+	box-shadow: 0px 13px 8px #979797;
+	-webkit-transform: rotate(-2deg);
+	-moz-transform: rotate(-2deg);
+	-ms-transform: rotate(-2deg);
+	-o-transform: rotate(-2deg);
+	transform: rotate(-2deg);
+}
+
+.smalto:after {
+	right: 0.75em;
+	left: auto;
+	-webkit-transform: rotate(2deg);
+	-moz-transform: rotate(2deg);
+	-ms-transform: rotate(2deg);
+	-o-transform: rotate(2deg);
+	transform: rotate(2deg);
+}
+
+.smalto-comment,
+.smalto-block-comment,
+.smalto-prolog,
+.smalto-doctype,
+.smalto-cdata {
+	color: #7D8B99;
+}
+
+.smalto-punctuation {
+	color: #5F6364;
+}
+
+.smalto-property,
+.smalto-tag,
+.smalto-boolean,
+.smalto-number,
+.smalto-function-name,
+.smalto-constant,
+.smalto-symbol,
+.smalto-deleted {
+	color: #c92c2c;
+}
+
+.smalto-selector,
+.smalto-attr-name,
+.smalto-string,
+.smalto-char,
+.smalto-function,
+.smalto-builtin,
+.smalto-inserted {
+	color: #2f9c0a;
+}
+
+.smalto-operator,
+.smalto-entity,
+.smalto-url,
+.smalto-variable {
+	color: #a67f59;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.smalto-atrule,
+.smalto-attr-value,
+.smalto-keyword,
+.smalto-class-name {
+	color: #1990b8;
+}
+
+.smalto-regex,
+.smalto-important {
+	color: #e90;
+}
+
+.language-css .smalto-string,
+.style .smalto-string {
+	color: #a67f59;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.smalto-important {
+	font-weight: normal;
+}
+
+.smalto-bold {
+	font-weight: bold;
+}
+.smalto-italic {
+	font-style: italic;
+}
+
+.smalto-entity {
+	cursor: help;
+}
+
+.smalto-namespace {
+	opacity: .7;
+}
+
+@media screen and (max-width: 767px) {
+	.smalto:before,
+	.smalto:after {
+		bottom: 14px;
+		box-shadow: none;
+	}
+
+}
+
+/* Plugin styles: Line Numbers */
+.smalto.line-numbers.line-numbers {
+	padding-left: 0;
+}
+
+.smalto.line-numbers.line-numbers code {
+	padding-left: 3.8em;
+}
+
+.smalto.line-numbers.line-numbers .line-numbers-rows {
+	left: 0;
+}
+
+/* Plugin styles: Line Highlight */
+.smalto[data-line] {
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+}
+pre[data-line] code {
+	position: relative;
+	padding-left: 4em;
+}
+pre .line-highlight {
+	margin-top: 0;
+}

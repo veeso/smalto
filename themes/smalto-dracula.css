@@ -1,0 +1,134 @@
+/**
+ * Smalto Theme: Dracula
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/**
+ * Dracula Theme originally by Zeno Rocha [@zenorocha]
+ * https://draculatheme.com/
+ *
+ * Ported for PrismJS by Albert Vallverdu [@byverdu]
+ */
+
+.smalto, .smalto code {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+.smalto {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+.smalto-inline,
+.smalto {
+	background: #282a36;
+}
+
+/* Inline code */
+.smalto-inline {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-doctype,
+.smalto-cdata {
+	color: #6272a4;
+}
+
+.smalto-punctuation {
+	color: #f8f8f2;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.smalto-property,
+.smalto-tag,
+.smalto-constant,
+.smalto-symbol,
+.smalto-deleted {
+	color: #ff79c6;
+}
+
+.smalto-boolean,
+.smalto-number {
+	color: #bd93f9;
+}
+
+.smalto-selector,
+.smalto-attr-name,
+.smalto-string,
+.smalto-char,
+.smalto-builtin,
+.smalto-inserted {
+	color: #50fa7b;
+}
+
+.smalto-operator,
+.smalto-entity,
+.smalto-url,
+.language-css .smalto-string,
+.style .smalto-string,
+.smalto-variable {
+	color: #f8f8f2;
+}
+
+.smalto-atrule,
+.smalto-attr-value,
+.smalto-function,
+.smalto-class-name {
+	color: #f1fa8c;
+}
+
+.smalto-keyword {
+	color: #8be9fd;
+}
+
+.smalto-regex,
+.smalto-important {
+	color: #ffb86c;
+}
+
+.smalto-important,
+.smalto-bold {
+	font-weight: bold;
+}
+
+.smalto-italic {
+	font-style: italic;
+}
+
+.smalto-entity {
+	cursor: help;
+}

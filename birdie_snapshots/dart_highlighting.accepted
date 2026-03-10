@@ -4,11 +4,11 @@ title: dart highlighting
 file: ./test/languages_test.gleam
 test_name: dart_highlighting_test
 ---
-<span class="hl-comment">// Comment</span>
-<span class="hl-keyword">class</span> <span class="hl-class-name">Person</span> <span class="hl-punctuation">{</span>
-  <span class="hl-keyword">final</span> <span class="hl-class-name">String</span> name<span class="hl-punctuation">;</span>
-  <span class="hl-class-name">Person</span><span class="hl-punctuation">(</span><span class="hl-keyword">this</span><span class="hl-punctuation">.</span>name<span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
-  <span class="hl-keyword">void</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
-    <span class="hl-function">print</span><span class="hl-punctuation">(</span><span class="hl-string">&#39;Hello&#39;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
-  <span class="hl-punctuation">}</span>
-<span class="hl-punctuation">}</span>
+<span class="smalto-comment">// Comment</span>
+<span class="smalto-keyword">class</span> <span class="smalto-class-name">Person</span> <span class="smalto-punctuation">{</span>
+  <span class="smalto-keyword">final</span> <span class="smalto-class-name">String</span> name<span class="smalto-punctuation">;</span>
+  <span class="smalto-class-name">Person</span><span class="smalto-punctuation">(</span><span class="smalto-keyword">this</span><span class="smalto-punctuation">.</span>name<span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+  <span class="smalto-keyword">void</span> <span class="smalto-function">greet</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span> <span class="smalto-punctuation">{</span>
+    <span class="smalto-function">print</span><span class="smalto-punctuation">(</span><span class="smalto-string">&#39;Hello&#39;</span><span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+  <span class="smalto-punctuation">}</span>
+<span class="smalto-punctuation">}</span>

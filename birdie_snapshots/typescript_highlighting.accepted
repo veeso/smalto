@@ -4,11 +4,11 @@ title: typescript highlighting
 file: ./test/languages_test.gleam
 test_name: typescript_highlighting_test
 ---
-<span class="hl-comment">// Comment</span>
-<span class="hl-keyword">interface</span> Person <span class="hl-punctuation">{</span>
-  name<span class="hl-operator">:</span> <span class="hl-builtin">string</span><span class="hl-punctuation">;</span>
-  age<span class="hl-operator">:</span> <span class="hl-builtin">number</span><span class="hl-punctuation">;</span>
-<span class="hl-punctuation">}</span>
-<span class="hl-keyword">const</span> greet <span class="hl-operator">=</span> <span class="hl-punctuation">(</span>p<span class="hl-operator">:</span> Person<span class="hl-punctuation">)</span><span class="hl-operator">:</span> <span class="hl-builtin">string</span> <span class="hl-operator">=&gt;</span> <span class="hl-punctuation">{</span>
-  <span class="hl-keyword">return</span> <span class="hl-string">&#39;Hello&#39;</span><span class="hl-punctuation">;</span>
-<span class="hl-punctuation">}</span><span class="hl-punctuation">;</span>
+<span class="smalto-comment">// Comment</span>
+<span class="smalto-keyword">interface</span> Person <span class="smalto-punctuation">{</span>
+  name<span class="smalto-operator">:</span> <span class="smalto-builtin">string</span><span class="smalto-punctuation">;</span>
+  age<span class="smalto-operator">:</span> <span class="smalto-builtin">number</span><span class="smalto-punctuation">;</span>
+<span class="smalto-punctuation">}</span>
+<span class="smalto-keyword">const</span> greet <span class="smalto-operator">=</span> <span class="smalto-punctuation">(</span>p<span class="smalto-operator">:</span> Person<span class="smalto-punctuation">)</span><span class="smalto-operator">:</span> <span class="smalto-builtin">string</span> <span class="smalto-operator">=&gt;</span> <span class="smalto-punctuation">{</span>
+  <span class="smalto-keyword">return</span> <span class="smalto-string">&#39;Hello&#39;</span><span class="smalto-punctuation">;</span>
+<span class="smalto-punctuation">}</span><span class="smalto-punctuation">;</span>

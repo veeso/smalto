@@ -4,10 +4,10 @@ title: java highlighting
 file: ./test/languages_test.gleam
 test_name: java_highlighting_test
 ---
-<span class="hl-comment">// Comment</span>
-<span class="hl-keyword">public</span> <span class="hl-keyword">class</span> <span class="hl-class-name">Main</span> <span class="hl-punctuation">{</span>
-    <span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">void</span> <span class="hl-function">main</span><span class="hl-punctuation">(</span><span class="hl-class-name">String</span><span class="hl-punctuation">[</span><span class="hl-punctuation">]</span> args<span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
-        <span class="hl-class-name">String</span> name <span class="hl-operator">=</span> <span class="hl-string">&quot;world&quot;</span><span class="hl-punctuation">;</span>
-        <span class="hl-class-name">System</span><span class="hl-punctuation">.</span>out<span class="hl-punctuation">.</span><span class="hl-function">println</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;Hello&quot;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
-    <span class="hl-punctuation">}</span>
-<span class="hl-punctuation">}</span>
+<span class="smalto-comment">// Comment</span>
+<span class="smalto-keyword">public</span> <span class="smalto-keyword">class</span> <span class="smalto-class-name">Main</span> <span class="smalto-punctuation">{</span>
+    <span class="smalto-keyword">public</span> <span class="smalto-keyword">static</span> <span class="smalto-keyword">void</span> <span class="smalto-function">main</span><span class="smalto-punctuation">(</span><span class="smalto-class-name">String</span><span class="smalto-punctuation">[</span><span class="smalto-punctuation">]</span> args<span class="smalto-punctuation">)</span> <span class="smalto-punctuation">{</span>
+        <span class="smalto-class-name">String</span> name <span class="smalto-operator">=</span> <span class="smalto-string">&quot;world&quot;</span><span class="smalto-punctuation">;</span>
+        <span class="smalto-class-name">System</span><span class="smalto-punctuation">.</span>out<span class="smalto-punctuation">.</span><span class="smalto-function">println</span><span class="smalto-punctuation">(</span><span class="smalto-string">&quot;Hello&quot;</span><span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+    <span class="smalto-punctuation">}</span>
+<span class="smalto-punctuation">}</span>

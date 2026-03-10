@@ -4,10 +4,10 @@ title: c highlighting
 file: ./test/languages_test.gleam
 test_name: c_highlighting_test
 ---
-<span class="hl-directive-hash">#</span><span class="hl-keyword">include</span> <span class="hl-string">&lt;stdio.h&gt;</span>
-<span class="hl-comment">// Comment</span>
-<span class="hl-keyword">int</span> <span class="hl-function">main</span><span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
-    <span class="hl-keyword">char</span> <span class="hl-operator">*</span>msg <span class="hl-operator">=</span> <span class="hl-string">&quot;hello&quot;</span><span class="hl-punctuation">;</span>
-    <span class="hl-function">printf</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;%s\n&quot;</span><span class="hl-punctuation">,</span> msg<span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
-    <span class="hl-keyword">return</span> <span class="hl-number">0</span><span class="hl-punctuation">;</span>
-<span class="hl-punctuation">}</span>
+<span class="smalto-directive-hash">#</span><span class="smalto-keyword">include</span> <span class="smalto-string">&lt;stdio.h&gt;</span>
+<span class="smalto-comment">// Comment</span>
+<span class="smalto-keyword">int</span> <span class="smalto-function">main</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span> <span class="smalto-punctuation">{</span>
+    <span class="smalto-keyword">char</span> <span class="smalto-operator">*</span>msg <span class="smalto-operator">=</span> <span class="smalto-string">&quot;hello&quot;</span><span class="smalto-punctuation">;</span>
+    <span class="smalto-function">printf</span><span class="smalto-punctuation">(</span><span class="smalto-string">&quot;%s\n&quot;</span><span class="smalto-punctuation">,</span> msg<span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+    <span class="smalto-keyword">return</span> <span class="smalto-number">0</span><span class="smalto-punctuation">;</span>
+<span class="smalto-punctuation">}</span>

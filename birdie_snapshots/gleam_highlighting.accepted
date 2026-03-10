@@ -2,23 +2,23 @@
 version: 1.5.4
 title: gleam highlighting
 ---
-<span class="hl-comment">// A module comment</span>
-<span class="hl-keyword">import</span> <span class="hl-module">gleam/io</span>
-<span class="hl-keyword">import</span> <span class="hl-module">gleam/list</span>
+<span class="smalto-comment">// A module comment</span>
+<span class="smalto-keyword">import</span> <span class="smalto-module">gleam/io</span>
+<span class="smalto-keyword">import</span> <span class="smalto-module">gleam/list</span>
 
-<span class="hl-comment">/// Documentation comment</span>
-<span class="hl-keyword">pub</span> <span class="hl-keyword">type</span> <span class="hl-type">User</span> <span class="hl-punctuation">{</span>
-  <span class="hl-type">User</span><span class="hl-punctuation">(</span>name<span class="hl-punctuation">:</span> <span class="hl-type">String</span><span class="hl-punctuation">,</span> age<span class="hl-punctuation">:</span> <span class="hl-type">Int</span><span class="hl-punctuation">)</span>
-<span class="hl-punctuation">}</span>
+<span class="smalto-comment">/// Documentation comment</span>
+<span class="smalto-keyword">pub</span> <span class="smalto-keyword">type</span> <span class="smalto-type">User</span> <span class="smalto-punctuation">{</span>
+  <span class="smalto-type">User</span><span class="smalto-punctuation">(</span>name<span class="smalto-punctuation">:</span> <span class="smalto-type">String</span><span class="smalto-punctuation">,</span> age<span class="smalto-punctuation">:</span> <span class="smalto-type">Int</span><span class="smalto-punctuation">)</span>
+<span class="smalto-punctuation">}</span>
 
-<span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span> <span class="hl-function">main</span><span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
-  <span class="hl-keyword">let</span> user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;Lucy&quot;</span><span class="hl-punctuation">,</span> <span class="hl-number">30</span><span class="hl-punctuation">)</span>
-  <span class="hl-keyword">let</span> x <span class="hl-operator">=</span> <span class="hl-number">0xFF_FF</span>
-  <span class="hl-keyword">let</span> bits <span class="hl-operator">=</span> <span class="hl-operator">&lt;&lt;</span><span class="hl-number">1</span><span class="hl-punctuation">,</span> <span class="hl-number">2</span><span class="hl-punctuation">,</span> <span class="hl-number">3</span><span class="hl-operator">&gt;&gt;</span>
-  <span class="hl-module">list</span><span class="hl-punctuation">.</span><span class="hl-function">map</span><span class="hl-punctuation">(</span><span class="hl-punctuation">[</span><span class="hl-number">1</span><span class="hl-punctuation">,</span> <span class="hl-number">2</span><span class="hl-punctuation">,</span> <span class="hl-number">3</span><span class="hl-punctuation">]</span><span class="hl-punctuation">,</span> <span class="hl-keyword">fn</span><span class="hl-punctuation">(</span>n<span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span> n <span class="hl-operator">*</span> <span class="hl-number">2</span> <span class="hl-punctuation">}</span><span class="hl-punctuation">)</span>
-  <span class="hl-operator">|&gt;</span> io<span class="hl-punctuation">.</span>debug
-  <span class="hl-keyword">case</span> user<span class="hl-punctuation">.</span>age <span class="hl-operator">&gt;</span> <span class="hl-number">18</span> <span class="hl-punctuation">{</span>
-    <span class="hl-type">True</span> <span class="hl-operator">-&gt;</span> <span class="hl-module">io</span><span class="hl-punctuation">.</span><span class="hl-function">println</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;Hello&quot;</span><span class="hl-punctuation">)</span>
-    <span class="hl-type">False</span> <span class="hl-operator">-&gt;</span> <span class="hl-keyword">panic</span> <span class="hl-keyword">as</span> <span class="hl-string">&quot;too young&quot;</span>
-  <span class="hl-punctuation">}</span>
-<span class="hl-punctuation">}</span>
+<span class="smalto-keyword">pub</span> <span class="smalto-keyword">fn</span> <span class="smalto-function">main</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span> <span class="smalto-punctuation">{</span>
+  <span class="smalto-keyword">let</span> user <span class="smalto-operator">=</span> <span class="smalto-type">User</span><span class="smalto-punctuation">(</span><span class="smalto-string">&quot;Lucy&quot;</span><span class="smalto-punctuation">,</span> <span class="smalto-number">30</span><span class="smalto-punctuation">)</span>
+  <span class="smalto-keyword">let</span> x <span class="smalto-operator">=</span> <span class="smalto-number">0xFF_FF</span>
+  <span class="smalto-keyword">let</span> bits <span class="smalto-operator">=</span> <span class="smalto-operator">&lt;&lt;</span><span class="smalto-number">1</span><span class="smalto-punctuation">,</span> <span class="smalto-number">2</span><span class="smalto-punctuation">,</span> <span class="smalto-number">3</span><span class="smalto-operator">&gt;&gt;</span>
+  <span class="smalto-module">list</span><span class="smalto-punctuation">.</span><span class="smalto-function">map</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">[</span><span class="smalto-number">1</span><span class="smalto-punctuation">,</span> <span class="smalto-number">2</span><span class="smalto-punctuation">,</span> <span class="smalto-number">3</span><span class="smalto-punctuation">]</span><span class="smalto-punctuation">,</span> <span class="smalto-keyword">fn</span><span class="smalto-punctuation">(</span>n<span class="smalto-punctuation">)</span> <span class="smalto-punctuation">{</span> n <span class="smalto-operator">*</span> <span class="smalto-number">2</span> <span class="smalto-punctuation">}</span><span class="smalto-punctuation">)</span>
+  <span class="smalto-operator">|&gt;</span> io<span class="smalto-punctuation">.</span>debug
+  <span class="smalto-keyword">case</span> user<span class="smalto-punctuation">.</span>age <span class="smalto-operator">&gt;</span> <span class="smalto-number">18</span> <span class="smalto-punctuation">{</span>
+    <span class="smalto-type">True</span> <span class="smalto-operator">-&gt;</span> <span class="smalto-module">io</span><span class="smalto-punctuation">.</span><span class="smalto-function">println</span><span class="smalto-punctuation">(</span><span class="smalto-string">&quot;Hello&quot;</span><span class="smalto-punctuation">)</span>
+    <span class="smalto-type">False</span> <span class="smalto-operator">-&gt;</span> <span class="smalto-keyword">panic</span> <span class="smalto-keyword">as</span> <span class="smalto-string">&quot;too young&quot;</span>
+  <span class="smalto-punctuation">}</span>
+<span class="smalto-punctuation">}</span>

@@ -4,12 +4,12 @@ title: css highlighting
 file: ./test/languages_test.gleam
 test_name: css_highlighting_test
 ---
-<span class="hl-comment">/* Comment */</span>
-<span class="hl-selector">body</span> <span class="hl-punctuation">{</span>
-  <span class="hl-property">color</span><span class="hl-punctuation">:</span> #333<span class="hl-punctuation">;</span>
-  <span class="hl-property">font-size</span><span class="hl-punctuation">:</span> 16px<span class="hl-punctuation">;</span>
-  <span class="hl-property">background</span><span class="hl-punctuation">:</span> <span class="hl-function">rgb</span><span class="hl-punctuation">(</span>255<span class="hl-punctuation">,</span> 255<span class="hl-punctuation">,</span> 255<span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
-<span class="hl-punctuation">}</span>
-<span class="hl-selector">.container &gt; .item:hover</span> <span class="hl-punctuation">{</span>
-  <span class="hl-property">opacity</span><span class="hl-punctuation">:</span> 0.8<span class="hl-punctuation">;</span>
-<span class="hl-punctuation">}</span>
+<span class="smalto-comment">/* Comment */</span>
+<span class="smalto-selector">body</span> <span class="smalto-punctuation">{</span>
+  <span class="smalto-property">color</span><span class="smalto-punctuation">:</span> #333<span class="smalto-punctuation">;</span>
+  <span class="smalto-property">font-size</span><span class="smalto-punctuation">:</span> 16px<span class="smalto-punctuation">;</span>
+  <span class="smalto-property">background</span><span class="smalto-punctuation">:</span> <span class="smalto-function">rgb</span><span class="smalto-punctuation">(</span>255<span class="smalto-punctuation">,</span> 255<span class="smalto-punctuation">,</span> 255<span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+<span class="smalto-punctuation">}</span>
+<span class="smalto-selector">.container &gt; .item:hover</span> <span class="smalto-punctuation">{</span>
+  <span class="smalto-property">opacity</span><span class="smalto-punctuation">:</span> 0.8<span class="smalto-punctuation">;</span>
+<span class="smalto-punctuation">}</span>

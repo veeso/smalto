@@ -1,0 +1,171 @@
+/**
+ * Smalto Theme: Z Touch
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/*
+ * Z-Toch
+ * by Zeel Codder
+ * https://github.com/zeel-codder
+ *
+ */
+.smalto, .smalto code {
+	color: #22da17;
+	font-family: monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	line-height: 25px;
+	font-size: 18px;
+	margin: 5px 0;
+}
+
+.smalto * {
+	font-family: monospace;
+}
+
+.smalto-inline,
+.smalto {
+	color: white;
+	background: #0a143c;
+	padding: 22px;
+}
+
+/* Code blocks */
+.smalto {
+	padding: 1em;
+	margin: 0.5em 0;
+	overflow: auto;
+}
+
+.smalto::-moz-selection,
+.smalto ::-moz-selection,
+.smalto code::-moz-selection,
+.smalto code ::-moz-selection {
+	text-shadow: none;
+	background: rgba(29, 59, 83, 0.99);
+}
+
+.smalto::selection,
+.smalto ::selection,
+.smalto code::selection,
+.smalto code ::selection {
+	text-shadow: none;
+	background: rgba(29, 59, 83, 0.99);
+}
+
+@media print {
+	.smalto, .smalto code {
+		text-shadow: none;
+	}
+}
+
+.smalto-inline {
+	padding: 0.1em;
+	border-radius: 0.3em;
+	white-space: normal;
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-cdata {
+	color: rgb(99, 119, 119);
+	font-style: italic;
+}
+
+.smalto-punctuation {
+	color: rgb(199, 146, 234);
+}
+
+.namespace {
+	color: rgb(178, 204, 214);
+}
+
+.smalto-deleted {
+	color: rgba(239, 83, 80, 0.56);
+	font-style: italic;
+}
+
+.smalto-symbol,
+.smalto-property {
+	color: rgb(128, 203, 196);
+}
+
+.smalto-tag,
+.smalto-operator,
+.smalto-keyword {
+	color: rgb(127, 219, 202);
+}
+
+.smalto-boolean {
+	color: rgb(255, 88, 116);
+}
+
+.smalto-number {
+	color: rgb(247, 140, 108);
+}
+
+.smalto-constant,
+.smalto-function,
+.smalto-builtin,
+.smalto-char {
+	color: rgb(34 183 199);
+}
+
+.smalto-selector,
+.smalto-doctype {
+	color: rgb(199, 146, 234);
+	font-style: italic;
+}
+
+.smalto-attr-name,
+.smalto-inserted {
+	color: rgb(173, 219, 103);
+	font-style: italic;
+}
+
+.smalto-string,
+.smalto-url,
+.smalto-entity,
+.language-css .smalto-string,
+.style .smalto-string {
+	color: rgb(173, 219, 103);
+}
+
+.smalto-class-name,
+.smalto-atrule,
+.smalto-attr-value {
+	color: rgb(255, 203, 139);
+}
+
+.smalto-regex,
+.smalto-important,
+.smalto-variable {
+	color: rgb(214, 222, 235);
+}
+
+.smalto-important,
+.smalto-bold {
+	font-weight: bold;
+}
+
+.smalto-italic {
+	font-style: italic;
+}

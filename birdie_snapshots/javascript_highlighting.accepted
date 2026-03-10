@@ -4,8 +4,8 @@ title: javascript highlighting
 file: ./test/languages_test.gleam
 test_name: javascript_highlighting_test
 ---
-<span class="hl-comment">// Comment</span>
-<span class="hl-keyword">const</span> <span class="hl-function">greet</span> <span class="hl-operator">=</span> <span class="hl-punctuation">(</span><span class="hl-parameter">name</span><span class="hl-punctuation">)</span> <span class="hl-operator">=&gt;</span> <span class="hl-punctuation">{</span>
-  <span class="hl-keyword">return</span> <span class="hl-string">&#39;Hello&#39;</span><span class="hl-punctuation">;</span>
-<span class="hl-punctuation">}</span><span class="hl-punctuation">;</span>
-console<span class="hl-punctuation">.</span><span class="hl-function">log</span><span class="hl-punctuation">(</span><span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-string">&#39;world&#39;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
+<span class="smalto-comment">// Comment</span>
+<span class="smalto-keyword">const</span> <span class="smalto-function">greet</span> <span class="smalto-operator">=</span> <span class="smalto-punctuation">(</span><span class="smalto-parameter">name</span><span class="smalto-punctuation">)</span> <span class="smalto-operator">=&gt;</span> <span class="smalto-punctuation">{</span>
+  <span class="smalto-keyword">return</span> <span class="smalto-string">&#39;Hello&#39;</span><span class="smalto-punctuation">;</span>
+<span class="smalto-punctuation">}</span><span class="smalto-punctuation">;</span>
+console<span class="smalto-punctuation">.</span><span class="smalto-function">log</span><span class="smalto-punctuation">(</span><span class="smalto-function">greet</span><span class="smalto-punctuation">(</span><span class="smalto-string">&#39;world&#39;</span><span class="smalto-punctuation">)</span><span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>

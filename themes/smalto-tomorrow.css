@@ -1,0 +1,134 @@
+/**
+ * Smalto Theme: Tomorrow
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+
+.smalto, .smalto code {
+	color: #ccc;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+
+}
+
+/* Code blocks */
+.smalto {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+.smalto-inline,
+.smalto {
+	background: #2d2d2d;
+}
+
+/* Inline code */
+.smalto-inline {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.smalto-comment,
+.smalto-block-comment,
+.smalto-prolog,
+.smalto-doctype,
+.smalto-cdata {
+	color: #999;
+}
+
+.smalto-punctuation {
+	color: #ccc;
+}
+
+.smalto-tag,
+.smalto-attr-name,
+.smalto-namespace,
+.smalto-deleted {
+	color: #e2777a;
+}
+
+.smalto-function-name {
+	color: #6196cc;
+}
+
+.smalto-boolean,
+.smalto-number,
+.smalto-function {
+	color: #f08d49;
+}
+
+.smalto-property,
+.smalto-class-name,
+.smalto-constant,
+.smalto-symbol {
+	color: #f8c555;
+}
+
+.smalto-selector,
+.smalto-important,
+.smalto-atrule,
+.smalto-keyword,
+.smalto-builtin {
+	color: #cc99cd;
+}
+
+.smalto-string,
+.smalto-char,
+.smalto-attr-value,
+.smalto-regex,
+.smalto-variable {
+	color: #7ec699;
+}
+
+.smalto-operator,
+.smalto-entity,
+.smalto-url {
+	color: #67cdcc;
+}
+
+.smalto-important,
+.smalto-bold {
+	font-weight: bold;
+}
+.smalto-italic {
+	font-style: italic;
+}
+
+.smalto-entity {
+	cursor: help;
+}
+
+.smalto-inserted {
+	color: green;
+}

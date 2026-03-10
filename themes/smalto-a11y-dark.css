@@ -1,0 +1,172 @@
+/**
+ * Smalto Theme: A11y Dark
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/**
+ * a11y-dark theme for JavaScript, CSS, and HTML
+ * Based on the okaidia theme: https://github.com/PrismJS/prism/blob/gh-pages/themes/prism-okaidia.css
+ * @author ericwbailey
+ */
+
+.smalto, .smalto code {
+	color: #f8f8f2;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+.smalto {
+	padding: 1em;
+	margin: 0.5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+.smalto-inline,
+.smalto {
+	background: #2b2b2b;
+}
+
+/* Inline code */
+.smalto-inline {
+	padding: 0.1em;
+	border-radius: 0.3em;
+	white-space: normal;
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-doctype,
+.smalto-cdata {
+	color: #d4d0ab;
+}
+
+.smalto-punctuation {
+	color: #fefefe;
+}
+
+.smalto-property,
+.smalto-tag,
+.smalto-constant,
+.smalto-symbol,
+.smalto-deleted {
+	color: #ffa07a;
+}
+
+.smalto-boolean,
+.smalto-number {
+	color: #00e0e0;
+}
+
+.smalto-selector,
+.smalto-attr-name,
+.smalto-string,
+.smalto-char,
+.smalto-builtin,
+.smalto-inserted {
+	color: #abe338;
+}
+
+.smalto-operator,
+.smalto-entity,
+.smalto-url,
+.language-css .smalto-string,
+.style .smalto-string,
+.smalto-variable {
+	color: #00e0e0;
+}
+
+.smalto-atrule,
+.smalto-attr-value,
+.smalto-function {
+	color: #ffd700;
+}
+
+.smalto-keyword {
+	color: #00e0e0;
+}
+
+.smalto-regex,
+.smalto-important {
+	color: #ffd700;
+}
+
+.smalto-important,
+.smalto-bold {
+	font-weight: bold;
+}
+
+.smalto-italic {
+	font-style: italic;
+}
+
+.smalto-entity {
+	cursor: help;
+}
+
+@media screen and (-ms-high-contrast: active) {
+	.smalto, .smalto code {
+		color: windowText;
+		background: window;
+	}
+
+	.smalto-inline,
+	.smalto {
+		background: window;
+	}
+
+	.smalto-important {
+		background: highlight;
+		color: window;
+		font-weight: normal;
+	}
+
+	.smalto-atrule,
+	.smalto-attr-value,
+	.smalto-function,
+	.smalto-keyword,
+	.smalto-operator,
+	.smalto-selector {
+		font-weight: bold;
+	}
+
+	.smalto-attr-value,
+	.smalto-comment,
+	.smalto-doctype,
+	.smalto-function,
+	.smalto-keyword,
+	.smalto-operator,
+	.smalto-property,
+	.smalto-string {
+		color: highlight;
+	}
+
+	.smalto-attr-value,
+	.smalto-url {
+		font-weight: normal;
+	}
+}

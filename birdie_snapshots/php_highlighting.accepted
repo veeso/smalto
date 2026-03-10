@@ -4,10 +4,10 @@ title: php highlighting
 file: ./test/languages_test.gleam
 test_name: php_highlighting_test
 ---
-<span class="hl-important">&lt;?php</span>
-<span class="hl-comment">// Comment</span>
-<span class="hl-keyword">function</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-variable">$name</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
-    <span class="hl-keyword">return</span> <span class="hl-double-quoted-string">&quot;Hello&quot;</span><span class="hl-punctuation">;</span>
-<span class="hl-punctuation">}</span>
-<span class="hl-keyword">echo</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-single-quoted-string">&#39;world&#39;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
-<span class="hl-important">?&gt;</span>
+<span class="smalto-important">&lt;?php</span>
+<span class="smalto-comment">// Comment</span>
+<span class="smalto-keyword">function</span> <span class="smalto-function">greet</span><span class="smalto-punctuation">(</span><span class="smalto-variable">$name</span><span class="smalto-punctuation">)</span> <span class="smalto-punctuation">{</span>
+    <span class="smalto-keyword">return</span> <span class="smalto-double-quoted-string">&quot;Hello&quot;</span><span class="smalto-punctuation">;</span>
+<span class="smalto-punctuation">}</span>
+<span class="smalto-keyword">echo</span> <span class="smalto-function">greet</span><span class="smalto-punctuation">(</span><span class="smalto-single-quoted-string">&#39;world&#39;</span><span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+<span class="smalto-important">?&gt;</span>

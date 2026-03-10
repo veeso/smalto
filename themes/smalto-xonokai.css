@@ -1,0 +1,174 @@
+/**
+ * Smalto Theme: Xonokai
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/**
+* xonokai theme for JavaScript, CSS and HTML
+* based on: https://github.com/MoOx/sass-prism-theme-base by Maxime Thirouin ~ MoOx --> http://moox.fr/ , which is Loosely based on Monokai textmate theme by http://www.monokai.nl/
+* license: MIT; http://moox.mit-license.org/
+*/
+.smalto, .smalto code {
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: normal;
+	font-family: Menlo, Monaco, "Courier New", monospace;
+	font-size: 14px;
+	color: #76d9e6;
+	text-shadow: none;
+}
+
+pre > .smalto code {
+	font-size: 1em;
+}
+
+.smalto,
+.smalto-inline {
+	background: #2a2a2a;
+}
+
+.smalto {
+	padding: 15px;
+	border-radius: 4px;
+	border: 1px solid #e1e1e8;
+	overflow: auto;
+	position: relative;
+}
+
+.smalto code {
+	white-space: pre;
+	display: block;
+}
+
+.smalto-inline {
+	padding: 0.15em 0.2em 0.05em;
+	border-radius: .3em;
+	border: 0.13em solid #7a6652;
+	box-shadow: 1px 1px 0.3em -0.1em #000 inset;
+}
+
+.smalto-namespace {
+	opacity: .7;
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-doctype,
+.smalto-cdata {
+	color: #6f705e;
+}
+
+.smalto-operator,
+.smalto-boolean,
+.smalto-number {
+	color: #a77afe;
+}
+
+.smalto-attr-name,
+.smalto-string {
+	color: #e6d06c;
+}
+
+.smalto-entity,
+.smalto-url,
+.language-css .smalto-string,
+.style .smalto-string {
+	color: #e6d06c;
+}
+
+.smalto-selector,
+.smalto-inserted {
+	color: #a6e22d;
+}
+
+.smalto-atrule,
+.smalto-attr-value,
+.smalto-keyword,
+.smalto-important,
+.smalto-deleted {
+	color: #ef3b7d;
+}
+
+.smalto-regex,
+.smalto-statement {
+	color: #76d9e6;
+}
+
+.smalto-placeholder,
+.smalto-variable {
+	color: #fff;
+}
+
+.smalto-important,
+.smalto-statement,
+.smalto-bold {
+	font-weight: bold;
+}
+
+.smalto-punctuation {
+	color: #bebec5;
+}
+
+.smalto-entity {
+	cursor: help;
+}
+
+.smalto-italic {
+	font-style: italic;
+}
+
+code.language-markup {
+	color: #f9f9f9;
+}
+
+code.language-markup .smalto-tag {
+	color: #ef3b7d;
+}
+
+code.language-markup .smalto-attr-name {
+	color: #a6e22d;
+}
+
+code.language-markup .smalto-attr-value {
+	color: #e6d06c;
+}
+
+code.language-markup .smalto-style,
+code.language-markup .smalto-script {
+	color: #76d9e6;
+}
+
+code.language-markup .smalto-script .smalto-keyword {
+	color: #76d9e6;
+}
+
+/* Line highlight plugin */
+.line-highlight.line-highlight {
+	padding: 0;
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.line-highlight.line-highlight:before,
+.line-highlight.line-highlight[data-end]:after {
+	padding: 0.2em 0.5em;
+	background-color: rgba(255, 255, 255, 0.4);
+	color: black;
+	height: 1em;
+	line-height: 1em;
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+}

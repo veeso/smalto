@@ -4,10 +4,10 @@ title: dockerfile highlighting
 file: ./test/languages_test.gleam
 test_name: dockerfile_highlighting_test
 ---
-<span class="hl-comment"># Comment</span>
-<span class="hl-keyword">FROM</span> node:18-alpine
-<span class="hl-keyword">WORKDIR</span> /app
-<span class="hl-keyword">COPY</span> package.json .
-<span class="hl-keyword">RUN</span> npm install
-<span class="hl-keyword">EXPOSE</span> 3000
-<span class="hl-keyword">CMD</span> [<span class="hl-string">&quot;node&quot;</span>, <span class="hl-string">&quot;server.js&quot;</span>]
+<span class="smalto-comment"># Comment</span>
+<span class="smalto-keyword">FROM</span> node:18-alpine
+<span class="smalto-keyword">WORKDIR</span> /app
+<span class="smalto-keyword">COPY</span> package.json .
+<span class="smalto-keyword">RUN</span> npm install
+<span class="smalto-keyword">EXPOSE</span> 3000
+<span class="smalto-keyword">CMD</span> [<span class="smalto-string">&quot;node&quot;</span>, <span class="smalto-string">&quot;server.js&quot;</span>]

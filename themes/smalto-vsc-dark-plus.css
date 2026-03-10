@@ -1,0 +1,288 @@
+/**
+ * Smalto Theme: Vsc Dark Plus
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+.smalto,
+.smalto code {
+	color: #d4d4d4;
+	font-size: 13px;
+	text-shadow: none;
+	font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+.smalto::selection,
+.smalto code::selection,
+.smalto *::selection,
+.smalto code *::selection {
+	text-shadow: none;
+	background: #264F78;
+}
+
+@media print {
+	.smalto,
+	.smalto code {
+		text-shadow: none;
+	}
+}
+
+.smalto {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	background: #1e1e1e;
+}
+
+.smalto-inline {
+	padding: .1em .3em;
+	border-radius: .3em;
+	color: #db4c69;
+	background: #1e1e1e;
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+	opacity: .7;
+}
+
+.smalto-doctype .smalto-doctype-tag {
+	color: #569CD6;
+}
+
+.smalto-doctype .smalto-name {
+	color: #9cdcfe;
+}
+
+.smalto-comment,
+.smalto-prolog {
+	color: #6a9955;
+}
+
+.smalto-punctuation,
+.language-html .language-css .smalto-punctuation,
+.language-html .language-javascript .smalto-punctuation {
+	color: #d4d4d4;
+}
+
+.smalto-property,
+.smalto-tag,
+.smalto-boolean,
+.smalto-number,
+.smalto-constant,
+.smalto-symbol,
+.smalto-inserted,
+.smalto-unit {
+	color: #b5cea8;
+}
+
+.smalto-selector,
+.smalto-attr-name,
+.smalto-string,
+.smalto-char,
+.smalto-builtin,
+.smalto-deleted {
+	color: #ce9178;
+}
+
+.language-css .smalto-string.url {
+	text-decoration: underline;
+}
+
+.smalto-operator,
+.smalto-entity {
+	color: #d4d4d4;
+}
+
+.smalto-operator.arrow {
+	color: #569CD6;
+}
+
+.smalto-atrule {
+	color: #ce9178;
+}
+
+.smalto-atrule .smalto-rule {
+	color: #c586c0;
+}
+
+.smalto-atrule .smalto-url {
+	color: #9cdcfe;
+}
+
+.smalto-atrule .smalto-url .smalto-function {
+	color: #dcdcaa;
+}
+
+.smalto-atrule .smalto-url .smalto-punctuation {
+	color: #d4d4d4;
+}
+
+.smalto-keyword {
+	color: #569CD6;
+}
+
+.smalto-keyword.module,
+.smalto-keyword.control-flow {
+	color: #c586c0;
+}
+
+.smalto-function,
+.smalto-function .smalto-maybe-class-name {
+	color: #dcdcaa;
+}
+
+.smalto-regex {
+	color: #d16969;
+}
+
+.smalto-important {
+	color: #569cd6;
+}
+
+.smalto-italic {
+	font-style: italic;
+}
+
+.smalto-constant {
+	color: #9cdcfe;
+}
+
+.smalto-class-name,
+.smalto-maybe-class-name {
+	color: #4ec9b0;
+}
+
+.smalto-console {
+	color: #9cdcfe;
+}
+
+.smalto-parameter {
+	color: #9cdcfe;
+}
+
+.smalto-interpolation {
+	color: #9cdcfe;
+}
+
+.smalto-punctuation.interpolation-punctuation {
+	color: #569cd6;
+}
+
+.smalto-boolean {
+	color: #569cd6;
+}
+
+.smalto-property,
+.smalto-variable,
+.smalto-imports .smalto-maybe-class-name,
+.smalto-exports .smalto-maybe-class-name {
+	color: #9cdcfe;
+}
+
+.smalto-selector {
+	color: #d7ba7d;
+}
+
+.smalto-escape {
+	color: #d7ba7d;
+}
+
+.smalto-tag {
+	color: #569cd6;
+}
+
+.smalto-tag .smalto-punctuation {
+	color: #808080;
+}
+
+.smalto-cdata {
+	color: #808080;
+}
+
+.smalto-attr-name {
+	color: #9cdcfe;
+}
+
+.smalto-attr-value,
+.smalto-attr-value .smalto-punctuation {
+	color: #ce9178;
+}
+
+.smalto-attr-value .smalto-punctuation.attr-equals {
+	color: #d4d4d4;
+}
+
+.smalto-entity {
+	color: #569cd6;
+}
+
+.smalto-namespace {
+	color: #4ec9b0;
+}
+/*********************************************************
+* Language Specific
+*/
+
+pre[class*="language-javascript"],
+code[class*="language-javascript"],
+pre[class*="language-jsx"],
+code[class*="language-jsx"],
+pre[class*="language-typescript"],
+code[class*="language-typescript"],
+pre[class*="language-tsx"],
+code[class*="language-tsx"] {
+	color: #9cdcfe;
+}
+
+pre[class*="language-css"],
+code[class*="language-css"] {
+	color: #ce9178;
+}
+
+pre[class*="language-html"],
+code[class*="language-html"] {
+	color: #d4d4d4;
+}
+
+.language-regex .smalto-anchor {
+	color: #dcdcaa;
+}
+
+.language-html .smalto-punctuation {
+	color: #808080;
+}
+/*********************************************************
+* Line highlighting
+*/
+.smalto .smalto code {
+	position: relative;
+	z-index: 1;
+}
+
+.line-highlight.line-highlight {
+	background: #f7ebc6;
+	box-shadow: inset 5px 0 0 #f7d87c;
+	z-index: 0;
+}

@@ -1,0 +1,180 @@
+/**
+ * Smalto Theme: Vs
+ * Adapted from Prism.js (MIT License)
+ *
+ * Original: https://prismjs.com
+ * License: MIT — Copyright (c) 2012 Lea Verou
+ *
+ * Usage:
+ *   <pre class="smalto"><code>...highlighted HTML from smalto.to_html()...</code></pre>
+ *
+ * Token classes use the "smalto-" prefix (e.g., .smalto-keyword, .smalto-string).
+ */
+
+/**
+ * VS theme by Andrew Lock (https://andrewlock.net)
+ * Inspired by Visual Studio syntax coloring
+ */
+
+.smalto, .smalto code {
+	color: #393A34;
+	font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	font-size: .9em;
+	line-height: 1.2em;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre > .smalto code {
+	font-size: 1em;
+}
+
+.smalto::-moz-selection, .smalto ::-moz-selection,
+.smalto code::-moz-selection, .smalto code ::-moz-selection {
+	background: #C1DEF1;
+}
+
+.smalto::selection, .smalto ::selection,
+.smalto code::selection, .smalto code ::selection {
+	background: #C1DEF1;
+}
+
+/* Code blocks */
+.smalto {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border: 1px solid #dddddd;
+	background-color: white;
+}
+
+/* Inline code */
+.smalto-inline {
+	padding: .2em;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	background: #f8f8f8;
+	border: 1px solid #dddddd;
+}
+
+.smalto-comment,
+.smalto-prolog,
+.smalto-doctype,
+.smalto-cdata {
+	color: #008000;
+	font-style: italic;
+}
+
+.smalto-namespace {
+	opacity: .7;
+}
+
+.smalto-string {
+	color: #A31515;
+}
+
+.smalto-punctuation,
+.smalto-operator {
+	color: #393A34; /* no highlight */
+}
+
+.smalto-url,
+.smalto-symbol,
+.smalto-number,
+.smalto-boolean,
+.smalto-variable,
+.smalto-constant,
+.smalto-inserted {
+	color: #36acaa;
+}
+
+.smalto-atrule,
+.smalto-keyword,
+.smalto-attr-value,
+.language-autohotkey .smalto-selector,
+.language-json .smalto-boolean,
+.language-json .smalto-number,
+code[class*="language-css"] {
+	color: #0000ff;
+}
+
+.smalto-function {
+	color: #393A34;
+}
+
+.smalto-deleted,
+.language-autohotkey .smalto-tag {
+	color: #9a050f;
+}
+
+.smalto-selector,
+.language-autohotkey .smalto-keyword {
+	color: #00009f;
+}
+
+.smalto-important {
+	color: #e90;
+}
+
+.smalto-important,
+.smalto-bold {
+	font-weight: bold;
+}
+
+.smalto-italic {
+	font-style: italic;
+}
+
+.smalto-class-name,
+.language-json .smalto-property {
+	color: #2B91AF;
+}
+
+.smalto-tag,
+.smalto-selector {
+	color: #800000;
+}
+
+.smalto-attr-name,
+.smalto-property,
+.smalto-regex,
+.smalto-entity {
+	color: #ff0000;
+}
+
+.smalto-directive.tag .tag {
+	background: #ffff00;
+	color: #393A34;
+}
+
+/* overrides color-values for the Line Numbers plugin
+ * http://prismjs.com/plugins/line-numbers/
+ */
+.line-numbers.line-numbers .line-numbers-rows {
+	border-right-color: #a5a5a5;
+}
+
+.line-numbers .line-numbers-rows > span:before {
+	color: #2B91AF;
+}
+
+/* overrides color-values for the Line Highlight plugin
+* http://prismjs.com/plugins/line-highlight/
+*/
+.line-highlight.line-highlight {
+	background: rgba(193, 222, 241, 0.2);
+	background: -webkit-linear-gradient(left, rgba(193, 222, 241, 0.2) 70%, rgba(221, 222, 241, 0));
+	background: linear-gradient(to right, rgba(193, 222, 241, 0.2) 70%, rgba(221, 222, 241, 0));
+}

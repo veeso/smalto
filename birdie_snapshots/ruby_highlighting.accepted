@@ -4,10 +4,10 @@ title: ruby highlighting
 file: ./test/languages_test.gleam
 test_name: ruby_highlighting_test
 ---
-<span class="hl-comment"># Comment</span>
-<span class="hl-keyword">class</span> <span class="hl-class-name">Greeter</span>
-  <span class="hl-keyword">def</span> <span class="hl-method-definition">greet</span><span class="hl-punctuation">(</span>name<span class="hl-punctuation">)</span>
-    <span class="hl-string-literal">&quot;Hello&quot;</span>
-  <span class="hl-keyword">end</span>
-<span class="hl-keyword">end</span>
-puts <span class="hl-class-name">Greeter</span><span class="hl-punctuation">.</span><span class="hl-keyword">new</span><span class="hl-punctuation">.</span>greet<span class="hl-punctuation">(</span><span class="hl-string-literal">&#39;world&#39;</span><span class="hl-punctuation">)</span>
+<span class="smalto-comment"># Comment</span>
+<span class="smalto-keyword">class</span> <span class="smalto-class-name">Greeter</span>
+  <span class="smalto-keyword">def</span> <span class="smalto-method-definition">greet</span><span class="smalto-punctuation">(</span>name<span class="smalto-punctuation">)</span>
+    <span class="smalto-string-literal">&quot;Hello&quot;</span>
+  <span class="smalto-keyword">end</span>
+<span class="smalto-keyword">end</span>
+puts <span class="smalto-class-name">Greeter</span><span class="smalto-punctuation">.</span><span class="smalto-keyword">new</span><span class="smalto-punctuation">.</span>greet<span class="smalto-punctuation">(</span><span class="smalto-string-literal">&#39;world&#39;</span><span class="smalto-punctuation">)</span>

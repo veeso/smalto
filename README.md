@@ -4,6 +4,8 @@
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/smalto/)
 [![conventional-commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 [![target-erlang](https://img.shields.io/badge/target-erlang-b83998)](https://www.erlang.org/)
+[![codeberg](https://img.shields.io/badge/Codeberg-2185D0?&logo=Codeberg&logoColor=white)](https://codeberg.org/veeso/smalto)
+
 [![test](https://github.com/veeso/smalto/actions/workflows/test.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/test.yml)
 [![prism-converter](https://github.com/veeso/smalto/actions/workflows/prism-converter.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/prism-converter.yml)
 

@@ -28,7 +28,8 @@ describe('regexToString', () => {
   });
 
   it('should convert unicode escapes', () => {
-    // Use RegExp constructor to avoid JS parsing \u{} at compile time
+    // Need RegExp constructor to avoid JS parsing \u{} at compile time
+    // eslint-disable-next-line prefer-regex-literals
     const regex = new RegExp('\\u{1F600}', 'u');
     const result = regexToString(regex);
     assert.ok(result.includes('\\x{1F600}'), `Expected \\x{1F600} in: ${result}`);
@@ -37,8 +38,9 @@ describe('regexToString', () => {
 
 describe('convertLookbehind', () => {
   it('should convert first capture group to lookbehind', () => {
+    // (^|[^.]) is variable-length (has ^ and |), so \K fallback is used
     const result = convertLookbehind('(^|[^.])\\bfoo\\b');
-    assert.equal(result, '(?<=^|[^.])\\bfoo\\b');
+    assert.equal(result, '(?:^|[^.])\\K\\bfoo\\b');
   });
 
   it('should return unchanged if no capture group found', () => {
@@ -156,9 +158,10 @@ describe('parseGrammar', () => {
       function: { pattern: /(^|[^.])\b\w+(?=\()/, lookbehind: true },
     };
     const result = parseGrammar('test', grammar, null);
+    // Pattern (^|[^.]) is variable-length, so \K fallback is used
     assert.ok(
-      result.rules[0].pattern.includes('(?<='),
-      `Should convert to lookbehind: ${result.rules[0].pattern}`,
+      result.rules[0].pattern.includes('\\K'),
+      `Should convert to \\K fallback: ${result.rules[0].pattern}`,
     );
   });
 });

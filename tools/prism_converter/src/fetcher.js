@@ -65,13 +65,13 @@ loadLanguages(ALL_LANGUAGES.map((lang) => COMPONENT_MAP[lang]));
 // Build a lookup map from Prism grammar objects to our language names
 // Used for resolving `rest` self-references
 const grammarToName = new Map();
-for (const lang of ALL_LANGUAGES) {
+ALL_LANGUAGES.forEach((lang) => {
   const component = COMPONENT_MAP[lang];
   const grammar = Prism.languages[component];
   if (grammar) {
     grammarToName.set(grammar, lang);
   }
-}
+});
 // Also add clike for rest resolution
 if (Prism.languages.clike) {
   grammarToName.set(Prism.languages.clike, 'clike');
@@ -106,9 +106,9 @@ function fetchGrammar(language) {
  */
 function fetchAllGrammars() {
   const results = {};
-  for (const lang of ALL_LANGUAGES) {
+  ALL_LANGUAGES.forEach((lang) => {
     results[lang] = fetchGrammar(lang);
-  }
+  });
   return results;
 }
 

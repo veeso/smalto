@@ -3,14 +3,14 @@ import assert from 'node:assert/strict';
 import { fetchGrammar, fetchAllGrammars, ALL_LANGUAGES, COMPONENT_MAP } from '../src/fetcher.js';
 
 describe('fetcher', () => {
-  it('should export ALL_LANGUAGES with 29 entries', () => {
-    assert.equal(ALL_LANGUAGES.length, 29);
+  it('should export ALL_LANGUAGES with 30 entries', () => {
+    assert.equal(ALL_LANGUAGES.length, 30);
   });
 
   it('should have a component mapping for every language', () => {
-    for (const lang of ALL_LANGUAGES) {
+    ALL_LANGUAGES.forEach((lang) => {
       assert.ok(COMPONENT_MAP[lang], `Missing component mapping for ${lang}`);
-    }
+    });
   });
 
   it('should fetch a simple language grammar (json)', () => {
@@ -35,10 +35,10 @@ describe('fetcher', () => {
   it('should fetch all grammars without errors', () => {
     const results = fetchAllGrammars();
     assert.equal(Object.keys(results).length, ALL_LANGUAGES.length);
-    for (const lang of ALL_LANGUAGES) {
+    ALL_LANGUAGES.forEach((lang) => {
       assert.ok(results[lang], `Missing grammar for ${lang}`);
       assert.ok(results[lang].grammar, `Grammar for ${lang} should exist`);
-    }
+    });
   });
 
   it('should throw for unknown language', () => {

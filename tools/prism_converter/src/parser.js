@@ -9,7 +9,7 @@
  * @returns {string}
  */
 function regexToString(regex) {
-  let source = regex.source;
+  let { source } = regex;
   const { flags } = regex;
 
   // Convert JS unicode escapes \u{XXXX} to PCRE \x{XXXX}
@@ -79,6 +79,7 @@ function convertLookbehind(pattern) {
     const ch = pattern[i];
     if (ch === '\\') {
       i += 1; // skip escaped char
+      // eslint-disable-next-line no-continue
       continue;
     }
     if (ch === '[') {
@@ -88,6 +89,7 @@ function convertLookbehind(pattern) {
         if (pattern[i] === '\\') i += 1;
         i += 1;
       }
+      // eslint-disable-next-line no-continue
       continue;
     }
     if (ch === '(') {
@@ -97,6 +99,7 @@ function convertLookbehind(pattern) {
           // This is (?:...), (?=...), (?!...), (?<=...), (?<!...), etc.
           // Not a capturing group — skip
           depth += 1;
+          // eslint-disable-next-line no-continue
           continue;
         }
         if (groupStart === -1) {
@@ -155,9 +158,10 @@ function parseInside(insideObj, grammarLookup, visited) {
 
   // Otherwise it's an inline grammar — recursively parse entries
   const rules = [];
-  for (const key of Object.keys(insideObj)) {
+  Object.keys(insideObj).forEach((key) => {
+    // eslint-disable-next-line no-use-before-define
     rules.push(...parseEntry(key, insideObj[key], grammarLookup, visited));
-  }
+  });
 
   if (rules.length === 0) return null;
   return { type: 'inline', rules };
@@ -249,11 +253,11 @@ function parseGrammar(name, grammar, extendsLang, grammarLookup = null) {
   const rules = [];
   const visited = new Set();
 
-  for (const key of Object.keys(grammar)) {
+  Object.keys(grammar).forEach((key) => {
     // Skip non-grammar entries
-    if (key === 'rest') continue;
+    if (key === 'rest') return;
     rules.push(...parseEntry(key, grammar[key], grammarLookup, visited));
-  }
+  });
 
   return {
     name,

@@ -3,12 +3,12 @@ import pino from 'pino';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { fetchGrammar, fetchAllGrammars, ALL_LANGUAGES, grammarToName } from './fetcher.js';
+import { fetchGrammar, ALL_LANGUAGES, grammarToName } from './fetcher.js';
 import { parseGrammar } from './parser.js';
 import { renderGrammar } from './renderer.js';
 import { renderRegistry } from './registry_writer.js';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
 const cli = meow(
   `
@@ -37,12 +37,12 @@ const cli = meow(
       outputDir: {
         type: 'string',
         shortFlag: 'o',
-        default: path.resolve(__dirname, '../../../src/smalto/languages/'),
+        default: path.resolve(currentDir, '../../../src/smalto/languages/'),
       },
       registry: {
         type: 'string',
         shortFlag: 'r',
-        default: path.resolve(__dirname, '../../../src/smalto/internal/registry.gleam'),
+        default: path.resolve(currentDir, '../../../src/smalto/internal/registry.gleam'),
       },
       logLevel: {
         type: 'string',
@@ -68,7 +68,7 @@ if (!flags.all && requestedLanguages.length === 0) {
 
   // Process each language
   const processedLanguages = [];
-  for (const lang of languages) {
+  languages.forEach((lang) => {
     logger.info(`Processing ${lang}...`);
 
     const { grammar, extends: extendsLang } = fetchGrammar(lang);
@@ -80,7 +80,7 @@ if (!flags.all && requestedLanguages.length === 0) {
     fs.writeFileSync(outputPath, gleamSource);
     logger.info(`Wrote ${outputPath} (${ir.rules.length} rules)`);
     processedLanguages.push(lang);
-  }
+  });
 
   // Languages with hand-written grammars (not from Prism.js) that must always
   // appear in the registry.

@@ -30,9 +30,7 @@ function renderRule(rule, indent = '    ') {
 
     // Inline inside grammar
     const innerIndent = `${indent}  `;
-    const insideRules = rule.inside.rules
-      .map((r) => renderRule(r, innerIndent))
-      .join(',\n');
+    const insideRules = rule.inside.rules.map((r) => renderRule(r, innerIndent)).join(',\n');
     const builderFn = rule.greedy ? 'grammar.greedy_rule_with_inside' : 'grammar.rule_with_inside';
 
     if (rule.inside.rules.length === 0) {
@@ -55,13 +53,10 @@ function renderRule(rule, indent = '    ') {
  * @returns {string} Gleam source code
  */
 function renderGrammar(ir) {
-  const extendsValue = ir.extends
-    ? `option.Some("${ir.extends}")`
-    : 'option.None';
+  const extendsValue = ir.extends ? `option.Some("${ir.extends}")` : 'option.None';
 
-  const rulesStr = ir.rules.length === 0
-    ? '[]'
-    : `[\n${ir.rules.map((r) => renderRule(r)).join(',\n')},\n  ]`;
+  const rulesStr =
+    ir.rules.length === 0 ? '[]' : `[\n${ir.rules.map((r) => renderRule(r)).join(',\n')},\n  ]`;
 
   return `import gleam/option
 import smalto/grammar.{type Grammar, type Rule, Grammar}

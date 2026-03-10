@@ -55,15 +55,17 @@ describe('renderGrammar', () => {
     const ir = {
       name: 'test',
       extends: null,
-      rules: [{
-        token: 'string',
-        pattern: '"[^"]*"',
-        greedy: false,
-        inside: {
-          type: 'inline',
-          rules: [{ token: 'variable', pattern: '\\$\\w+', greedy: false, inside: null }],
+      rules: [
+        {
+          token: 'string',
+          pattern: '"[^"]*"',
+          greedy: false,
+          inside: {
+            type: 'inline',
+            rules: [{ token: 'variable', pattern: '\\$\\w+', greedy: false, inside: null }],
+          },
         },
-      }],
+      ],
     };
     const output = renderGrammar(ir);
     assert.ok(output.includes('grammar.rule_with_inside('));
@@ -74,12 +76,14 @@ describe('renderGrammar', () => {
     const ir = {
       name: 'test',
       extends: null,
-      rules: [{
-        token: 'code',
-        pattern: '<code>.*?</code>',
-        greedy: false,
-        inside: { type: 'ref', language: 'javascript' },
-      }],
+      rules: [
+        {
+          token: 'code',
+          pattern: '<code>.*?</code>',
+          greedy: false,
+          inside: { type: 'ref', language: 'javascript' },
+        },
+      ],
     };
     const output = renderGrammar(ir);
     assert.ok(output.includes('grammar.nested_rule('));
@@ -90,15 +94,17 @@ describe('renderGrammar', () => {
     const ir = {
       name: 'test',
       extends: null,
-      rules: [{
-        token: 'string',
-        pattern: '"[^"]*"',
-        greedy: true,
-        inside: {
-          type: 'inline',
-          rules: [{ token: 'escape', pattern: '\\\\.', greedy: false, inside: null }],
+      rules: [
+        {
+          token: 'string',
+          pattern: '"[^"]*"',
+          greedy: true,
+          inside: {
+            type: 'inline',
+            rules: [{ token: 'escape', pattern: '\\\\.', greedy: false, inside: null }],
+          },
         },
-      }],
+      ],
     };
     const output = renderGrammar(ir);
     assert.ok(output.includes('grammar.greedy_rule_with_inside('));

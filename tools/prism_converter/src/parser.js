@@ -185,8 +185,12 @@ function parseEntry(token, entry, grammarLookup, visited = new Set()) {
   // AIRBNB-2.1: pattern objects (with entry.pattern) are leaf nodes shared across
   // grammar locations (e.g., parameter.inside.keyword === top-level keyword) and
   // must not be skipped via cycle detection
-  if (typeof entry === 'object' && !Array.isArray(entry) && !(entry instanceof RegExp)
-    && !(entry.pattern instanceof RegExp)) {
+  if (
+    typeof entry === 'object' &&
+    !Array.isArray(entry) &&
+    !(entry instanceof RegExp) &&
+    !(entry.pattern instanceof RegExp)
+  ) {
     if (visited.has(entry)) return [];
     visited.add(entry);
   }
@@ -219,12 +223,14 @@ function parseEntry(token, entry, grammarLookup, visited = new Set()) {
     // Handle inside
     const inside = entry.inside ? parseInside(entry.inside, grammarLookup, visited) : null;
 
-    return [{
-      token: resolvedToken,
-      pattern,
-      greedy: Boolean(entry.greedy),
-      inside,
-    }];
+    return [
+      {
+        token: resolvedToken,
+        pattern,
+        greedy: Boolean(entry.greedy),
+        inside,
+      },
+    ];
   }
 
   return [];

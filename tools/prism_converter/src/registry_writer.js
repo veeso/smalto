@@ -20,13 +20,9 @@ pub fn languages() -> Dict(String, Grammar) {
 `;
   }
 
-  const imports = sorted
-    .map((lang) => `import smalto/languages/${lang}`)
-    .join('\n');
+  const imports = sorted.map((lang) => `import smalto/languages/${lang}`).join('\n');
 
-  const entries = sorted
-    .map((lang) => `    #("${lang}", ${lang}.grammar())`)
-    .join(',\n');
+  const entries = sorted.map((lang) => `    #("${lang}", ${lang}.grammar())`).join(',\n');
 
   return `import gleam/dict.{type Dict}
 import smalto/grammar.{type Grammar}

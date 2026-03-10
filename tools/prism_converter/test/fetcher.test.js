@@ -1,11 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import {
-  fetchGrammar,
-  fetchAllGrammars,
-  ALL_LANGUAGES,
-  COMPONENT_MAP,
-} from '../src/fetcher.js';
+import { fetchGrammar, fetchAllGrammars, ALL_LANGUAGES, COMPONENT_MAP } from '../src/fetcher.js';
 
 describe('fetcher', () => {
   it('should export ALL_LANGUAGES with 29 entries', () => {

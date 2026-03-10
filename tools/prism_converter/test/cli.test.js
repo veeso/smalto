@@ -48,9 +48,7 @@ describe('CLI', () => {
   it('should accept language names as positional arguments', async () => {
     const outDir = path.join(tmpDir, 'langs1');
     const registry = path.join(tmpDir, 'registry1.gleam');
-    const { exitCode } = await run([
-      'json', '-o', outDir, '-r', registry, '-l', 'warn',
-    ]);
+    const { exitCode } = await run(['json', '-o', outDir, '-r', registry, '-l', 'warn']);
 
     assert.equal(exitCode, 0);
   });
@@ -58,9 +56,7 @@ describe('CLI', () => {
   it('should accept --all flag', async () => {
     const outDir = path.join(tmpDir, 'langs2');
     const registry = path.join(tmpDir, 'registry2.gleam');
-    const { exitCode } = await run([
-      '--all', '-o', outDir, '-r', registry, '-l', 'warn',
-    ]);
+    const { exitCode } = await run(['--all', '-o', outDir, '-r', registry, '-l', 'warn']);
 
     assert.equal(exitCode, 0);
   });
@@ -68,9 +64,7 @@ describe('CLI', () => {
   it('should accept short flags -a, -o, -l', async () => {
     const outDir = path.join(tmpDir, 'langs3');
     const registry = path.join(tmpDir, 'registry3.gleam');
-    const { exitCode } = await run([
-      '-a', '-o', outDir, '-r', registry, '-l', 'warn',
-    ]);
+    const { exitCode } = await run(['-a', '-o', outDir, '-r', registry, '-l', 'warn']);
 
     assert.equal(exitCode, 0);
   });
@@ -78,9 +72,7 @@ describe('CLI', () => {
   it('should accept --log-level flag', async () => {
     const outDir = path.join(tmpDir, 'langs4');
     const registry = path.join(tmpDir, 'registry4.gleam');
-    const { exitCode } = await run([
-      '--all', '--log-level', 'warn', '-o', outDir, '-r', registry,
-    ]);
+    const { exitCode } = await run(['--all', '--log-level', 'warn', '-o', outDir, '-r', registry]);
 
     assert.equal(exitCode, 0);
   });
@@ -88,9 +80,7 @@ describe('CLI', () => {
   it('should accept --output-dir flag', async () => {
     const outDir = path.join(tmpDir, 'langs5');
     const registry = path.join(tmpDir, 'registry5.gleam');
-    const { exitCode } = await run([
-      '--all', '--output-dir', outDir, '-r', registry, '-l', 'warn',
-    ]);
+    const { exitCode } = await run(['--all', '--output-dir', outDir, '-r', registry, '-l', 'warn']);
 
     assert.equal(exitCode, 0);
   });

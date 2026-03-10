@@ -29,12 +29,12 @@ node src/index.js --all
 
 ### Options
 
-| Flag | Short | Default | Description |
-|------|-------|---------|-------------|
-| `--all` | `-a` | `false` | Convert all supported languages |
-| `--output-dir` | `-o` | `../../src/smalto/languages/` | Output directory for `.gleam` files |
-| `--registry` | `-r` | `../../src/smalto/internal/registry.gleam` | Registry file path |
-| `--log-level` | `-l` | `info` | Log level (trace, debug, info, warn, error, fatal) |
+| Flag           | Short | Default                                    | Description                                        |
+| -------------- | ----- | ------------------------------------------ | -------------------------------------------------- |
+| `--all`        | `-a`  | `false`                                    | Convert all supported languages                    |
+| `--output-dir` | `-o`  | `../../src/smalto/languages/`              | Output directory for `.gleam` files                |
+| `--registry`   | `-r`  | `../../src/smalto/internal/registry.gleam` | Registry file path                                 |
+| `--log-level`  | `-l`  | `info`                                     | Log level (trace, debug, info, warn, error, fatal) |
 
 ### Output
 
@@ -45,13 +45,13 @@ The tool generates:
 
 ## Architecture
 
-| Module | Description |
-|--------|-------------|
-| `src/fetcher.js` | Loads Prism.js grammars via `require`, handles dependency ordering |
-| `src/parser.js` | Normalizes Prism grammar objects into an intermediate representation |
-| `src/renderer.js` | Generates Gleam source code from the IR using smalto builder functions |
-| `src/registry_writer.js` | Generates the `registry.gleam` module |
-| `src/index.js` | CLI entry point that orchestrates the pipeline |
+| Module                   | Description                                                            |
+| ------------------------ | ---------------------------------------------------------------------- |
+| `src/fetcher.js`         | Loads Prism.js grammars via `require`, handles dependency ordering     |
+| `src/parser.js`          | Normalizes Prism grammar objects into an intermediate representation   |
+| `src/renderer.js`        | Generates Gleam source code from the IR using smalto builder functions |
+| `src/registry_writer.js` | Generates the `registry.gleam` module                                  |
+| `src/index.js`           | CLI entry point that orchestrates the pipeline                         |
 
 ### Pipeline
 

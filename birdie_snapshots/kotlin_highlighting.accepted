@@ -1,0 +1,13 @@
+---
+version: 1.5.4
+title: kotlin highlighting
+file: ./test/languages_test.gleam
+test_name: kotlin_highlighting_test
+---
+<span class="hl-comment">// Comment</span>
+fun greet<span class="hl-punctuation">(</span>name<span class="hl-operator">:</span> String<span class="hl-punctuation">)</span><span class="hl-operator">:</span> String <span class="hl-punctuation">{</span>
+    return &quot;Hello&quot;
+<span class="hl-punctuation">}</span>
+fun main<span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
+    println<span class="hl-punctuation">(</span>greet<span class="hl-punctuation">(</span>&quot;world&quot;<span class="hl-punctuation">)</span><span class="hl-punctuation">)</span>
+<span class="hl-punctuation">}</span>

@@ -1,0 +1,13 @@
+---
+version: 1.5.4
+title: c highlighting
+file: ./test/languages_test.gleam
+test_name: c_highlighting_test
+---
+#include <span class="hl-operator">&lt;</span>stdio<span class="hl-punctuation">.</span>h<span class="hl-operator">&gt;</span>
+<span class="hl-comment">// Comment</span>
+<span class="hl-keyword">int</span> <span class="hl-function">main</span><span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
+    <span class="hl-keyword">char</span> <span class="hl-operator">*</span>msg <span class="hl-operator">=</span> &quot;hello&quot;<span class="hl-punctuation">;</span>
+    <span class="hl-function">printf</span><span class="hl-punctuation">(</span>&quot;<span class="hl-operator">%</span>s\n&quot;<span class="hl-punctuation">,</span> msg<span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
+    <span class="hl-keyword">return</span> <span class="hl-number">0</span><span class="hl-punctuation">;</span>
+<span class="hl-punctuation">}</span>

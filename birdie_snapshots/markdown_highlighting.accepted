@@ -1,0 +1,11 @@
+---
+version: 1.5.4
+title: markdown highlighting
+file: ./test/languages_test.gleam
+test_name: markdown_highlighting_test
+---
+# Heading
+## Subheading
+This is **bold** and *italic*.
+- List item
+- Another item

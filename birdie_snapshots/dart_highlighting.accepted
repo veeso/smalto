@@ -1,0 +1,14 @@
+---
+version: 1.5.4
+title: dart highlighting
+file: ./test/languages_test.gleam
+test_name: dart_highlighting_test
+---
+<span class="hl-comment">// Comment</span>
+<span class="hl-keyword">class</span> Person <span class="hl-punctuation">{</span>
+  <span class="hl-keyword">final</span> String name<span class="hl-punctuation">;</span>
+  <span class="hl-function">Person</span><span class="hl-punctuation">(</span><span class="hl-keyword">this</span><span class="hl-punctuation">.</span>name<span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
+  <span class="hl-keyword">void</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
+    <span class="hl-function">print</span><span class="hl-punctuation">(</span><span class="hl-string">&#39;Hello&#39;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
+  <span class="hl-punctuation">}</span>
+<span class="hl-punctuation">}</span>

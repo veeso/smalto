@@ -6,37 +6,36 @@ nav_order: 6
 
 # Supported languages
 
-Smalto ships with grammars for 30+ languages. Each language module exports a `grammar()` function.
+Smalto ships with grammars for 29 languages. Each language module exports a `grammar()` function.
 
 ## Language list
 
 | Language | Module | Extends |
 |----------|--------|---------|
 | Bash | `smalto/languages/bash` | |
-| C | `smalto/languages/c` | |
+| C | `smalto/languages/c` | clike |
 | C++ | `smalto/languages/cpp` | C |
 | CSS | `smalto/languages/css` | |
-| Dart | `smalto/languages/dart` | |
+| Dart | `smalto/languages/dart` | clike |
 | Dockerfile | `smalto/languages/dockerfile` | |
 | Elixir | `smalto/languages/elixir` | |
 | Erlang | `smalto/languages/erlang` | |
-| Gleam | `smalto/languages/gleam` | |
-| Go | `smalto/languages/go` | |
+| Go | `smalto/languages/go` | clike |
 | Haskell | `smalto/languages/haskell` | |
 | HTML | `smalto/languages/html` | |
-| Java | `smalto/languages/java` | |
-| JavaScript | `smalto/languages/javascript` | |
+| Java | `smalto/languages/java` | clike |
+| JavaScript | `smalto/languages/javascript` | clike |
 | JSON | `smalto/languages/json` | |
-| Kotlin | `smalto/languages/kotlin` | |
+| Kotlin | `smalto/languages/kotlin` | clike |
 | Lua | `smalto/languages/lua` | |
 | Markdown | `smalto/languages/markdown` | |
-| PHP | `smalto/languages/php` | |
+| PHP | `smalto/languages/php` | clike |
 | Python | `smalto/languages/python` | |
-| Ruby | `smalto/languages/ruby` | |
+| Ruby | `smalto/languages/ruby` | clike |
 | Rust | `smalto/languages/rust` | |
-| Scala | `smalto/languages/scala` | |
+| Scala | `smalto/languages/scala` | Java |
 | SQL | `smalto/languages/sql` | |
-| Swift | `smalto/languages/swift` | |
+| Swift | `smalto/languages/swift` | clike |
 | TOML | `smalto/languages/toml` | |
 | TypeScript | `smalto/languages/typescript` | JavaScript |
 | XML | `smalto/languages/xml` | |

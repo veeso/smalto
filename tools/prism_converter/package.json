@@ -26,7 +26,8 @@
   "homepage": "https://github.com/veeso/smalto#readme",
   "dependencies": {
     "meow": "^14.1.0",
-    "pino": "^10.3.1"
+    "pino": "^10.3.1",
+    "prismjs": "^1.30.0"
   },
   "devDependencies": {
     "eslint": "^8.57.1",

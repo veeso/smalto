@@ -1,0 +1,13 @@
+---
+version: 1.5.4
+title: json highlighting
+file: ./test/languages_test.gleam
+test_name: json_highlighting_test
+---
+<span class="hl-punctuation">{</span>
+  <span class="hl-property">&quot;name&quot;</span><span class="hl-operator">:</span> <span class="hl-string">&quot;smalto&quot;</span><span class="hl-punctuation">,</span>
+  <span class="hl-property">&quot;version&quot;</span><span class="hl-operator">:</span> <span class="hl-number">1</span><span class="hl-punctuation">,</span>
+  <span class="hl-property">&quot;enabled&quot;</span><span class="hl-operator">:</span> <span class="hl-boolean">true</span><span class="hl-punctuation">,</span>
+  <span class="hl-property">&quot;tags&quot;</span><span class="hl-operator">:</span> <span class="hl-punctuation">[</span><span class="hl-string">&quot;gleam&quot;</span><span class="hl-punctuation">,</span> <span class="hl-string">&quot;syntax&quot;</span><span class="hl-punctuation">]</span><span class="hl-punctuation">,</span>
+  <span class="hl-property">&quot;config&quot;</span><span class="hl-operator">:</span> <span class="hl-keyword">null</span>
+<span class="hl-punctuation">}</span>

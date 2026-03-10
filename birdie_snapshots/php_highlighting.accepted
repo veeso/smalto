@@ -1,0 +1,13 @@
+---
+version: 1.5.4
+title: php highlighting
+file: ./test/languages_test.gleam
+test_name: php_highlighting_test
+---
+<span class="hl-important">&lt;?php</span>
+<span class="hl-comment">// Comment</span>
+function greet<span class="hl-punctuation">(</span><span class="hl-variable">$name</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
+    return &quot;Hello&quot;<span class="hl-punctuation">;</span>
+<span class="hl-punctuation">}</span>
+echo greet<span class="hl-punctuation">(</span>&#39;world&#39;<span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
+<span class="hl-important">?&gt;</span>

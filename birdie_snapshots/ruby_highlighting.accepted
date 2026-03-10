@@ -1,0 +1,13 @@
+---
+version: 1.5.4
+title: ruby highlighting
+file: ./test/languages_test.gleam
+test_name: ruby_highlighting_test
+---
+<span class="hl-comment"># Comment</span>
+<span class="hl-keyword">class</span> Greeter
+  <span class="hl-keyword">def</span> greet<span class="hl-punctuation">(</span>name<span class="hl-punctuation">)</span>
+    &quot;Hello&quot;
+  <span class="hl-keyword">end</span>
+<span class="hl-keyword">end</span>
+puts Greeter<span class="hl-punctuation">.</span><span class="hl-keyword">new</span><span class="hl-punctuation">.</span>greet<span class="hl-punctuation">(</span>&#39;world&#39;<span class="hl-punctuation">)</span>

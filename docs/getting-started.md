@@ -46,10 +46,10 @@ Tokens are wrapped in `<span>` elements with `hl-` prefixed CSS classes:
 
 ```gleam
 import smalto
-import smalto/languages/gleam as gleam_lang
+import smalto/languages/python
 
-let html = smalto.to_html("let x = 42", gleam_lang.grammar())
-// -> "<span class=\"hl-keyword\">let</span> x <span class=\"hl-operator\">=</span> <span class=\"hl-number\">42</span>"
+let html = smalto.to_html("x = 42", python.grammar())
+// -> "x <span class=\"hl-operator\">=</span> <span class=\"hl-number\">42</span>"
 ```
 
 Style them with CSS:

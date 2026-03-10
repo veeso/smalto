@@ -11,13 +11,13 @@ nav_order: 1
 [![conventional-commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 [![target-erlang](https://img.shields.io/badge/target-erlang-b83998)](https://www.erlang.org/)
 
-A general-purpose syntax highlighting library for Gleam, with regex-based grammars for 30+ languages.
+A general-purpose syntax highlighting library for Gleam, with regex-based grammars for 29 languages.
 
 Smalto tokenizes source code using Prism.js-inspired grammars and renders the result as HTML with CSS classes, ANSI terminal colors, or structured tokens for custom rendering.
 
 ## Features
 
-- **30+ languages** — Gleam, Erlang, Elixir, JavaScript, TypeScript, Python, Rust, Go, C, C++, HTML, CSS, JSON, TOML, YAML, Bash, SQL, Java, Ruby, PHP, Swift, Kotlin, Haskell, Lua, Markdown, Dockerfile, XML, Zig, Scala, Dart
+- **29 languages** — Erlang, Elixir, JavaScript, TypeScript, Python, Rust, Go, C, C++, HTML, CSS, JSON, TOML, YAML, Bash, SQL, Java, Ruby, PHP, Swift, Kotlin, Haskell, Lua, Markdown, Dockerfile, XML, Zig, Scala, Dart
 - **HTML output** — tokens wrapped in `<span class="hl-{name}">` elements, ready for CSS theming
 - **ANSI output** — terminal-colored output with configurable themes
 - **Structured tokens** — access the raw token list for custom rendering pipelines

@@ -1,0 +1,13 @@
+---
+version: 1.5.4
+title: dockerfile highlighting
+file: ./test/languages_test.gleam
+test_name: dockerfile_highlighting_test
+---
+# Comment
+FROM node:18-alpine
+WORKDIR /app
+COPY package.json .
+RUN npm install
+EXPOSE 3000
+CMD [&quot;node&quot;, &quot;server.js&quot;]

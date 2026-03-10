@@ -1,0 +1,14 @@
+---
+version: 1.5.4
+title: cpp highlighting
+file: ./test/languages_test.gleam
+test_name: cpp_highlighting_test
+---
+#include <span class="hl-operator">&lt;</span>iostream<span class="hl-operator">&gt;</span>
+<span class="hl-comment">// Comment</span>
+<span class="hl-keyword">class</span> Greeter <span class="hl-punctuation">{</span>
+<span class="hl-keyword">public</span><span class="hl-operator">:</span>
+    <span class="hl-keyword">void</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-keyword">const</span> std<span class="hl-operator">:</span><span class="hl-operator">:</span>string<span class="hl-operator">&amp;</span> name<span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
+        std<span class="hl-operator">:</span><span class="hl-operator">:</span>cout <span class="hl-operator">&lt;&lt;</span> &quot;Hello &quot; <span class="hl-operator">&lt;&lt;</span> name <span class="hl-operator">&lt;&lt;</span> std<span class="hl-operator">:</span><span class="hl-operator">:</span>endl<span class="hl-punctuation">;</span>
+    <span class="hl-punctuation">}</span>
+<span class="hl-punctuation">}</span><span class="hl-punctuation">;</span>

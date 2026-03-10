@@ -1,0 +1,100 @@
+import gleam/option
+import smalto/grammar.{type Grammar, type Rule, Grammar}
+
+pub fn grammar() -> Grammar {
+  Grammar(name: "java", extends: option.Some("clike"), rules: rules())
+}
+
+fn rules() -> List(Rule) {
+  [
+    grammar.greedy_rule("comment", "(?<=^|[^\\\\])\\/\\*[\\s\\S]*?(?:\\*\\/|$)"),
+    grammar.greedy_rule("comment", "(?<=^|[^\\\\:])\\/\\/.*"),
+    grammar.greedy_rule(
+      "string",
+      "\"\"\"[ \\t]*[\\r\\n](?:(?:\"|\"\")?(?:\\\\.|[^\"\\\\]))*\"\"\"",
+    ),
+    grammar.greedy_rule("char", "'(?:\\\\.|[^'\\\\\\r\\n]){1,6}'"),
+    grammar.greedy_rule(
+      "string",
+      "(?<=^|[^\\\\])\"(?:\\\\.|[^\"\\\\\\r\\n])*\"",
+    ),
+    grammar.rule("punctuation", "(?<=^|[^.])@\\w+(?:\\s*\\.\\s*\\w+)*"),
+    grammar.rule_with_inside(
+      "generics",
+      "<(?:[\\w\\s,.?]|&(?!&)|<(?:[\\w\\s,.?]|&(?!&)|<(?:[\\w\\s,.?]|&(?!&)|<(?:[\\w\\s,.?]|&(?!&))*>)*>)*>)*>",
+      [
+        grammar.rule_with_inside(
+          "class-name",
+          "(?<=^|[^\\w.])(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*[A-Z](?:[\\d_A-Z]*[a-z]\\w*)?\\b",
+          [
+            grammar.rule_with_inside(
+              "namespace",
+              "^[a-z]\\w*(?:\\s*\\.\\s*[a-z]\\w*)*(?:\\s*\\.)?",
+              [
+                grammar.rule("punctuation", "\\."),
+              ],
+            ),
+            grammar.rule("punctuation", "\\."),
+          ],
+        ),
+        grammar.rule(
+          "keyword",
+          "\\b(?:abstract|assert|boolean|break|byte|case|catch|char|class|const|continue|default|do|double|else|enum|exports|extends|final|finally|float|for|goto|if|implements|import|instanceof|int|interface|long|module|native|new|non-sealed|null|open|opens|package|permits|private|protected|provides|public|record(?!\\s*[(){}[\\]<>=%~.:,;?+\\-*/&|^])|requires|return|sealed|short|static|strictfp|super|switch|synchronized|this|throw|throws|to|transient|transitive|try|uses|var|void|volatile|while|with|yield)\\b",
+        ),
+        grammar.rule("punctuation", "[<>(),.:]"),
+        grammar.rule("operator", "[?&|]"),
+      ],
+    ),
+    grammar.rule_with_inside(
+      "import",
+      "(?<=\\bimport\\s+)(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*|\\*)(?=\\s*;)",
+      [
+        grammar.rule("punctuation", "\\."),
+        grammar.rule("operator", "\\*"),
+        grammar.rule("class-name", "\\w+"),
+      ],
+    ),
+    grammar.rule_with_inside(
+      "static",
+      "(?<=\\bimport\\s+static\\s+)(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*(?:\\w+|\\*)(?=\\s*;)",
+      [
+        grammar.rule("static", "\\b\\w+$"),
+        grammar.rule("punctuation", "\\."),
+        grammar.rule("operator", "\\*"),
+        grammar.rule("class-name", "\\w+"),
+      ],
+    ),
+    grammar.rule_with_inside(
+      "namespace",
+      "(?<=\\b(?:exports|import(?:\\s+static)?|module|open|opens|package|provides|requires|to|transitive|uses|with)\\s+)(?!\\b(?:abstract|assert|boolean|break|byte|case|catch|char|class|const|continue|default|do|double|else|enum|exports|extends|final|finally|float|for|goto|if|implements|import|instanceof|int|interface|long|module|native|new|non-sealed|null|open|opens|package|permits|private|protected|provides|public|record(?!\\s*[(){}[\\]<>=%~.:,;?+\\-*/&|^])|requires|return|sealed|short|static|strictfp|super|switch|synchronized|this|throw|throws|to|transient|transitive|try|uses|var|void|volatile|while|with|yield)\\b)[a-z]\\w*(?:\\.[a-z]\\w*)*\\.?",
+      [
+        grammar.rule("punctuation", "\\."),
+      ],
+    ),
+    grammar.rule(
+      "class-name",
+      "(?<=^|[^\\w.])(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*[A-Z]\\w*(?=\\s+\\w+\\s*[;,=()]|\\s*(?:\\[[\\s,]*\\]\\s*)?::\\s*new\\b)",
+    ),
+    grammar.rule(
+      "class-name",
+      "(?<=\\b(?:class|enum|extends|implements|instanceof|interface|new|record|throws)\\s+)(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*[A-Z]\\w*\\b",
+    ),
+    grammar.rule(
+      "keyword",
+      "\\b(?:abstract|assert|boolean|break|byte|case|catch|char|class|const|continue|default|do|double|else|enum|exports|extends|final|finally|float|for|goto|if|implements|import|instanceof|int|interface|long|module|native|new|non-sealed|null|open|opens|package|permits|private|protected|provides|public|record(?!\\s*[(){}[\\]<>=%~.:,;?+\\-*/&|^])|requires|return|sealed|short|static|strictfp|super|switch|synchronized|this|throw|throws|to|transient|transitive|try|uses|var|void|volatile|while|with|yield)\\b",
+    ),
+    grammar.rule("boolean", "\\b(?:false|true)\\b"),
+    grammar.rule("function", "\\b\\w+(?=\\()"),
+    grammar.rule("function", "(?<=::\\s*)[a-z_]\\w*"),
+    grammar.rule(
+      "number",
+      "(?i)\\b0b[01][01_]*L?\\b|\\b0x(?:\\.[\\da-f_p+-]+|[\\da-f_]+(?:\\.[\\da-f_p+-]+)?)\\b|(?:\\b\\d[\\d_]*(?:\\.[\\d_]*)?|\\B\\.\\d[\\d_]*)(?:e[+-]?\\d[\\d_]*)?[dfl]?",
+    ),
+    grammar.rule(
+      "operator",
+      "(?m)(?<=^|[^.])(?:<<=?|>>>?=?|->|--|\\+\\+|&&|\\|\\||::|[?:~]|[-+*/%&|^!=<>]=?)",
+    ),
+    grammar.rule("punctuation", "[{}[\\];(),.:]"),
+    grammar.rule("constant", "\\b[A-Z][A-Z_\\d]+\\b"),
+  ]
+}

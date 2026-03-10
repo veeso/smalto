@@ -1,0 +1,44 @@
+import gleam/option
+import smalto/grammar.{type Grammar, type Rule, Grammar}
+
+pub fn grammar() -> Grammar {
+  Grammar(name: "css", extends: option.None, rules: rules())
+}
+
+fn rules() -> List(Rule) {
+  [
+    grammar.rule("comment", "\\/\\*[\\s\\S]*?\\*\\/"),
+    grammar.nested_rule(
+      "atrule",
+      "@[\\w-](?:[^;{\\s\"']|\\s+(?!\\s)|(?:\"(?:\\\\(?:\\r\\n|[\\s\\S])|[^\"\\\\\\r\\n])*\"|'(?:\\\\(?:\\r\\n|[\\s\\S])|[^'\\\\\\r\\n])*'))*?(?:;|(?=\\s*\\{))",
+      "css",
+    ),
+    grammar.greedy_rule_with_inside(
+      "url",
+      "(?i)\\burl\\((?:(?:\"(?:\\\\(?:\\r\\n|[\\s\\S])|[^\"\\\\\\r\\n])*\"|'(?:\\\\(?:\\r\\n|[\\s\\S])|[^'\\\\\\r\\n])*')|(?:[^\\\\\\r\\n()\"']|\\\\[\\s\\S])*)\\)",
+      [
+        grammar.rule("function", "(?i)^url"),
+        grammar.rule("punctuation", "^\\(|\\)$"),
+        grammar.rule(
+          "url",
+          "^(?:\"(?:\\\\(?:\\r\\n|[\\s\\S])|[^\"\\\\\\r\\n])*\"|'(?:\\\\(?:\\r\\n|[\\s\\S])|[^'\\\\\\r\\n])*')$",
+        ),
+      ],
+    ),
+    grammar.rule(
+      "selector",
+      "(?<=^|[{}\\s])[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|(?:\"(?:\\\\(?:\\r\\n|[\\s\\S])|[^\"\\\\\\r\\n])*\"|'(?:\\\\(?:\\r\\n|[\\s\\S])|[^'\\\\\\r\\n])*'))*(?=\\s*\\{)",
+    ),
+    grammar.greedy_rule(
+      "string",
+      "(?:\"(?:\\\\(?:\\r\\n|[\\s\\S])|[^\"\\\\\\r\\n])*\"|'(?:\\\\(?:\\r\\n|[\\s\\S])|[^'\\\\\\r\\n])*')",
+    ),
+    grammar.rule(
+      "property",
+      "(?i)(?<=^|[^-\\w\\xA0-\\x{FFFF}])(?!\\s)[-_a-z\\xA0-\\x{FFFF}](?:(?!\\s)[-\\w\\xA0-\\x{FFFF}])*(?=\\s*:)",
+    ),
+    grammar.rule("important", "(?i)!important\\b"),
+    grammar.rule("function", "(?i)(?<=^|[^-a-z0-9])[-a-z0-9]+(?=\\()"),
+    grammar.rule("punctuation", "[(){};:,]"),
+  ]
+}

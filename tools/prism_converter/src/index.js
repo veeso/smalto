@@ -1,5 +1,14 @@
 import meow from 'meow';
 import pino from 'pino';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { fetchGrammar, fetchAllGrammars, ALL_LANGUAGES, grammarToName } from './fetcher.js';
+import { parseGrammar } from './parser.js';
+import { renderGrammar } from './renderer.js';
+import { renderRegistry } from './registry_writer.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const cli = meow(
   `
@@ -28,12 +37,12 @@ const cli = meow(
       outputDir: {
         type: 'string',
         shortFlag: 'o',
-        default: '../../src/smalto/languages/',
+        default: path.resolve(__dirname, '../../../src/smalto/languages/'),
       },
       registry: {
         type: 'string',
         shortFlag: 'r',
-        default: '../../src/smalto/internal/registry.gleam',
+        default: path.resolve(__dirname, '../../../src/smalto/internal/registry.gleam'),
       },
       logLevel: {
         type: 'string',
@@ -46,10 +55,39 @@ const cli = meow(
 
 const logger = pino({ level: cli.flags.logLevel });
 
-const { input: languages, flags } = cli;
+const { input: requestedLanguages, flags } = cli;
 
-if (!flags.all && languages.length === 0) {
+if (!flags.all && requestedLanguages.length === 0) {
   cli.showHelp();
+} else {
+  // Determine languages to process
+  const languages = flags.all ? ALL_LANGUAGES : requestedLanguages;
+
+  // Ensure output directory exists
+  fs.mkdirSync(flags.outputDir, { recursive: true });
+
+  // Process each language
+  const processedLanguages = [];
+  for (const lang of languages) {
+    logger.info(`Processing ${lang}...`);
+
+    const { grammar, extends: extendsLang } = fetchGrammar(lang);
+
+    const ir = parseGrammar(lang, grammar, extendsLang, grammarToName);
+    const gleamSource = renderGrammar(ir);
+    const outputPath = path.join(flags.outputDir, `${lang}.gleam`);
+
+    fs.writeFileSync(outputPath, gleamSource);
+    logger.info(`Wrote ${outputPath} (${ir.rules.length} rules)`);
+    processedLanguages.push(lang);
+  }
+
+  // Write registry
+  const registrySource = renderRegistry(processedLanguages);
+  fs.writeFileSync(flags.registry, registrySource);
+  logger.info(`Wrote registry: ${flags.registry} (${processedLanguages.length} languages)`);
+
+  logger.info('Done!');
 }
 
-export { cli, flags, languages, logger };
+export { cli, flags };

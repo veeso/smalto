@@ -1,0 +1,12 @@
+---
+version: 1.5.4
+title: elixir highlighting
+file: ./test/languages_test.gleam
+test_name: elixir_highlighting_test
+---
+<span class="hl-comment"># Comment</span>
+<span class="hl-keyword">defmodule</span> <span class="hl-class-name">Greeter</span> <span class="hl-keyword">do</span>
+  <span class="hl-keyword">def</span> <span class="hl-function">hello</span><span class="hl-punctuation">(</span>name<span class="hl-punctuation">)</span> <span class="hl-keyword">do</span>
+    &quot;Hello&quot;
+  <span class="hl-keyword">end</span>
+<span class="hl-keyword">end</span>

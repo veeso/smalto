@@ -1,0 +1,42 @@
+import gleam/option
+import smalto/grammar.{type Grammar, type Rule, Grammar}
+
+pub fn grammar() -> Grammar {
+  Grammar(name: "go", extends: option.Some("clike"), rules: rules())
+}
+
+fn rules() -> List(Rule) {
+  [
+    grammar.greedy_rule("comment", "(?<=^|[^\\\\])\\/\\*[\\s\\S]*?(?:\\*\\/|$)"),
+    grammar.greedy_rule("comment", "(?<=^|[^\\\\:])\\/\\/.*"),
+    grammar.greedy_rule("char", "'(?:\\\\.|[^'\\\\\\r\\n]){0,10}'"),
+    grammar.greedy_rule(
+      "string",
+      "(?<=^|[^\\\\])\"(?:\\\\.|[^\"\\\\\\r\\n])*\"|`[^`]*`",
+    ),
+    grammar.rule(
+      "keyword",
+      "\\b(?:break|case|chan|const|continue|default|defer|else|fallthrough|for|func|go(?:to)?|if|import|interface|map|package|range|return|select|struct|switch|type|var)\\b",
+    ),
+    grammar.rule("boolean", "\\b(?:_|false|iota|nil|true)\\b"),
+    grammar.rule("function", "\\b\\w+(?=\\()"),
+    grammar.rule("number", "(?i)\\b0(?:b[01_]+|o[0-7_]+)i?\\b"),
+    grammar.rule(
+      "number",
+      "(?i)\\b0x(?:[a-f\\d_]+(?:\\.[a-f\\d_]*)?|\\.[a-f\\d_]+)(?:p[+-]?\\d+(?:_\\d+)*)?i?(?!\\w)",
+    ),
+    grammar.rule(
+      "number",
+      "(?i)(?:\\b\\d[\\d_]*(?:\\.[\\d_]*)?|\\B\\.\\d[\\d_]*)(?:e[+-]?[\\d_]+)?i?(?!\\w)",
+    ),
+    grammar.rule(
+      "operator",
+      "[*\\/%^!=]=?|\\+[=+]?|-[=-]?|\\|[=|]?|&(?:=|&|\\^=?)?|>(?:>=?|=)?|<(?:<=?|=|-)?|:=|\\.\\.\\.",
+    ),
+    grammar.rule("punctuation", "[{}[\\];(),.:]"),
+    grammar.rule(
+      "builtin",
+      "\\b(?:append|bool|byte|cap|close|complex|complex(?:64|128)|copy|delete|error|float(?:32|64)|u?int(?:8|16|32|64)?|imag|len|make|new|panic|print(?:ln)?|real|recover|rune|string|uintptr)\\b",
+    ),
+  ]
+}

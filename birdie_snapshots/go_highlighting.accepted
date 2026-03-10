@@ -1,0 +1,13 @@
+---
+version: 1.5.4
+title: go highlighting
+file: ./test/languages_test.gleam
+test_name: go_highlighting_test
+---
+<span class="hl-keyword">package</span> main
+<span class="hl-comment">// Comment</span>
+<span class="hl-keyword">import</span> <span class="hl-string">&quot;fmt&quot;</span>
+<span class="hl-keyword">func</span> <span class="hl-function">main</span><span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
+    name <span class="hl-operator">:=</span> <span class="hl-string">&quot;world&quot;</span>
+    fmt<span class="hl-punctuation">.</span><span class="hl-function">Println</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;Hello&quot;</span><span class="hl-punctuation">,</span> name<span class="hl-punctuation">)</span>
+<span class="hl-punctuation">}</span>

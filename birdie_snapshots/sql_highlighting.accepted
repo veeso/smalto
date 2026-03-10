@@ -1,0 +1,12 @@
+---
+version: 1.5.4
+title: sql highlighting
+file: ./test/languages_test.gleam
+test_name: sql_highlighting_test
+---
+<span class="hl-comment">-- Comment</span>
+<span class="hl-keyword">SELECT</span> name<span class="hl-punctuation">,</span> age
+<span class="hl-keyword">FROM</span> users
+<span class="hl-keyword">WHERE</span> age <span class="hl-operator">&gt;</span> <span class="hl-number">18</span>
+<span class="hl-keyword">ORDER</span> <span class="hl-keyword">BY</span> name <span class="hl-keyword">ASC</span>
+<span class="hl-keyword">LIMIT</span> <span class="hl-number">10</span><span class="hl-punctuation">;</span>

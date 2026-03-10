@@ -1,7 +1,7 @@
 //// A general-purpose syntax highlighting library for Gleam.
 ////
 //// Smalto uses regex-based grammars inspired by Prism.js to tokenize source
-//// code for ~30 programming languages, with output to structured tokens,
+//// code for 29 programming languages, with output to structured tokens,
 //// ANSI terminal colors, or HTML.
 ////
 //// ## Usage
@@ -20,6 +20,7 @@
 //// `to_html`, or `to_ansi` along with the source code to highlight.
 
 import gleam/dict
+import gleam/option
 import smalto/ansi_theme.{type AnsiTheme}
 import smalto/grammar.{type Grammar}
 import smalto/internal/engine
@@ -62,7 +63,18 @@ fn lookup() -> fn(String) -> List(grammar.Rule) {
   let langs = registry.languages()
   fn(name) {
     case dict.get(langs, name) {
-      Ok(rules) -> rules
+      Ok(g) ->
+        grammar.resolve(g, fn(parent_name) {
+          case dict.get(langs, parent_name) {
+            Ok(parent) -> parent
+            Error(_) ->
+              grammar.Grammar(
+                name: parent_name,
+                extends: option.None,
+                rules: [],
+              )
+          }
+        })
       Error(_) -> []
     }
   }

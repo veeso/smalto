@@ -1,0 +1,11 @@
+---
+version: 1.5.4
+title: javascript highlighting
+file: ./test/languages_test.gleam
+test_name: javascript_highlighting_test
+---
+<span class="hl-comment">// Comment</span>
+const <span class="hl-function">greet</span> <span class="hl-operator">=</span> <span class="hl-punctuation">(</span>name<span class="hl-punctuation">)</span> <span class="hl-operator">=&gt;</span> <span class="hl-punctuation">{</span>
+  return <span class="hl-string">&#39;Hello&#39;</span><span class="hl-punctuation">;</span>
+<span class="hl-punctuation">}</span><span class="hl-punctuation">;</span>
+console<span class="hl-punctuation">.</span><span class="hl-function">log</span><span class="hl-punctuation">(</span><span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-string">&#39;world&#39;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>

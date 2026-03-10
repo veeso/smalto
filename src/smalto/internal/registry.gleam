@@ -2,6 +2,7 @@ import gleam/dict.{type Dict}
 import smalto/grammar.{type Grammar}
 import smalto/languages/bash
 import smalto/languages/c
+import smalto/languages/clike
 import smalto/languages/cpp
 import smalto/languages/css
 import smalto/languages/dart
@@ -34,6 +35,7 @@ pub fn languages() -> Dict(String, Grammar) {
   dict.from_list([
     #("bash", bash.grammar()),
     #("c", c.grammar()),
+    #("clike", clike.grammar()),
     #("cpp", cpp.grammar()),
     #("css", css.grammar()),
     #("dart", dart.grammar()),

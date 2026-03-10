@@ -33,7 +33,8 @@ import smalto/token.{type Token}
 /// Cross-language `LanguageRef` references in grammar rules are resolved
 /// automatically using the built-in language registry.
 pub fn to_tokens(code: String, grammar: Grammar) -> List(Token) {
-  engine.tokenize(code, grammar.rules, lookup())
+  let resolved_rules = resolve_grammar(grammar)
+  engine.tokenize(code, resolved_rules, lookup())
 }
 
 /// Render syntax-highlighted HTML from source code.
@@ -56,6 +57,18 @@ pub fn to_ansi(code: String, grammar: Grammar) -> String {
 /// using a custom color theme.
 pub fn to_ansi_with(code: String, grammar: Grammar, theme: AnsiTheme) -> String {
   to_tokens(code, grammar) |> renderer.to_ansi(theme)
+}
+
+/// Resolve a grammar's inheritance chain into a flat list of rules.
+fn resolve_grammar(g: Grammar) -> List(grammar.Rule) {
+  let langs = registry.languages()
+  grammar.resolve(g, fn(parent_name) {
+    case dict.get(langs, parent_name) {
+      Ok(parent) -> parent
+      Error(_) ->
+        grammar.Grammar(name: parent_name, extends: option.None, rules: [])
+    }
+  })
 }
 
 /// Build the language lookup function from the internal registry.

@@ -31,11 +31,20 @@ fn rules() -> List(Rule) {
         ),
         grammar.rule_with_inside(
           "interpolation",
-          "\\{\\$(?:\\{(?:\\{[^{}]+\\}|[^{}]+)\\}|[^{}])+\\}|(?<=^|[^\\\\{])\\$+(?:\\w+(?:\\[[^\\r\\n\\[\\]]+\\]|->\\w+)?)",
+          "\\{\\$(?:\\{(?:\\{[^{}]+\\}|[^{}]+)\\}|[^{}])+\\}|(?:^|[^\\\\{])\\K\\$+(?:\\w+(?:\\[[^\\r\\n\\[\\]]+\\]|->\\w+)?)",
           [
+            grammar.rule("important", "(?i)\\?>$|^<\\?(?:php(?=\\s)|=)?"),
             grammar.rule(
               "comment",
               "\\/\\*[\\s\\S]*?\\*\\/|\\/\\/.*|#(?!\\[).*",
+            ),
+            grammar.greedy_rule(
+              "nowdoc-string",
+              "<<<'([^']+)'[\\r\\n](?:.*[\\r\\n])*?\\1;",
+            ),
+            grammar.greedy_rule(
+              "heredoc-string",
+              "(?i)<<<(?:\"([^\"]+)\"[\\r\\n](?:.*[\\r\\n])*?\\1;|([a-z_]\\w*)[\\r\\n](?:.*[\\r\\n])*?\\2;)",
             ),
             grammar.greedy_rule(
               "backtick-quoted-string",
@@ -45,9 +54,15 @@ fn rules() -> List(Rule) {
               "single-quoted-string",
               "'(?:\\\\[\\s\\S]|[^\\\\'])*'",
             ),
-            grammar.greedy_rule(
+            grammar.greedy_rule_with_inside(
               "double-quoted-string",
               "\"(?:\\\\[\\s\\S]|[^\\\\\"])*\"",
+              [
+                grammar.rule(
+                  "interpolation",
+                  "\\{\\$(?:\\{(?:\\{[^{}]+\\}|[^{}]+)\\}|[^{}])+\\}|(?:^|[^\\\\{])\\K\\$+(?:\\w+(?:\\[[^\\r\\n\\[\\]]+\\]|->\\w+)?)",
+                ),
+              ],
             ),
             grammar.greedy_rule_with_inside(
               "attribute",
@@ -62,12 +77,32 @@ fn rules() -> List(Rule) {
                       "\\/\\*[\\s\\S]*?\\*\\/|\\/\\/.*|#(?!\\[).*",
                     ),
                     grammar.greedy_rule(
+                      "nowdoc-string",
+                      "<<<'([^']+)'[\\r\\n](?:.*[\\r\\n])*?\\1;",
+                    ),
+                    grammar.greedy_rule(
+                      "heredoc-string",
+                      "(?i)<<<(?:\"([^\"]+)\"[\\r\\n](?:.*[\\r\\n])*?\\1;|([a-z_]\\w*)[\\r\\n](?:.*[\\r\\n])*?\\2;)",
+                    ),
+                    grammar.greedy_rule(
+                      "backtick-quoted-string",
+                      "`(?:\\\\[\\s\\S]|[^\\\\`])*`",
+                    ),
+                    grammar.greedy_rule(
+                      "single-quoted-string",
+                      "'(?:\\\\[\\s\\S]|[^\\\\'])*'",
+                    ),
+                    grammar.greedy_rule(
+                      "double-quoted-string",
+                      "\"(?:\\\\[\\s\\S]|[^\\\\\"])*\"",
+                    ),
+                    grammar.greedy_rule(
                       "class-name",
-                      "(?i)(?<=[^:]|^)\\b[a-z_]\\w*(?!\\\\)\\b",
+                      "(?i)(?:[^:]|^)\\K\\b[a-z_]\\w*(?!\\\\)\\b",
                     ),
                     grammar.greedy_rule_with_inside(
                       "class-name",
-                      "(?i)(?<=[^:]|^)(?:\\\\?\\b[a-z_]\\w*)+",
+                      "(?i)(?:[^:]|^)\\K(?:\\\\?\\b[a-z_]\\w*)+",
                       [
                         grammar.rule("punctuation", "\\\\"),
                       ],
@@ -75,11 +110,11 @@ fn rules() -> List(Rule) {
                     grammar.rule("boolean", "(?i)\\b(?:false|true)\\b"),
                     grammar.greedy_rule(
                       "constant",
-                      "(?i)(?<=::\\s*)\\b[a-z_]\\w*\\b(?!\\s*\\()",
+                      "(?i)(?:::\\s*)\\K\\b[a-z_]\\w*\\b(?!\\s*\\()",
                     ),
                     grammar.greedy_rule(
                       "constant",
-                      "(?i)(?<=\\b(?:case|const)\\s+)\\b[a-z_]\\w*(?=\\s*[;=])",
+                      "(?i)(?:\\b(?:case|const)\\s+)\\K\\b[a-z_]\\w*(?=\\s*[;=])",
                     ),
                     grammar.rule("constant", "(?i)\\b(?:null)\\b"),
                     grammar.rule(
@@ -103,30 +138,30 @@ fn rules() -> List(Rule) {
             grammar.rule("variable", "\\$+(?:\\w+\\b|(?=\\{))"),
             grammar.rule_with_inside(
               "package",
-              "(?i)(?<=namespace\\s+|use\\s+(?:function\\s+)?)(?:\\\\?\\b[a-z_]\\w*)+\\b(?!\\\\)",
+              "(?i)(?:namespace\\s+|use\\s+(?:function\\s+)?)\\K(?:\\\\?\\b[a-z_]\\w*)+\\b(?!\\\\)",
               [
                 grammar.rule("punctuation", "\\\\"),
               ],
             ),
             grammar.rule(
               "class-name",
-              "(?i)(?<=\\b(?:class|enum|interface|trait)\\s+)\\b[a-z_]\\w*(?!\\\\)\\b",
+              "(?i)(?:\\b(?:class|enum|interface|trait)\\s+)\\K\\b[a-z_]\\w*(?!\\\\)\\b",
             ),
             grammar.rule(
               "function",
-              "(?i)(?<=\\bfunction\\s+)[a-z_]\\w*(?=\\s*\\()",
+              "(?i)(?:\\bfunction\\s+)\\K[a-z_]\\w*(?=\\s*\\()",
             ),
             grammar.greedy_rule(
               "type-casting",
-              "(?i)(?<=\\(\\s*)\\b(?:array|bool|boolean|float|int|integer|object|string)\\b(?=\\s*\\))",
+              "(?i)(?:\\(\\s*)\\K\\b(?:array|bool|boolean|float|int|integer|object|string)\\b(?=\\s*\\))",
             ),
             grammar.greedy_rule(
               "type-hint",
-              "(?i)(?<=[(,?]\\s*)\\b(?:array(?!\\s*\\()|bool|callable|(?:false|null)(?=\\s*\\|)|float|int|iterable|mixed|object|self|static|string)\\b(?=\\s*\\$)",
+              "(?i)(?:[(,?]\\s*)\\K\\b(?:array(?!\\s*\\()|bool|callable|(?:false|null)(?=\\s*\\|)|float|int|iterable|mixed|object|self|static|string)\\b(?=\\s*\\$)",
             ),
             grammar.greedy_rule(
               "return-type",
-              "(?i)(?<=\\)\\s*:\\s*(?:\\?\\s*)?)\\b(?:array(?!\\s*\\()|bool|callable|(?:false|null)(?=\\s*\\|)|float|int|iterable|mixed|never|object|self|static|string|void)\\b",
+              "(?i)(?:\\)\\s*:\\s*(?:\\?\\s*)?)\\K\\b(?:array(?!\\s*\\()|bool|callable|(?:false|null)(?=\\s*\\|)|float|int|iterable|mixed|never|object|self|static|string|void)\\b",
             ),
             grammar.greedy_rule(
               "type-declaration",
@@ -134,29 +169,29 @@ fn rules() -> List(Rule) {
             ),
             grammar.greedy_rule(
               "type-declaration",
-              "(?i)(?<=\\|\\s*)(?:false|null)\\b|\\b(?:false|null)(?=\\s*\\|)",
+              "(?i)(?:\\|\\s*)\\K(?:false|null)\\b|\\b(?:false|null)(?=\\s*\\|)",
             ),
             grammar.greedy_rule(
               "static-context",
               "(?i)\\b(?:parent|self|static)(?=\\s*::)",
             ),
-            grammar.rule("keyword", "(?i)(?<=\\byield\\s+)from\\b"),
+            grammar.rule("keyword", "(?i)(?:\\byield\\s+)\\Kfrom\\b"),
             grammar.rule("keyword", "(?i)\\bclass\\b"),
             grammar.rule(
               "keyword",
-              "(?i)(?<=(?:^|[^\\s>:]|(?:^|[^-])>|(?:^|[^:]):)\\s*)\\b(?:abstract|and|array|as|break|callable|case|catch|clone|const|continue|declare|default|die|do|echo|else|elseif|empty|enddeclare|endfor|endforeach|endif|endswitch|endwhile|enum|eval|exit|extends|final|finally|fn|for|foreach|function|global|goto|if|implements|include|include_once|instanceof|insteadof|interface|isset|list|match|namespace|never|new|or|parent|print|private|protected|public|readonly|require|require_once|return|self|static|switch|throw|trait|try|unset|use|var|while|xor|yield|__halt_compiler)\\b",
+              "(?i)(?:(?:^|[^\\s>:]|(?:^|[^-])>|(?:^|[^:]):)\\s*)\\K\\b(?:abstract|and|array|as|break|callable|case|catch|clone|const|continue|declare|default|die|do|echo|else|elseif|empty|enddeclare|endfor|endforeach|endif|endswitch|endwhile|enum|eval|exit|extends|final|finally|fn|for|foreach|function|global|goto|if|implements|include|include_once|instanceof|insteadof|interface|isset|list|match|namespace|never|new|or|parent|print|private|protected|public|readonly|require|require_once|return|self|static|switch|throw|trait|try|unset|use|var|while|xor|yield|__halt_compiler)\\b",
             ),
             grammar.rule(
               "argument-name",
-              "(?i)(?<=[(,]\\s*)\\b[a-z_]\\w*(?=\\s*:(?!:))",
+              "(?i)(?:[(,]\\s*)\\K\\b[a-z_]\\w*(?=\\s*:(?!:))",
             ),
             grammar.greedy_rule(
               "class-name",
-              "(?i)(?<=\\b(?:extends|implements|instanceof|new(?!\\s+self|\\s+static))\\s+|\\bcatch\\s*\\()\\b[a-z_]\\w*(?!\\\\)\\b",
+              "(?i)(?:\\b(?:extends|implements|instanceof|new(?!\\s+self|\\s+static))\\s+|\\bcatch\\s*\\()\\K\\b[a-z_]\\w*(?!\\\\)\\b",
             ),
             grammar.greedy_rule(
               "class-name",
-              "(?i)(?<=\\|\\s*)\\b[a-z_]\\w*(?!\\\\)\\b",
+              "(?i)(?:\\|\\s*)\\K\\b[a-z_]\\w*(?!\\\\)\\b",
             ),
             grammar.greedy_rule(
               "class-name",
@@ -164,7 +199,7 @@ fn rules() -> List(Rule) {
             ),
             grammar.greedy_rule_with_inside(
               "class-name-fully-qualified",
-              "(?i)(?<=\\|\\s*)(?:\\\\?\\b[a-z_]\\w*)+\\b",
+              "(?i)(?:\\|\\s*)\\K(?:\\\\?\\b[a-z_]\\w*)+\\b",
               [
                 grammar.rule("punctuation", "\\\\"),
               ],
@@ -178,7 +213,7 @@ fn rules() -> List(Rule) {
             ),
             grammar.greedy_rule_with_inside(
               "class-name-fully-qualified",
-              "(?i)(?<=\\b(?:extends|implements|instanceof|new(?!\\s+self\\b|\\s+static\\b))\\s+|\\bcatch\\s*\\()(?:\\\\?\\b[a-z_]\\w*)+\\b(?!\\\\)",
+              "(?i)(?:\\b(?:extends|implements|instanceof|new(?!\\s+self\\b|\\s+static\\b))\\s+|\\bcatch\\s*\\()\\K(?:\\\\?\\b[a-z_]\\w*)+\\b(?!\\\\)",
               [
                 grammar.rule("punctuation", "\\\\"),
               ],
@@ -204,36 +239,45 @@ fn rules() -> List(Rule) {
             ),
             grammar.greedy_rule(
               "type-hint",
-              "(?i)(?<=[(,?]\\s*)[a-z_]\\w*(?=\\s*\\$)",
+              "(?i)(?:[(,?]\\s*)\\K[a-z_]\\w*(?=\\s*\\$)",
             ),
             grammar.greedy_rule_with_inside(
               "class-name-fully-qualified",
-              "(?i)(?<=[(,?]\\s*)(?:\\\\?\\b[a-z_]\\w*)+(?=\\s*\\$)",
+              "(?i)(?:[(,?]\\s*)\\K(?:\\\\?\\b[a-z_]\\w*)+(?=\\s*\\$)",
               [
                 grammar.rule("punctuation", "\\\\"),
               ],
             ),
             grammar.greedy_rule(
               "return-type",
-              "(?i)(?<=\\)\\s*:\\s*(?:\\?\\s*)?)\\b[a-z_]\\w*(?!\\\\)\\b",
+              "(?i)(?:\\)\\s*:\\s*(?:\\?\\s*)?)\\K\\b[a-z_]\\w*(?!\\\\)\\b",
             ),
             grammar.greedy_rule_with_inside(
               "class-name-fully-qualified",
-              "(?i)(?<=\\)\\s*:\\s*(?:\\?\\s*)?)(?:\\\\?\\b[a-z_]\\w*)+\\b(?!\\\\)",
+              "(?i)(?:\\)\\s*:\\s*(?:\\?\\s*)?)\\K(?:\\\\?\\b[a-z_]\\w*)+\\b(?!\\\\)",
               [
                 grammar.rule("punctuation", "\\\\"),
               ],
+            ),
+            grammar.rule("boolean", "(?i)\\b(?:false|true)\\b"),
+            grammar.greedy_rule(
+              "constant",
+              "(?i)(?:::\\s*)\\K\\b[a-z_]\\w*\\b(?!\\s*\\()",
+            ),
+            grammar.greedy_rule(
+              "constant",
+              "(?i)(?:\\b(?:case|const)\\s+)\\K\\b[a-z_]\\w*(?=\\s*[;=])",
             ),
             grammar.rule("constant", "(?i)\\b(?:null)\\b"),
             grammar.rule("constant", "\\b[A-Z_][A-Z0-9_]*\\b(?!\\s*\\()"),
             grammar.rule_with_inside(
               "function",
-              "(?i)(?<=^|[^\\\\\\w])\\\\?[a-z_](?:[\\w\\\\]*\\w)?(?=\\s*\\()",
+              "(?i)(?:^|[^\\\\\\w])\\K\\\\?[a-z_](?:[\\w\\\\]*\\w)?(?=\\s*\\()",
               [
                 grammar.rule("punctuation", "\\\\"),
               ],
             ),
-            grammar.rule("property", "(?<=->\\s*)\\w+"),
+            grammar.rule("property", "(?:->\\s*)\\K\\w+"),
             grammar.rule(
               "number",
               "(?i)\\b0b[01]+(?:_[01]+)*\\b|\\b0o[0-7]+(?:_[0-7]+)*\\b|\\b0x[\\da-f]+(?:_[\\da-f]+)*\\b|(?:\\b\\d+(?:_\\d+)*\\.?(?:\\d+(?:_\\d+)*)?|\\B\\.\\d+)(?:e[+-]?\\d+)?",
@@ -247,10 +291,126 @@ fn rules() -> List(Rule) {
         ),
       ],
     ),
+    grammar.greedy_rule(
+      "backtick-quoted-string",
+      "`(?:\\\\[\\s\\S]|[^\\\\`])*`",
+    ),
+    grammar.greedy_rule("single-quoted-string", "'(?:\\\\[\\s\\S]|[^\\\\'])*'"),
+    grammar.greedy_rule(
+      "double-quoted-string",
+      "\"(?:\\\\[\\s\\S]|[^\\\\\"])*\"",
+    ),
+    grammar.greedy_rule(
+      "attribute",
+      "(?im)#\\[(?:[^\"'\\/#]|\\/(?![*/])|\\/\\/.*$|#(?!\\[).*$|\\/\\*(?:[^*]|\\*(?!\\/))*\\*\\/|\"(?:\\\\[\\s\\S]|[^\\\\\"])*\"|'(?:\\\\[\\s\\S]|[^\\\\'])*')+\\](?=\\s*[a-z$#])",
+    ),
     grammar.rule("variable", "\\$+(?:\\w+\\b|(?=\\{))"),
+    grammar.rule(
+      "package",
+      "(?i)(?:namespace\\s+|use\\s+(?:function\\s+)?)\\K(?:\\\\?\\b[a-z_]\\w*)+\\b(?!\\\\)",
+    ),
+    grammar.rule(
+      "class-name",
+      "(?i)(?:\\b(?:class|enum|interface|trait)\\s+)\\K\\b[a-z_]\\w*(?!\\\\)\\b",
+    ),
+    grammar.rule("function", "(?i)(?:\\bfunction\\s+)\\K[a-z_]\\w*(?=\\s*\\()"),
+    grammar.greedy_rule(
+      "type-casting",
+      "(?i)(?:\\(\\s*)\\K\\b(?:array|bool|boolean|float|int|integer|object|string)\\b(?=\\s*\\))",
+    ),
+    grammar.greedy_rule(
+      "type-hint",
+      "(?i)(?:[(,?]\\s*)\\K\\b(?:array(?!\\s*\\()|bool|callable|(?:false|null)(?=\\s*\\|)|float|int|iterable|mixed|object|self|static|string)\\b(?=\\s*\\$)",
+    ),
+    grammar.greedy_rule(
+      "return-type",
+      "(?i)(?:\\)\\s*:\\s*(?:\\?\\s*)?)\\K\\b(?:array(?!\\s*\\()|bool|callable|(?:false|null)(?=\\s*\\|)|float|int|iterable|mixed|never|object|self|static|string|void)\\b",
+    ),
+    grammar.greedy_rule(
+      "type-declaration",
+      "(?i)\\b(?:array(?!\\s*\\()|bool|float|int|iterable|mixed|object|string|void)\\b",
+    ),
+    grammar.greedy_rule(
+      "type-declaration",
+      "(?i)(?:\\|\\s*)\\K(?:false|null)\\b|\\b(?:false|null)(?=\\s*\\|)",
+    ),
+    grammar.greedy_rule(
+      "static-context",
+      "(?i)\\b(?:parent|self|static)(?=\\s*::)",
+    ),
+    grammar.rule("keyword", "(?i)(?:\\byield\\s+)\\Kfrom\\b"),
     grammar.rule("keyword", "(?i)\\bclass\\b"),
+    grammar.rule(
+      "keyword",
+      "(?i)(?:(?:^|[^\\s>:]|(?:^|[^-])>|(?:^|[^:]):)\\s*)\\K\\b(?:abstract|and|array|as|break|callable|case|catch|clone|const|continue|declare|default|die|do|echo|else|elseif|empty|enddeclare|endfor|endforeach|endif|endswitch|endwhile|enum|eval|exit|extends|final|finally|fn|for|foreach|function|global|goto|if|implements|include|include_once|instanceof|insteadof|interface|isset|list|match|namespace|never|new|or|parent|print|private|protected|public|readonly|require|require_once|return|self|static|switch|throw|trait|try|unset|use|var|while|xor|yield|__halt_compiler)\\b",
+    ),
+    grammar.rule(
+      "argument-name",
+      "(?i)(?:[(,]\\s*)\\K\\b[a-z_]\\w*(?=\\s*:(?!:))",
+    ),
+    grammar.greedy_rule(
+      "class-name",
+      "(?i)(?:\\b(?:extends|implements|instanceof|new(?!\\s+self|\\s+static))\\s+|\\bcatch\\s*\\()\\K\\b[a-z_]\\w*(?!\\\\)\\b",
+    ),
+    grammar.greedy_rule(
+      "class-name",
+      "(?i)(?:\\|\\s*)\\K\\b[a-z_]\\w*(?!\\\\)\\b",
+    ),
+    grammar.greedy_rule("class-name", "(?i)\\b[a-z_]\\w*(?!\\\\)\\b(?=\\s*\\|)"),
+    grammar.greedy_rule(
+      "class-name-fully-qualified",
+      "(?i)(?:\\|\\s*)\\K(?:\\\\?\\b[a-z_]\\w*)+\\b",
+    ),
+    grammar.greedy_rule(
+      "class-name-fully-qualified",
+      "(?i)(?:\\\\?\\b[a-z_]\\w*)+\\b(?=\\s*\\|)",
+    ),
+    grammar.greedy_rule(
+      "class-name-fully-qualified",
+      "(?i)(?:\\b(?:extends|implements|instanceof|new(?!\\s+self\\b|\\s+static\\b))\\s+|\\bcatch\\s*\\()\\K(?:\\\\?\\b[a-z_]\\w*)+\\b(?!\\\\)",
+    ),
+    grammar.greedy_rule("type-declaration", "(?i)\\b[a-z_]\\w*(?=\\s*\\$)"),
+    grammar.greedy_rule(
+      "class-name-fully-qualified",
+      "(?i)(?:\\\\?\\b[a-z_]\\w*)+(?=\\s*\\$)",
+    ),
+    grammar.greedy_rule("static-context", "(?i)\\b[a-z_]\\w*(?=\\s*::)"),
+    grammar.greedy_rule(
+      "class-name-fully-qualified",
+      "(?i)(?:\\\\?\\b[a-z_]\\w*)+(?=\\s*::)",
+    ),
+    grammar.greedy_rule(
+      "type-hint",
+      "(?i)(?:[(,?]\\s*)\\K[a-z_]\\w*(?=\\s*\\$)",
+    ),
+    grammar.greedy_rule(
+      "class-name-fully-qualified",
+      "(?i)(?:[(,?]\\s*)\\K(?:\\\\?\\b[a-z_]\\w*)+(?=\\s*\\$)",
+    ),
+    grammar.greedy_rule(
+      "return-type",
+      "(?i)(?:\\)\\s*:\\s*(?:\\?\\s*)?)\\K\\b[a-z_]\\w*(?!\\\\)\\b",
+    ),
+    grammar.greedy_rule(
+      "class-name-fully-qualified",
+      "(?i)(?:\\)\\s*:\\s*(?:\\?\\s*)?)\\K(?:\\\\?\\b[a-z_]\\w*)+\\b(?!\\\\)",
+    ),
+    grammar.rule("boolean", "(?i)\\b(?:false|true)\\b"),
+    grammar.greedy_rule(
+      "constant",
+      "(?i)(?:::\\s*)\\K\\b[a-z_]\\w*\\b(?!\\s*\\()",
+    ),
+    grammar.greedy_rule(
+      "constant",
+      "(?i)(?:\\b(?:case|const)\\s+)\\K\\b[a-z_]\\w*(?=\\s*[;=])",
+    ),
     grammar.rule("constant", "(?i)\\b(?:null)\\b"),
     grammar.rule("constant", "\\b[A-Z_][A-Z0-9_]*\\b(?!\\s*\\()"),
+    grammar.rule(
+      "function",
+      "(?i)(?:^|[^\\\\\\w])\\K\\\\?[a-z_](?:[\\w\\\\]*\\w)?(?=\\s*\\()",
+    ),
+    grammar.rule("property", "(?:->\\s*)\\K\\w+"),
     grammar.rule(
       "number",
       "(?i)\\b0b[01]+(?:_[01]+)*\\b|\\b0o[0-7]+(?:_[0-7]+)*\\b|\\b0x[\\da-f]+(?:_[\\da-f]+)*\\b|(?:\\b\\d+(?:_\\d+)*\\.?(?:\\d+(?:_\\d+)*)?|\\B\\.\\d+)(?:e[+-]?\\d+)?",

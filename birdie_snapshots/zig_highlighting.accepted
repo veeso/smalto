@@ -1,14 +1,12 @@
 ---
 version: 1.5.4
 title: zig highlighting
-file: ./test/languages_test.gleam
-test_name: zig_highlighting_test
 ---
 <span class="hl-comment">// Comment</span>
 <span class="hl-keyword">const</span> std <span class="hl-operator">=</span> <span class="hl-builtin">@import</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;std&quot;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
-<span class="hl-keyword">fn</span> <span class="hl-function">add</span><span class="hl-punctuation">(</span>a<span class="hl-punctuation">:</span> i32<span class="hl-punctuation">,</span> b<span class="hl-punctuation">:</span> i32<span class="hl-punctuation">)</span> i32 <span class="hl-punctuation">{</span>
+<span class="hl-keyword">fn</span> <span class="hl-function">add</span><span class="hl-punctuation">(</span>a<span class="hl-punctuation">:</span> <span class="hl-keyword">i32</span><span class="hl-punctuation">,</span> b<span class="hl-punctuation">:</span> <span class="hl-keyword">i32</span><span class="hl-punctuation">)</span> <span class="hl-keyword">i32</span> <span class="hl-punctuation">{</span>
     <span class="hl-keyword">return</span> a <span class="hl-operator">+</span> b<span class="hl-punctuation">;</span>
 <span class="hl-punctuation">}</span>
-<span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span> <span class="hl-function">main</span><span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> void <span class="hl-punctuation">{</span>
+<span class="hl-keyword">pub</span> <span class="hl-keyword">fn</span> <span class="hl-function">main</span><span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-keyword">void</span> <span class="hl-punctuation">{</span>
     std<span class="hl-punctuation">.</span>debug<span class="hl-punctuation">.</span><span class="hl-function">print</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;Result: {}\n&quot;</span><span class="hl-punctuation">,</span> <span class="hl-punctuation">.</span><span class="hl-punctuation">{</span><span class="hl-function">add</span><span class="hl-punctuation">(</span><span class="hl-number">1</span><span class="hl-punctuation">,</span> <span class="hl-number">2</span><span class="hl-punctuation">)</span><span class="hl-punctuation">}</span><span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>
 <span class="hl-punctuation">}</span>

@@ -1,13 +1,11 @@
 ---
 version: 1.5.4
 title: kotlin highlighting
-file: ./test/languages_test.gleam
-test_name: kotlin_highlighting_test
 ---
 <span class="hl-comment">// Comment</span>
-fun greet<span class="hl-punctuation">(</span>name<span class="hl-operator">:</span> String<span class="hl-punctuation">)</span><span class="hl-operator">:</span> String <span class="hl-punctuation">{</span>
-    return &quot;Hello&quot;
+<span class="hl-keyword">fun</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span>name<span class="hl-operator">:</span> String<span class="hl-punctuation">)</span><span class="hl-operator">:</span> String <span class="hl-punctuation">{</span>
+    <span class="hl-keyword">return</span> <span class="hl-singleline">&quot;Hello&quot;</span>
 <span class="hl-punctuation">}</span>
-fun main<span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
-    println<span class="hl-punctuation">(</span>greet<span class="hl-punctuation">(</span>&quot;world&quot;<span class="hl-punctuation">)</span><span class="hl-punctuation">)</span>
+<span class="hl-keyword">fun</span> <span class="hl-function">main</span><span class="hl-punctuation">(</span><span class="hl-punctuation">)</span> <span class="hl-punctuation">{</span>
+    <span class="hl-function">println</span><span class="hl-punctuation">(</span><span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-singleline">&quot;world&quot;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">)</span>
 <span class="hl-punctuation">}</span>

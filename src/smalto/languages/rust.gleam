@@ -9,9 +9,9 @@ fn rules() -> List(Rule) {
   [
     grammar.greedy_rule(
       "comment",
-      "(?<=^|[^\\\\])\\/\\*(?:[^*/]|\\*(?!\\/)|\\/(?!\\*)|\\/\\*(?:[^*/]|\\*(?!\\/)|\\/(?!\\*)|\\/\\*(?:[^*/]|\\*(?!\\/)|\\/(?!\\*)|\\/\\*(?:[^*/]|\\*(?!\\/)|\\/(?!\\*)|[^\\s\\S])*\\*\\/)*\\*\\/)*\\*\\/)*\\*\\/",
+      "(?:^|[^\\\\])\\K\\/\\*(?:[^*/]|\\*(?!\\/)|\\/(?!\\*)|\\/\\*(?:[^*/]|\\*(?!\\/)|\\/(?!\\*)|\\/\\*(?:[^*/]|\\*(?!\\/)|\\/(?!\\*)|\\/\\*(?:[^*/]|\\*(?!\\/)|\\/(?!\\*)|[^\\s\\S])*\\*\\/)*\\*\\/)*\\*\\/)*\\*\\/",
     ),
-    grammar.greedy_rule("comment", "(?<=^|[^\\\\:])\\/\\/.*"),
+    grammar.greedy_rule("comment", "(?:^|[^\\\\:])\\K\\/\\/.*"),
     grammar.greedy_rule(
       "string",
       "b?\"(?:\\\\[\\s\\S]|[^\\\\\"])*\"|b?r(#*)\"(?:[^\"]|\"(?!\\1))*\"\\1",
@@ -20,27 +20,33 @@ fn rules() -> List(Rule) {
       "char",
       "b?'(?:\\\\(?:x[0-7][\\da-fA-F]|u\\{(?:[\\da-fA-F]_*){1,6}\\}|.)|[^\\\\\\r\\n\\t'])'",
     ),
-    grammar.greedy_rule(
+    grammar.greedy_rule_with_inside(
       "attr-name",
       "#!?\\[(?:[^\\[\\]\"]|\"(?:\\\\[\\s\\S]|[^\\\\\"])*\")*\\]",
+      [
+        grammar.greedy_rule(
+          "string",
+          "b?\"(?:\\\\[\\s\\S]|[^\\\\\"])*\"|b?r(#*)\"(?:[^\"]|\"(?!\\1))*\"\\1",
+        ),
+      ],
     ),
     grammar.nested_rule(
       "closure-params",
-      "(?<=[=(,:]\\s*|\\bmove\\s*)\\|[^|]*\\||\\|[^|]*\\|(?=\\s*(?:\\{|->))",
+      "(?:[=(,:]\\s*|\\bmove\\s*)\\K\\|[^|]*\\||\\|[^|]*\\|(?=\\s*(?:\\{|->))",
       "rust",
     ),
     grammar.rule("symbol", "'\\w+"),
-    grammar.rule("punctuation", "(?<=\\$\\w+:)[a-z]+"),
+    grammar.rule("punctuation", "(?:\\$\\w+:)\\K[a-z]+"),
     grammar.rule("variable", "\\$\\w+"),
-    grammar.rule("function", "(?<=\\bfn\\s+)\\w+"),
+    grammar.rule("function", "(?:\\bfn\\s+)\\K\\w+"),
     grammar.rule(
       "class-name",
-      "(?<=\\b(?:enum|struct|trait|type|union)\\s+)\\w+",
+      "(?:\\b(?:enum|struct|trait|type|union)\\s+)\\K\\w+",
     ),
-    grammar.rule("namespace", "(?<=\\b(?:crate|mod)\\s+)[a-z][a-z_\\d]*"),
+    grammar.rule("namespace", "(?:\\b(?:crate|mod)\\s+)\\K[a-z][a-z_\\d]*"),
     grammar.rule_with_inside(
       "namespace",
-      "(?<=\\b(?:crate|self|super)\\s*)::\\s*[a-z][a-z_\\d]*\\b(?:\\s*::(?:\\s*[a-z][a-z_\\d]*\\s*::)*)?",
+      "(?:\\b(?:crate|self|super)\\s*)\\K::\\s*[a-z][a-z_\\d]*\\b(?:\\s*::(?:\\s*[a-z][a-z_\\d]*\\s*::)*)?",
       [
         grammar.rule("punctuation", "::"),
       ],

@@ -1,13 +1,11 @@
 ---
 version: 1.5.4
 title: bash highlighting
-file: ./test/languages_test.gleam
-test_name: bash_highlighting_test
 ---
 <span class="hl-important">#!/bin/bash</span>
 <span class="hl-comment"># Comment</span>
-name=&quot;world&quot;
-echo &quot;Hello <span class="hl-variable">$name</span>&quot;
-if <span class="hl-punctuation">[</span> <span class="hl-variable">-f</span> file.txt <span class="hl-punctuation">]</span><span class="hl-punctuation">;</span> then
-  cat file.txt
-fi
+name<span class="hl-operator">=</span><span class="hl-string">&quot;world&quot;</span>
+<span class="hl-class-name">echo</span> <span class="hl-string">&quot;Hello $name&quot;</span>
+<span class="hl-keyword">if</span> <span class="hl-punctuation">[</span> <span class="hl-variable">-f</span> file.txt <span class="hl-punctuation">]</span><span class="hl-punctuation">;</span> <span class="hl-keyword">then</span>
+  <span class="hl-function">cat</span> file.txt
+<span class="hl-keyword">fi</span>

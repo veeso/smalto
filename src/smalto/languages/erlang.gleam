@@ -23,13 +23,13 @@ fn rules() -> List(Rule) {
       "(?i)(?:\\b\\d+(?:\\.\\d*)?|\\B\\.\\d+)(?:e[+-]?\\d+)?",
     ),
     grammar.rule("function", "\\b[a-z][\\w@]*(?=\\()"),
-    grammar.rule("variable", "(?<=^|[^@])(?:\\b|\\?)[A-Z_][\\w@]*"),
+    grammar.rule("variable", "(?:^|[^@])\\K(?:\\b|\\?)[A-Z_][\\w@]*"),
     grammar.rule(
       "operator",
       "[=\\/<>:]=|=[:\\/]=|\\+\\+?|--?|[=*\\/!]|\\b(?:and|andalso|band|bnot|bor|bsl|bsr|bxor|div|not|or|orelse|rem|xor)\\b",
     ),
-    grammar.rule("operator", "(?<=^|[^<])<(?!<)"),
-    grammar.rule("operator", "(?<=^|[^>])>(?!>)"),
+    grammar.rule("operator", "(?:^|[^<])\\K<(?!<)"),
+    grammar.rule("operator", "(?:^|[^>])\\K>(?!>)"),
     grammar.rule("atom", "\\b[a-z][\\w@]*"),
     grammar.rule("punctuation", "[()[\\]{}:;,.#|]|<<|>>"),
   ]

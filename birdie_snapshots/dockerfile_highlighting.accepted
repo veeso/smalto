@@ -1,13 +1,11 @@
 ---
 version: 1.5.4
 title: dockerfile highlighting
-file: ./test/languages_test.gleam
-test_name: dockerfile_highlighting_test
 ---
-# Comment
-FROM node:18-alpine
-WORKDIR /app
-COPY package.json .
-RUN npm install
-EXPOSE 3000
-CMD [&quot;node&quot;, &quot;server.js&quot;]
+<span class="hl-comment"># Comment</span>
+<span class="hl-keyword">FROM</span> node:18-alpine
+<span class="hl-keyword">WORKDIR</span> /app
+<span class="hl-keyword">COPY</span> package.json .
+<span class="hl-keyword">RUN</span> npm install
+<span class="hl-keyword">EXPOSE</span> 3000
+<span class="hl-keyword">CMD</span> [<span class="hl-string">&quot;node&quot;</span>, <span class="hl-string">&quot;server.js&quot;</span>]

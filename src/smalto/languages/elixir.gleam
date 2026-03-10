@@ -37,10 +37,10 @@ fn rules() -> List(Rule) {
         grammar.nested_rule("interpolation", "#\\{[^}]+\\}", "elixir"),
       ],
     ),
-    grammar.rule("symbol", "(?<=^|[^:]):\\w+"),
+    grammar.rule("symbol", "(?:^|[^:])\\K:\\w+"),
     grammar.rule("class-name", "\\b[A-Z]\\w*\\b"),
     grammar.rule("attr-name", "\\b\\w+\\??:(?!:)"),
-    grammar.rule("variable", "(?<=^|[^&])&\\d+"),
+    grammar.rule("variable", "(?:^|[^&])\\K&\\d+"),
     grammar.rule("variable", "@\\w+"),
     grammar.rule(
       "function",

@@ -9,7 +9,7 @@ fn rules() -> List(Rule) {
   [
     grammar.rule(
       "comment",
-      "(?m)(?<=^|[^-!#$%*+=?&@|~.:<>^\\\\\\/])(?:--(?:(?=.)[^-!#$%*+=?&@|~.:<>^\\\\\\/].*|$)|\\{-[\\s\\S]*?-\\})",
+      "(?m)(?:^|[^-!#$%*+=?&@|~.:<>^\\\\\\/])\\K(?:--(?:(?=.)[^-!#$%*+=?&@|~.:<>^\\\\\\/].*|$)|\\{-[\\s\\S]*?-\\})",
     ),
     grammar.rule(
       "string",
@@ -22,7 +22,7 @@ fn rules() -> List(Rule) {
     ),
     grammar.rule_with_inside(
       "import-statement",
-      "(?m)(?<=^[\\t ]*)import\\s+(?:qualified\\s+)?(?:[A-Z][\\w']*)(?:\\.[A-Z][\\w']*)*(?:\\s+as\\s+(?:[A-Z][\\w']*)(?:\\.[A-Z][\\w']*)*)?(?:\\s+hiding\\b)?",
+      "(?m)(?:^[\\t ]*)\\Kimport\\s+(?:qualified\\s+)?(?:[A-Z][\\w']*)(?:\\.[A-Z][\\w']*)*(?:\\s+as\\s+(?:[A-Z][\\w']*)(?:\\.[A-Z][\\w']*)*)?(?:\\s+hiding\\b)?",
       [
         grammar.rule("keyword", "\\b(?:as|hiding|import|qualified)\\b"),
         grammar.rule("punctuation", "\\."),

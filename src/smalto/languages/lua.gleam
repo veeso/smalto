@@ -22,7 +22,7 @@ fn rules() -> List(Rule) {
     ),
     grammar.rule("function", "(?!\\d)\\w+(?=\\s*(?:[({]))"),
     grammar.rule("operator", "[-+*%^&|#]|\\/\\/?|<[<=]?|>[>=]?|[=~]=?"),
-    grammar.rule("operator", "(?<=^|[^.])\\.\\.(?!\\.)"),
+    grammar.rule("operator", "(?:^|[^.])\\K\\.\\.(?!\\.)"),
     grammar.rule("punctuation", "[\\[\\](){},;]|\\.+|:+"),
   ]
 }

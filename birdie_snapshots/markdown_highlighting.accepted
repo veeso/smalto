@@ -1,11 +1,9 @@
 ---
 version: 1.5.4
 title: markdown highlighting
-file: ./test/languages_test.gleam
-test_name: markdown_highlighting_test
 ---
-# Heading
-## Subheading
-This is **bold** and *italic*.
-- List item
-- Another item
+<span class="hl-important"># Heading</span>
+<span class="hl-important">## Subheading</span>
+This is <span class="hl-bold">**bold**</span> and <span class="hl-italic">*italic*</span>.
+<span class="hl-punctuation">-</span> List item
+<span class="hl-punctuation">-</span> Another item

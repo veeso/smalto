@@ -34,10 +34,36 @@ function regexToString(regex) {
 }
 
 /**
+ * Check if a regex pattern has fixed length for PCRE lookbehind.
+ *
+ * PCRE lookbehinds require all alternatives to have the same fixed length.
+ * Returns false if the pattern contains quantifiers (*, +, ?, {n,m}),
+ * alternation with different-length branches, or other variable-length constructs.
+ *
+ * @param {string} content - The lookbehind content to check
+ * @returns {boolean}
+ */
+function isFixedLengthLookbehind(content) {
+  // Quick heuristics: variable-length quantifiers make it non-fixed
+  // AIRBNB-2.1: const for regex patterns
+  const variableLengthPattern = /(?<!\\)[*+?]|\{[\d]+,[\d]*\}/;
+  if (variableLengthPattern.test(content)) return false;
+
+  // Alternation with ^ anchor (common in Prism: ^|[^.]) is variable-length in PCRE
+  if (/\^/.test(content) && /\|/.test(content)) return false;
+
+  return true;
+}
+
+/**
  * Convert a Prism lookbehind pattern to PCRE lookbehind.
  *
  * Prism's lookbehind: true means the first capture group is consumed
  * but excluded from the token. We convert it to (?<=...) for PCRE.
+ *
+ * When the lookbehind content is variable-length (not supported by PCRE),
+ * we use \K (match reset) as a fallback: the lookbehind group is converted
+ * to a non-capturing group followed by \K.
  *
  * @param {string} pattern
  * @returns {string}
@@ -95,7 +121,11 @@ function convertLookbehind(pattern) {
   const rest = pattern.slice(groupEnd + 1);
   const prefix = pattern.slice(0, groupStart);
 
-  return `${prefix}(?<=${lookbehindContent})${rest}`;
+  // Use (?<=...) for fixed-length lookbehinds, \K for variable-length
+  if (isFixedLengthLookbehind(lookbehindContent)) {
+    return `${prefix}(?<=${lookbehindContent})${rest}`;
+  }
+  return `${prefix}(?:${lookbehindContent})\\K${rest}`;
 }
 
 /**
@@ -151,8 +181,12 @@ function parseEntry(token, entry, grammarLookup, visited = new Set()) {
   // Null/undefined
   if (entry == null) return [];
 
-  // Cycle detection for objects
-  if (typeof entry === 'object' && !Array.isArray(entry) && !(entry instanceof RegExp)) {
+  // Cycle detection for container objects only (not pattern leaf nodes)
+  // AIRBNB-2.1: pattern objects (with entry.pattern) are leaf nodes shared across
+  // grammar locations (e.g., parameter.inside.keyword === top-level keyword) and
+  // must not be skipped via cycle detection
+  if (typeof entry === 'object' && !Array.isArray(entry) && !(entry instanceof RegExp)
+    && !(entry.pattern instanceof RegExp)) {
     if (visited.has(entry)) return [];
     visited.add(entry);
   }

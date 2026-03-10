@@ -1,11 +1,9 @@
 ---
 version: 1.5.4
 title: xml highlighting
-file: ./test/languages_test.gleam
-test_name: xml_highlighting_test
 ---
 <span class="hl-prolog">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="hl-comment">&lt;!-- Comment --&gt;</span>
-&lt;root&gt;
-  &lt;item id=&quot;1&quot;&gt;Hello&lt;/item&gt;
-&lt;/root&gt;
+<span class="hl-tag">&lt;root&gt;</span>
+  <span class="hl-tag">&lt;item id=&quot;1&quot;&gt;</span>Hello<span class="hl-tag">&lt;/item&gt;</span>
+<span class="hl-tag">&lt;/root&gt;</span>

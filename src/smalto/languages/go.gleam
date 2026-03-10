@@ -7,12 +7,15 @@ pub fn grammar() -> Grammar {
 
 fn rules() -> List(Rule) {
   [
-    grammar.greedy_rule("comment", "(?<=^|[^\\\\])\\/\\*[\\s\\S]*?(?:\\*\\/|$)"),
-    grammar.greedy_rule("comment", "(?<=^|[^\\\\:])\\/\\/.*"),
+    grammar.greedy_rule(
+      "comment",
+      "(?:^|[^\\\\])\\K\\/\\*[\\s\\S]*?(?:\\*\\/|$)",
+    ),
+    grammar.greedy_rule("comment", "(?:^|[^\\\\:])\\K\\/\\/.*"),
     grammar.greedy_rule("char", "'(?:\\\\.|[^'\\\\\\r\\n]){0,10}'"),
     grammar.greedy_rule(
       "string",
-      "(?<=^|[^\\\\])\"(?:\\\\.|[^\"\\\\\\r\\n])*\"|`[^`]*`",
+      "(?:^|[^\\\\])\\K\"(?:\\\\.|[^\"\\\\\\r\\n])*\"|`[^`]*`",
     ),
     grammar.rule(
       "keyword",

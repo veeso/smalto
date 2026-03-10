@@ -7,18 +7,30 @@ pub fn grammar() -> Grammar {
 
 fn rules() -> List(Rule) {
   [
-    grammar.greedy_rule("comment", "(?<=^|[^\\\\])\\/\\*[\\s\\S]*?(?:\\*\\/|$)"),
-    grammar.greedy_rule("comment", "(?<=^|[^\\\\:])\\/\\/.*"),
+    grammar.greedy_rule(
+      "comment",
+      "(?:^|[^\\\\])\\K\\/\\*[\\s\\S]*?(?:\\*\\/|$)",
+    ),
+    grammar.greedy_rule("comment", "(?:^|[^\\\\:])\\K\\/\\/.*"),
     grammar.greedy_rule_with_inside(
       "string-literal",
       "r?(?:(\"\"\"|''')[\\s\\S]*?\\1|([\"'])(?:\\\\.|(?!\\2)[^\\\\\\r\\n])*\\2(?!\\2))",
       [
         grammar.rule_with_inside(
           "interpolation",
-          "(?<=(?:^|[^\\\\])(?:\\\\{2})*)\\$(?:\\w+|\\{(?:[^{}]|\\{[^{}]*\\})*\\})",
+          "(?:(?:^|[^\\\\])(?:\\\\{2})*)\\K\\$(?:\\w+|\\{(?:[^{}]|\\{[^{}]*\\})*\\})",
           [
             grammar.rule("punctuation", "^\\$\\{?|\\}$"),
             grammar.rule_with_inside("expression", "[\\s\\S]+", [
+              grammar.greedy_rule(
+                "comment",
+                "(?:^|[^\\\\])\\K\\/\\*[\\s\\S]*?(?:\\*\\/|$)",
+              ),
+              grammar.greedy_rule("comment", "(?:^|[^\\\\:])\\K\\/\\/.*"),
+              grammar.greedy_rule(
+                "string-literal",
+                "r?(?:(\"\"\"|''')[\\s\\S]*?\\1|([\"'])(?:\\\\.|(?!\\2)[^\\\\\\r\\n])*\\2(?!\\2))",
+              ),
               grammar.rule("function", "@\\w+"),
               grammar.rule_with_inside(
                 "generics",
@@ -26,7 +38,7 @@ fn rules() -> List(Rule) {
                 [
                   grammar.rule_with_inside(
                     "class-name",
-                    "(?<=^|[^\\w.])(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*[A-Z](?:[\\d_A-Z]*[a-z]\\w*)?\\b",
+                    "(?:^|[^\\w.])\\K(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*[A-Z](?:[\\d_A-Z]*[a-z]\\w*)?\\b",
                     [
                       grammar.rule_with_inside(
                         "namespace",
@@ -48,7 +60,11 @@ fn rules() -> List(Rule) {
               ),
               grammar.rule(
                 "class-name",
-                "(?<=^|[^\\w.])(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*[A-Z]\\w*(?=\\s+\\w+\\s*[;,=()])",
+                "(?:^|[^\\w.])\\K(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*[A-Z](?:[\\d_A-Z]*[a-z]\\w*)?\\b",
+              ),
+              grammar.rule(
+                "class-name",
+                "(?:^|[^\\w.])\\K(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*[A-Z]\\w*(?=\\s+\\w+\\s*[;,=()])",
               ),
               grammar.rule("keyword", "\\b(?:async|sync|yield)\\*"),
               grammar.rule(
@@ -71,6 +87,19 @@ fn rules() -> List(Rule) {
         ),
         grammar.rule("string", "[\\s\\S]+"),
       ],
+    ),
+    grammar.rule("function", "@\\w+"),
+    grammar.rule(
+      "generics",
+      "<(?:[\\w\\s,.&?]|<(?:[\\w\\s,.&?]|<(?:[\\w\\s,.&?]|<[\\w\\s,.&?]*>)*>)*>)*>",
+    ),
+    grammar.rule(
+      "class-name",
+      "(?:^|[^\\w.])\\K(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*[A-Z](?:[\\d_A-Z]*[a-z]\\w*)?\\b",
+    ),
+    grammar.rule(
+      "class-name",
+      "(?:^|[^\\w.])\\K(?:[a-z]\\w*\\s*\\.\\s*)*(?:[A-Z]\\w*\\s*\\.\\s*)*[A-Z]\\w*(?=\\s+\\w+\\s*[;,=()])",
     ),
     grammar.rule("keyword", "\\b(?:async|sync|yield)\\*"),
     grammar.rule(

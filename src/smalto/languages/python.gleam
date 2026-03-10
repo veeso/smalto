@@ -7,14 +7,14 @@ pub fn grammar() -> Grammar {
 
 fn rules() -> List(Rule) {
   [
-    grammar.greedy_rule("comment", "(?<=^|[^\\\\])#.*"),
+    grammar.greedy_rule("comment", "(?:^|[^\\\\])\\K#.*"),
     grammar.greedy_rule_with_inside(
       "string-interpolation",
       "(?i)(?:f|fr|rf)(?:(\"\"\"|''')[\\s\\S]*?\\1|(\"|')(?:\\\\.|(?!\\2)[^\\\\\\r\\n])*\\2)",
       [
         grammar.nested_rule(
           "interpolation",
-          "(?<=(?:^|[^{])(?:\\{\\{)*)\\{(?!\\{)(?:[^{}]|\\{(?!\\{)(?:[^{}]|\\{(?!\\{)(?:[^{}])+\\})+\\})+\\}",
+          "(?:(?:^|[^{])(?:\\{\\{)*)\\K\\{(?!\\{)(?:[^{}]|\\{(?!\\{)(?:[^{}]|\\{(?!\\{)(?:[^{}])+\\})+\\})+\\}",
           "python",
         ),
         grammar.rule("string", "[\\s\\S]+"),
@@ -28,11 +28,14 @@ fn rules() -> List(Rule) {
       "string",
       "(?i)(?:[rub]|br|rb)?(\"|')(?:\\\\.|(?!\\1)[^\\\\\\r\\n])*\\1",
     ),
-    grammar.rule("function", "(?<=(?:^|\\s)def[ \\t]+)[a-zA-Z_]\\w*(?=\\s*\\()"),
-    grammar.rule("class-name", "(?i)(?<=\\bclass\\s+)\\w+"),
+    grammar.rule(
+      "function",
+      "(?:(?:^|\\s)def[ \\t]+)\\K[a-zA-Z_]\\w*(?=\\s*\\()",
+    ),
+    grammar.rule("class-name", "(?i)(?:\\bclass\\s+)\\K\\w+"),
     grammar.rule_with_inside(
       "annotation",
-      "(?m)(?<=^[\\t ]*)@\\w+(?:\\.\\w+)*",
+      "(?m)(?:^[\\t ]*)\\K@\\w+(?:\\.\\w+)*",
       [
         grammar.rule("punctuation", "\\."),
       ],

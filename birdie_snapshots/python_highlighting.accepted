@@ -1,11 +1,9 @@
 ---
 version: 1.5.4
 title: python highlighting
-file: ./test/languages_test.gleam
-test_name: python_highlighting_test
 ---
 <span class="hl-comment"># Comment</span>
-<span class="hl-keyword">def</span> greet<span class="hl-punctuation">(</span>name<span class="hl-punctuation">)</span><span class="hl-punctuation">:</span>
+<span class="hl-keyword">def</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span>name<span class="hl-punctuation">)</span><span class="hl-punctuation">:</span>
     <span class="hl-keyword">return</span> <span class="hl-string">&quot;Hello&quot;</span>
 x <span class="hl-operator">=</span> <span class="hl-number">42</span>
 <span class="hl-keyword">print</span><span class="hl-punctuation">(</span>greet<span class="hl-punctuation">(</span><span class="hl-string">&#39;world&#39;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">)</span>

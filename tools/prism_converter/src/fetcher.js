@@ -11,6 +11,7 @@ const loadLanguages = require('prismjs/components/');
 const COMPONENT_MAP = {
   bash: 'bash',
   c: 'c',
+  clike: 'clike',
   cpp: 'cpp',
   css: 'css',
   dart: 'dart',

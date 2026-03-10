@@ -27,7 +27,7 @@ fn rules() -> List(Rule) {
     ),
     grammar.rule(
       "selector",
-      "(?<=^|[{}\\s])[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|(?:\"(?:\\\\(?:\\r\\n|[\\s\\S])|[^\"\\\\\\r\\n])*\"|'(?:\\\\(?:\\r\\n|[\\s\\S])|[^'\\\\\\r\\n])*'))*(?=\\s*\\{)",
+      "(?:^|[{}\\s])\\K[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|(?:\"(?:\\\\(?:\\r\\n|[\\s\\S])|[^\"\\\\\\r\\n])*\"|'(?:\\\\(?:\\r\\n|[\\s\\S])|[^'\\\\\\r\\n])*'))*(?=\\s*\\{)",
     ),
     grammar.greedy_rule(
       "string",
@@ -35,10 +35,10 @@ fn rules() -> List(Rule) {
     ),
     grammar.rule(
       "property",
-      "(?i)(?<=^|[^-\\w\\xA0-\\x{FFFF}])(?!\\s)[-_a-z\\xA0-\\x{FFFF}](?:(?!\\s)[-\\w\\xA0-\\x{FFFF}])*(?=\\s*:)",
+      "(?i)(?:^|[^-\\w\\xA0-\\x{FFFF}])\\K(?!\\s)[-_a-z\\xA0-\\x{FFFF}](?:(?!\\s)[-\\w\\xA0-\\x{FFFF}])*(?=\\s*:)",
     ),
     grammar.rule("important", "(?i)!important\\b"),
-    grammar.rule("function", "(?i)(?<=^|[^-a-z0-9])[-a-z0-9]+(?=\\()"),
+    grammar.rule("function", "(?i)(?:^|[^-a-z0-9])\\K[-a-z0-9]+(?=\\()"),
     grammar.rule("punctuation", "[(){};:,]"),
   ]
 }

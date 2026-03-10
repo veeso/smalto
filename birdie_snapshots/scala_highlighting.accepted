@@ -1,15 +1,13 @@
 ---
 version: 1.5.4
 title: scala highlighting
-file: ./test/languages_test.gleam
-test_name: scala_highlighting_test
 ---
 <span class="hl-comment">// Comment</span>
-<span class="hl-keyword">object</span> Main <span class="hl-punctuation">{</span>
-  <span class="hl-keyword">def</span> greet<span class="hl-punctuation">(</span>name<span class="hl-punctuation">:</span> <span class="hl-builtin">String</span><span class="hl-punctuation">)</span><span class="hl-punctuation">:</span> <span class="hl-builtin">String</span> = <span class="hl-punctuation">{</span>
-    &quot;Hello&quot;
+<span class="hl-keyword">object</span> <span class="hl-class-name">Main</span> <span class="hl-punctuation">{</span>
+  <span class="hl-keyword">def</span> greet<span class="hl-punctuation">(</span>name<span class="hl-operator">:</span> <span class="hl-builtin">String</span><span class="hl-punctuation">)</span><span class="hl-operator">:</span> <span class="hl-builtin">String</span> <span class="hl-operator">=</span> <span class="hl-punctuation">{</span>
+    <span class="hl-string">&quot;Hello&quot;</span>
   <span class="hl-punctuation">}</span>
-  <span class="hl-keyword">def</span> main<span class="hl-punctuation">(</span>args<span class="hl-punctuation">:</span> Array<span class="hl-punctuation">[</span><span class="hl-builtin">String</span><span class="hl-punctuation">]</span><span class="hl-punctuation">)</span><span class="hl-punctuation">:</span> <span class="hl-builtin">Unit</span> = <span class="hl-punctuation">{</span>
-    println<span class="hl-punctuation">(</span>greet<span class="hl-punctuation">(</span>&quot;world&quot;<span class="hl-punctuation">)</span><span class="hl-punctuation">)</span>
+  <span class="hl-keyword">def</span> main<span class="hl-punctuation">(</span>args<span class="hl-operator">:</span> <span class="hl-class-name">Array</span><span class="hl-punctuation">[</span><span class="hl-builtin">String</span><span class="hl-punctuation">]</span><span class="hl-punctuation">)</span><span class="hl-operator">:</span> <span class="hl-builtin">Unit</span> <span class="hl-operator">=</span> <span class="hl-punctuation">{</span>
+    println<span class="hl-punctuation">(</span>greet<span class="hl-punctuation">(</span><span class="hl-string">&quot;world&quot;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">)</span>
   <span class="hl-punctuation">}</span>
 <span class="hl-punctuation">}</span>

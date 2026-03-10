@@ -6,7 +6,7 @@
 [![target-erlang](https://img.shields.io/badge/target-erlang-b83998)](https://www.erlang.org/)
 [![codeberg](https://img.shields.io/badge/Codeberg-2185D0?&logo=Codeberg&logoColor=white)](https://codeberg.org/veeso/smalto)
 
-[![test](https://github.com/veeso/smalto/actions/workflows/test.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/test.yml)
+[![test](https://github.com/veeso/smalto/actions/workflows/smalto.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/smalto.yml)
 [![smalto_lustre](https://github.com/veeso/smalto/actions/workflows/smalto-lustre.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/smalto-lustre.yml)
 [![js-tools](https://github.com/veeso/smalto/actions/workflows/js-tools.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/js-tools.yml)
 

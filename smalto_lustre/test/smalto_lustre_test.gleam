@@ -40,9 +40,7 @@ pub fn to_lustre_string_default_config_test() {
   let result = smalto_lustre.to_lustre(tokens, smalto_lustre.default_config())
   result
   |> elements_to_string
-  |> should.equal(
-    "<span style=\"color:#008000;\">&quot;hello&quot;</span>",
-  )
+  |> should.equal("<span style=\"color:#008000;\">&quot;hello&quot;</span>")
 }
 
 pub fn to_lustre_number_default_config_test() {
@@ -221,9 +219,7 @@ pub fn with_keyword_overrides_config_test() {
 pub fn with_string_overrides_config_test() {
   let config =
     smalto_lustre.default_config()
-    |> smalto_lustre.string(fn(value) {
-      html.em([], [element.text(value)])
-    })
+    |> smalto_lustre.string(fn(value) { html.em([], [element.text(value)]) })
   let tokens = [token.String("hi")]
   let result = smalto_lustre.to_lustre(tokens, config)
   result
@@ -283,9 +279,7 @@ pub fn chained_with_builders_test() {
   let result = smalto_lustre.to_lustre(tokens, config)
   result
   |> elements_to_string
-  |> should.equal(
-    "<span class=\"kw\">fn</span> <span class=\"num\">1</span>",
-  )
+  |> should.equal("<span class=\"kw\">fn</span> <span class=\"num\">1</span>")
 }
 
 /// Convert a list of Lustre elements to an HTML string, stripping the

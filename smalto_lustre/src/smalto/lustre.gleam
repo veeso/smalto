@@ -101,10 +101,7 @@ pub fn default_config() -> Config(msg) {
 /// `Whitespace` and `Other` tokens are always rendered as plain text nodes
 /// regardless of the config. All other tokens are dispatched to the
 /// corresponding config function.
-pub fn to_lustre(
-  tokens: List(Token),
-  config: Config(msg),
-) -> List(Element(msg)) {
+pub fn to_lustre(tokens: List(Token), config: Config(msg)) -> List(Element(msg)) {
   list.map(tokens, token_to_element(_, config))
 }
 

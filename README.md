@@ -106,6 +106,16 @@ pre code .hl-property { color: #ffd596; }
 | YAML | `smalto/languages/yaml` | |
 | Zig | `smalto/languages/zig` | |
 
+## Try it out
+
+Smalto ships with a syntax-highlighted `cat` example in the `dev/` directory:
+
+```sh
+gleam run -m cat -- path/to/file.py
+```
+
+It reads a file, detects the language from its extension, and prints syntax-highlighted output to your terminal using ANSI colors.
+
 ## Documentation
 
 API reference is available on [HexDocs](https://hexdocs.pm/smalto/).

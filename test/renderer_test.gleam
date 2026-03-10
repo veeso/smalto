@@ -1,10 +1,15 @@
 import gleam/string as gleam_string
 import gleeunit/should
+import smalto/ansi_theme
 import smalto/internal/renderer
 import smalto/token.{
   Attribute, Builtin, Comment, Constant, Custom, Function, Keyword, Module,
   Number, Operator, Other, Property, Punctuation, Regex, Selector, String, Tag,
   Type, Variable, Whitespace,
+}
+
+fn default_theme() {
+  ansi_theme.default()
 }
 
 // --- HTML renderer tests ---
@@ -54,17 +59,17 @@ pub fn html_empty_tokens_test() {
 // --- ANSI renderer tests ---
 
 pub fn ansi_whitespace_no_color_test() {
-  renderer.to_ansi([Whitespace(" ")])
+  renderer.to_ansi([Whitespace(" ")], default_theme())
   |> should.equal(" ")
 }
 
 pub fn ansi_other_no_color_test() {
-  renderer.to_ansi([Other("xyz")])
+  renderer.to_ansi([Other("xyz")], default_theme())
   |> should.equal("xyz")
 }
 
 pub fn ansi_keyword_has_color_test() {
-  let result = renderer.to_ansi([Keyword("if")])
+  let result = renderer.to_ansi([Keyword("if")], default_theme())
   // Keyword should have ANSI color codes, so it must NOT equal plain "if"
   case result == "if" {
     True -> should.fail()
@@ -73,117 +78,131 @@ pub fn ansi_keyword_has_color_test() {
 }
 
 pub fn ansi_empty_tokens_test() {
-  renderer.to_ansi([])
+  renderer.to_ansi([], default_theme())
   |> should.equal("")
 }
 
 pub fn ansi_string_has_color_test() {
-  let result = renderer.to_ansi([String("hello")])
+  let result = renderer.to_ansi([String("hello")], default_theme())
   { result != "hello" }
   |> should.be_true
 }
 
 pub fn ansi_number_has_color_test() {
-  let result = renderer.to_ansi([Number("42")])
+  let result = renderer.to_ansi([Number("42")], default_theme())
   { result != "42" }
   |> should.be_true
 }
 
 pub fn ansi_function_has_color_test() {
-  let result = renderer.to_ansi([Function("main")])
+  let result = renderer.to_ansi([Function("main")], default_theme())
   { result != "main" }
   |> should.be_true
 }
 
 pub fn ansi_comment_has_color_test() {
-  let result = renderer.to_ansi([Comment("// x")])
+  let result = renderer.to_ansi([Comment("// x")], default_theme())
   { result != "// x" }
   |> should.be_true
 }
 
 pub fn ansi_operator_has_color_test() {
-  let result = renderer.to_ansi([Operator("+")])
+  let result = renderer.to_ansi([Operator("+")], default_theme())
   { result != "+" }
   |> should.be_true
 }
 
 pub fn ansi_type_has_color_test() {
-  let result = renderer.to_ansi([Type("Int")])
+  let result = renderer.to_ansi([Type("Int")], default_theme())
   { result != "Int" }
   |> should.be_true
 }
 
 pub fn ansi_module_has_color_test() {
-  let result = renderer.to_ansi([Module("gleam")])
+  let result = renderer.to_ansi([Module("gleam")], default_theme())
   { result != "gleam" }
   |> should.be_true
 }
 
 pub fn ansi_tag_has_color_test() {
-  let result = renderer.to_ansi([Tag("div")])
+  let result = renderer.to_ansi([Tag("div")], default_theme())
   { result != "div" }
   |> should.be_true
 }
 
 pub fn ansi_builtin_has_color_test() {
-  let result = renderer.to_ansi([Builtin("print")])
+  let result = renderer.to_ansi([Builtin("print")], default_theme())
   { result != "print" }
   |> should.be_true
 }
 
 pub fn ansi_attribute_has_color_test() {
-  let result = renderer.to_ansi([Attribute("id")])
+  let result = renderer.to_ansi([Attribute("id")], default_theme())
   { result != "id" }
   |> should.be_true
 }
 
 pub fn ansi_property_has_color_test() {
-  let result = renderer.to_ansi([Property("color")])
+  let result = renderer.to_ansi([Property("color")], default_theme())
   { result != "color" }
   |> should.be_true
 }
 
 pub fn ansi_selector_has_color_test() {
-  let result = renderer.to_ansi([Selector(".btn")])
+  let result = renderer.to_ansi([Selector(".btn")], default_theme())
   { result != ".btn" }
   |> should.be_true
 }
 
 pub fn ansi_regex_has_color_test() {
-  let result = renderer.to_ansi([Regex("/x/")])
+  let result = renderer.to_ansi([Regex("/x/")], default_theme())
   { result != "/x/" }
   |> should.be_true
 }
 
 pub fn ansi_constant_has_color_test() {
-  let result = renderer.to_ansi([Constant("PI")])
+  let result = renderer.to_ansi([Constant("PI")], default_theme())
   { result != "PI" }
   |> should.be_true
 }
 
 pub fn ansi_variable_has_color_test() {
-  let result = renderer.to_ansi([Variable("x")])
+  let result = renderer.to_ansi([Variable("x")], default_theme())
   { result != "x" }
   |> should.be_true
 }
 
 pub fn ansi_punctuation_no_color_test() {
-  renderer.to_ansi([Punctuation(";")])
+  renderer.to_ansi([Punctuation(";")], default_theme())
   |> should.equal(";")
 }
 
 pub fn ansi_custom_no_color_test() {
-  renderer.to_ansi([Custom("deco", "@x")])
+  renderer.to_ansi([Custom("deco", "@x")], default_theme())
   |> should.equal("@x")
 }
 
 pub fn ansi_multiple_tokens_test() {
-  let result = renderer.to_ansi([Keyword("if"), Other(" "), Number("42")])
+  let result =
+    renderer.to_ansi([Keyword("if"), Other(" "), Number("42")], default_theme())
   // Should contain the text fragments with ANSI codes mixed in
   { gleam_string.contains(result, "if") }
   |> should.be_true
   { gleam_string.contains(result, "42") }
   |> should.be_true
+}
+
+pub fn ansi_custom_theme_applies_style_test() {
+  let theme =
+    ansi_theme.new()
+    |> ansi_theme.keyword(gleam_string.uppercase)
+  renderer.to_ansi([Keyword("if")], theme)
+  |> should.equal("IF")
+}
+
+pub fn ansi_empty_theme_renders_plain_text_test() {
+  renderer.to_ansi([Keyword("if"), Other(" "), Number("42")], ansi_theme.new())
+  |> should.equal("if 42")
 }
 
 // --- HTML renderer: all token types ---

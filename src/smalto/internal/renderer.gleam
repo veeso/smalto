@@ -2,13 +2,9 @@
 
 import gleam/list
 import gleam/string_tree
-import gleam_community/ansi
 import houdini
-import smalto/token.{
-  Attribute, Builtin, Comment, Constant, Custom, Function, Keyword, Module,
-  Number, Operator, Other, Property, Punctuation, Regex, Selector, String, Tag,
-  Type, Variable, Whitespace,
-}
+import smalto/ansi_theme.{type AnsiTheme}
+import smalto/token.{Other, Whitespace}
 
 /// Render tokens as HTML with `hl-` prefixed CSS classes.
 ///
@@ -34,32 +30,16 @@ pub fn to_html(tokens: List(token.Token)) -> String {
   |> string_tree.to_string
 }
 
-/// Render tokens with ANSI terminal color codes.
+/// Render tokens with ANSI terminal color codes using the given theme.
 ///
-/// Each token type is mapped to a specific color for terminal display.
-/// Whitespace, Other, Punctuation, and Custom tokens are rendered without
-/// color codes.
-pub fn to_ansi(tokens: List(token.Token)) -> String {
+/// Each token type is styled according to the theme. Tokens without
+/// a style entry in the theme are rendered as plain text.
+pub fn to_ansi(tokens: List(token.Token), theme: AnsiTheme) -> String {
   tokens
   |> list.fold(string_tree.new(), fn(tree, tok) {
     let val = token.value(tok)
-    let colored = case tok {
-      Keyword(_) -> ansi.yellow(val)
-      String(_) | Number(_) -> ansi.green(val)
-      Function(_) -> ansi.blue(val)
-      Comment(_) -> ansi.italic(ansi.gray(val))
-      Module(_) | Type(_) -> ansi.cyan(val)
-      Operator(_) -> ansi.magenta(val)
-      Tag(_) -> ansi.red(val)
-      Builtin(_) -> ansi.bright_blue(val)
-      Attribute(_) | Property(_) -> ansi.yellow(val)
-      Selector(_) -> ansi.cyan(val)
-      Regex(_) -> ansi.green(val)
-      Constant(_) -> ansi.bright_magenta(val)
-      Variable(_) -> ansi.bright_yellow(val)
-      Punctuation(_) | Whitespace(_) | Other(_) | Custom(_, _) -> val
-    }
-    string_tree.append(tree, colored)
+    let style = ansi_theme.get(theme, token.to_ansi_token(tok))
+    string_tree.append(tree, style(val))
   })
   |> string_tree.to_string
 }

@@ -58,6 +58,58 @@ pub fn name(token: Token) -> String {
   }
 }
 
+/// A token type identifier without the associated source text.
+///
+/// Used as a key in `AnsiTheme` to map token categories to styling functions.
+pub type AnsiToken {
+  AnsiKeyword
+  AnsiString
+  AnsiNumber
+  AnsiComment
+  AnsiFunction
+  AnsiOperator
+  AnsiPunctuation
+  AnsiType
+  AnsiModule
+  AnsiVariable
+  AnsiConstant
+  AnsiBuiltin
+  AnsiTag
+  AnsiAttribute
+  AnsiSelector
+  AnsiProperty
+  AnsiRegex
+  AnsiWhitespace
+  AnsiOther
+  AnsiCustom(name: String)
+}
+
+/// Convert a token to its corresponding `AnsiToken` key.
+pub fn to_ansi_token(token: Token) -> AnsiToken {
+  case token {
+    Keyword(_) -> AnsiKeyword
+    String(_) -> AnsiString
+    Number(_) -> AnsiNumber
+    Comment(_) -> AnsiComment
+    Function(_) -> AnsiFunction
+    Operator(_) -> AnsiOperator
+    Punctuation(_) -> AnsiPunctuation
+    Type(_) -> AnsiType
+    Module(_) -> AnsiModule
+    Variable(_) -> AnsiVariable
+    Constant(_) -> AnsiConstant
+    Builtin(_) -> AnsiBuiltin
+    Tag(_) -> AnsiTag
+    Attribute(_) -> AnsiAttribute
+    Selector(_) -> AnsiSelector
+    Property(_) -> AnsiProperty
+    Regex(_) -> AnsiRegex
+    Whitespace(_) -> AnsiWhitespace
+    Other(_) -> AnsiOther
+    Custom(n, _) -> AnsiCustom(n)
+  }
+}
+
 /// Extracts the source text content from a token.
 pub fn value(token: Token) -> String {
   case token {

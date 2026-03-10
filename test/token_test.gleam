@@ -1,5 +1,10 @@
 import gleeunit/should
-import smalto/token
+import smalto/token.{
+  AnsiAttribute, AnsiBuiltin, AnsiComment, AnsiConstant, AnsiCustom,
+  AnsiFunction, AnsiKeyword, AnsiModule, AnsiNumber, AnsiOperator, AnsiOther,
+  AnsiProperty, AnsiPunctuation, AnsiRegex, AnsiSelector, AnsiString, AnsiTag,
+  AnsiType, AnsiVariable, AnsiWhitespace,
+}
 
 pub fn name_returns_keyword_for_keyword_token_test() {
   token.name(token.Keyword("if"))
@@ -63,4 +68,28 @@ pub fn value_for_all_builtin_variants_test() {
   token.value(token.Regex("/\\d+/")) |> should.equal("/\\d+/")
   token.value(token.Whitespace(" ")) |> should.equal(" ")
   token.value(token.Other("???")) |> should.equal("???")
+}
+
+pub fn to_ansi_token_for_all_variants_test() {
+  token.to_ansi_token(token.Keyword("if")) |> should.equal(AnsiKeyword)
+  token.to_ansi_token(token.String("hi")) |> should.equal(AnsiString)
+  token.to_ansi_token(token.Number("42")) |> should.equal(AnsiNumber)
+  token.to_ansi_token(token.Comment("//")) |> should.equal(AnsiComment)
+  token.to_ansi_token(token.Function("f")) |> should.equal(AnsiFunction)
+  token.to_ansi_token(token.Operator("+")) |> should.equal(AnsiOperator)
+  token.to_ansi_token(token.Punctuation(";")) |> should.equal(AnsiPunctuation)
+  token.to_ansi_token(token.Type("Int")) |> should.equal(AnsiType)
+  token.to_ansi_token(token.Module("m")) |> should.equal(AnsiModule)
+  token.to_ansi_token(token.Variable("x")) |> should.equal(AnsiVariable)
+  token.to_ansi_token(token.Constant("C")) |> should.equal(AnsiConstant)
+  token.to_ansi_token(token.Builtin("p")) |> should.equal(AnsiBuiltin)
+  token.to_ansi_token(token.Tag("div")) |> should.equal(AnsiTag)
+  token.to_ansi_token(token.Attribute("a")) |> should.equal(AnsiAttribute)
+  token.to_ansi_token(token.Selector("s")) |> should.equal(AnsiSelector)
+  token.to_ansi_token(token.Property("p")) |> should.equal(AnsiProperty)
+  token.to_ansi_token(token.Regex("/x/")) |> should.equal(AnsiRegex)
+  token.to_ansi_token(token.Whitespace(" ")) |> should.equal(AnsiWhitespace)
+  token.to_ansi_token(token.Other("?")) |> should.equal(AnsiOther)
+  token.to_ansi_token(token.Custom("deco", "@"))
+  |> should.equal(AnsiCustom("deco"))
 }

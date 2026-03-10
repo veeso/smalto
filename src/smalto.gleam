@@ -20,6 +20,7 @@
 //// `to_html`, or `to_ansi` along with the source code to highlight.
 
 import gleam/dict
+import smalto/ansi_theme.{type AnsiTheme}
 import smalto/grammar.{type Grammar}
 import smalto/internal/engine
 import smalto/internal/registry
@@ -42,11 +43,18 @@ pub fn to_html(code: String, grammar: Grammar) -> String {
   to_tokens(code, grammar) |> renderer.to_html
 }
 
-/// Render syntax-highlighted text with ANSI terminal color codes.
+/// Render syntax-highlighted text with ANSI terminal color codes
+/// using the default color theme.
 ///
 /// Each token type is mapped to a specific terminal color.
 pub fn to_ansi(code: String, grammar: Grammar) -> String {
-  to_tokens(code, grammar) |> renderer.to_ansi
+  to_tokens(code, grammar) |> renderer.to_ansi(ansi_theme.default())
+}
+
+/// Render syntax-highlighted text with ANSI terminal color codes
+/// using a custom color theme.
+pub fn to_ansi_with(code: String, grammar: Grammar, theme: AnsiTheme) -> String {
+  to_tokens(code, grammar) |> renderer.to_ansi(theme)
 }
 
 /// Build the language lookup function from the internal registry.

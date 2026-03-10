@@ -1,0 +1,37 @@
+{
+  "name": "prism_converter",
+  "version": "1.0.0",
+  "description": "A NodeJS tool to convert PrismJS language grammar to Gleam code",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint src/ test/",
+    "test": "node --test test/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veeso/smalto.git"
+  },
+  "keywords": [
+    "prismjs",
+    "gleam"
+  ],
+  "author": "Christian Visintin <christian.visintin@veeso.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/veeso/smalto/issues"
+  },
+  "homepage": "https://github.com/veeso/smalto#readme",
+  "dependencies": {
+    "meow": "^14.1.0",
+    "pino": "^10.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "prettier": "^3.8.1"
+  }
+}

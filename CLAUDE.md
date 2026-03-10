@@ -15,7 +15,7 @@ A general-purpose syntax highlighting library for Gleam, using regex-based gramm
 - `src/smalto/engine.gleam` — Regex-based tokenizer engine
 - `src/smalto/renderer.gleam` — ANSI and HTML output renderers
 - `src/smalto/languages/*.gleam` — One module per language, each exports `grammar() -> Grammar`
-- `tools/prism_converter/convert.js` — Node.js script to generate Gleam grammar modules from Prism.js
+- `tools/prism_converter/src/index.js` — Node.js script to generate Gleam grammar modules from Prism.js
 
 ## Conventions
 
@@ -30,7 +30,6 @@ A general-purpose syntax highlighting library for Gleam, using regex-based gramm
 
 - `gleam_stdlib` — standard library
 - `gleam_regexp` — PCRE regex (Erlang `re` module)
-- `gleam_community_ansi` — ANSI terminal colors
 - `houdini` — HTML entity escaping
 - `gleeunit` (dev) — unit testing
 - `birdie` (dev) — snapshot testing

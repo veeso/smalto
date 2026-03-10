@@ -4,4 +4,6 @@
 erl_crash.dump
 
 .claude/
+/node_modules/
+/package-lock.json
 

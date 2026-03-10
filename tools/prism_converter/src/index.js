@@ -9,6 +9,7 @@ const cli = meow(
   Options
     --all, -a          Convert all supported languages
     --output-dir, -o   Output directory (default: ../../src/smalto/languages/)
+    --registry, -r     Registry file path (default: ../../src/smalto/internal/registry.gleam)
     --log-level, -l    Log level: trace, debug, info, warn, error, fatal (default: info)
 
   Examples
@@ -28,6 +29,11 @@ const cli = meow(
         type: 'string',
         shortFlag: 'o',
         default: '../../src/smalto/languages/',
+      },
+      registry: {
+        type: 'string',
+        shortFlag: 'r',
+        default: '../../src/smalto/internal/registry.gleam',
       },
       logLevel: {
         type: 'string',

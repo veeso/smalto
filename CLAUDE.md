@@ -12,12 +12,14 @@ A general-purpose syntax highlighting library for Gleam, using regex-based gramm
 ### Public modules
 - `src/smalto.gleam` — Public API: `to_tokens`, `to_html`, `to_ansi`
 - `src/smalto/token.gleam` — `Token` type (hybrid: core variants + `Custom`)
-- `src/smalto/grammar.gleam` — `Grammar`, `Rule` types + inheritance resolution + builder helpers
+- `src/smalto/grammar.gleam` — `Grammar`, `Rule`, `Inside` types + inheritance resolution + builder helpers
 - `src/smalto/languages/*.gleam` — One module per language, each exports `grammar() -> Grammar`
 
 ### Internal modules
-- `src/smalto/internal/engine.gleam` — Regex-based tokenizer engine
+- `src/smalto/internal/engine.gleam` — Prism.js-faithful tokenizer engine (linked-list algorithm)
 - `src/smalto/internal/renderer.gleam` — ANSI and HTML output renderers
+- `src/smalto/internal/regex.gleam` — Erlang `re` FFI wrapper (byte-level position tracking)
+- `src/regex_ffi.erl` — Erlang FFI for regex compile/find/slice operations
 
 ### Tools
 - `tools/prism_converter/src/index.js` — Node.js script to generate Gleam grammar modules from Prism.js
@@ -34,7 +36,6 @@ A general-purpose syntax highlighting library for Gleam, using regex-based gramm
 ## Dependencies
 
 - `gleam_stdlib` — standard library
-- `gleam_regexp` — PCRE regex (Erlang `re` module)
 - `gleam_community_ansi` — ANSI terminal colors
 - `houdini` — HTML entity escaping
 - `gleeunit` (dev) — unit testing

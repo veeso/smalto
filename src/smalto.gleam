@@ -19,3 +19,43 @@
 //// the language's `Grammar` definition. Pass it directly to `to_tokens`,
 //// `to_html`, or `to_ansi` along with the source code to highlight.
 
+import gleam/dict
+import smalto/grammar.{type Grammar}
+import smalto/internal/engine
+import smalto/internal/registry
+import smalto/internal/renderer
+import smalto/token.{type Token}
+
+/// Tokenize source code into a list of tokens using the given grammar.
+///
+/// Cross-language `LanguageRef` references in grammar rules are resolved
+/// automatically using the built-in language registry.
+pub fn to_tokens(code: String, grammar: Grammar) -> List(Token) {
+  engine.tokenize(code, grammar.rules, lookup())
+}
+
+/// Render syntax-highlighted HTML from source code.
+///
+/// Tokens are wrapped in `<span class="hl-{name}">` elements with
+/// HTML-escaped content. Whitespace and unmatched text are output as-is.
+pub fn to_html(code: String, grammar: Grammar) -> String {
+  to_tokens(code, grammar) |> renderer.to_html
+}
+
+/// Render syntax-highlighted text with ANSI terminal color codes.
+///
+/// Each token type is mapped to a specific terminal color.
+pub fn to_ansi(code: String, grammar: Grammar) -> String {
+  to_tokens(code, grammar) |> renderer.to_ansi
+}
+
+/// Build the language lookup function from the internal registry.
+fn lookup() -> fn(String) -> List(grammar.Rule) {
+  let langs = registry.languages()
+  fn(name) {
+    case dict.get(langs, name) {
+      Ok(rules) -> rules
+      Error(_) -> []
+    }
+  }
+}

@@ -1,0 +1,7 @@
+title: Smalto
+description: A general-purpose syntax highlighting library for Gleam, with regex-based grammars for 30+ languages.
+url: https://veeso.github.io/smalto
+theme: minima
+image: /og_preview.jpeg
+github_url: https://github.com/veeso/smalto
+codeberg_url: https://codeberg.org/veeso/smalto

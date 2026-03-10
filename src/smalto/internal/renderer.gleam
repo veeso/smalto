@@ -13,7 +13,7 @@ import smalto/token.{Other, Whitespace}
 pub fn to_html(tokens: List(token.Token)) -> String {
   tokens
   |> list.fold(string_tree.new(), fn(tree, tok) {
-    let val = houdini.escape(token.value(tok))
+    let val = tok |> token.value |> houdini.escape
     case tok {
       Whitespace(_) | Other(_) -> string_tree.append(tree, val)
       _ -> {

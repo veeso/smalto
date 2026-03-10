@@ -108,13 +108,17 @@ pre code .smalto-property { color: #ffd596; }
 
 ## Try it out
 
-Smalto ships with a syntax-highlighted `cat` example in the `dev/` directory:
+Smalto ships with example tools in the `dev/` directory:
 
 ```sh
+# Print syntax-highlighted source to the terminal using ANSI colors
 gleam run -m cat -- path/to/file.py
+
+# Render a standalone HTML file with an embedded CSS theme
+gleam run -m html_render -- path/to/file.py dracula output.html
 ```
 
-It reads a file, detects the language from its extension, and prints syntax-highlighted output to your terminal using ANSI colors.
+The `cat` tool detects the language from the file extension and prints highlighted output to stdout. The `html_render` tool does the same but writes a self-contained HTML file using one of the 45 bundled CSS themes (see `themes/` directory).
 
 ## Documentation
 

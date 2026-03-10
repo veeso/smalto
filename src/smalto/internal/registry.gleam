@@ -9,6 +9,7 @@ import smalto/languages/dart
 import smalto/languages/dockerfile
 import smalto/languages/elixir
 import smalto/languages/erlang
+import smalto/languages/gleam
 import smalto/languages/go
 import smalto/languages/haskell
 import smalto/languages/html
@@ -42,6 +43,7 @@ pub fn languages() -> Dict(String, Grammar) {
     #("dockerfile", dockerfile.grammar()),
     #("elixir", elixir.grammar()),
     #("erlang", erlang.grammar()),
+    #("gleam", gleam.grammar()),
     #("go", go.grammar()),
     #("haskell", haskell.grammar()),
     #("html", html.grammar()),

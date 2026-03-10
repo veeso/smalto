@@ -41,6 +41,22 @@ A general-purpose syntax highlighting library for Gleam, using regex-based gramm
 - `gleeunit` (dev) — unit testing
 - `birdie` (dev) — snapshot testing
 
+## Adding a new language
+
+When adding a new language, update these files:
+
+1. `src/smalto/languages/<lang>.gleam` — New grammar module
+2. `src/smalto/internal/registry.gleam` — Add import and dict entry
+3. `test/languages_test.gleam` — Add import and snapshot test
+4. `birdie_snapshots/<lang>_highlighting.accepted` — Accept the new snapshot
+5. `dev/cat.gleam` — Add import and extension mapping
+6. `src/smalto.gleam` — Update language count in module doc
+7. `docs/supported-languages.md` — Update count and add row to table
+8. `docs/index.md` — Update language count and feature list
+9. `docs/grammars.md` — Update language count
+10. `tools/prism_converter/src/index.js` — If hand-written (not from Prism.js), add to `MANUAL_LANGUAGES`
+11. `tools/prism_converter/README.md` — Update if relevant
+
 ## Target Languages (v1)
 
 Gleam, Erlang, Elixir, JavaScript, TypeScript, Python, Rust, Go, C, C++, HTML, CSS, JSON, TOML, YAML, Bash, SQL, Java, Ruby, PHP, Swift, Kotlin, Haskell, Lua, Markdown, Dockerfile, XML, Zig, Scala, Dart

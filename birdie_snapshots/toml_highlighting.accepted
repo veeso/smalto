@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: toml highlighting
+file: ./test/languages_test.gleam
+test_name: toml_highlighting_test
 ---
 <span class="hl-comment"># Comment</span>
 <span class="hl-punctuation">[</span><span class="hl-class-name">package</span><span class="hl-punctuation">]</span>

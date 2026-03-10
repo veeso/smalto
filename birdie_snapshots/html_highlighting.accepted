@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: html highlighting
+file: ./test/languages_test.gleam
+test_name: html_highlighting_test
 ---
 <span class="hl-comment">&lt;!-- Comment --&gt;</span>
 <span class="hl-punctuation">&lt;!</span><span class="hl-doctype-tag">DOCTYPE</span> <span class="hl-name">html</span><span class="hl-punctuation">&gt;</span>

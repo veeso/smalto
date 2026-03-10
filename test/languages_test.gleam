@@ -8,6 +8,7 @@ import smalto/languages/dart
 import smalto/languages/dockerfile
 import smalto/languages/elixir
 import smalto/languages/erlang
+import smalto/languages/gleam
 import smalto/languages/go
 import smalto/languages/haskell
 import smalto/languages/html
@@ -125,6 +126,31 @@ hello(Name) ->
     io:format(\"Hello ~s~n\", [Name])."
   |> smalto.to_html(erlang.grammar())
   |> birdie.snap(title: "erlang highlighting")
+}
+
+pub fn gleam_highlighting_test() {
+  "// A module comment
+import gleam/io
+import gleam/list
+
+/// Documentation comment
+pub type User {
+  User(name: String, age: Int)
+}
+
+pub fn main() {
+  let user = User(\"Lucy\", 30)
+  let x = 0xFF_FF
+  let bits = <<1, 2, 3>>
+  list.map([1, 2, 3], fn(n) { n * 2 })
+  |> io.debug
+  case user.age > 18 {
+    True -> io.println(\"Hello\")
+    False -> panic as \"too young\"
+  }
+}"
+  |> smalto.to_html(gleam.grammar())
+  |> birdie.snap(title: "gleam highlighting")
 }
 
 pub fn go_highlighting_test() {

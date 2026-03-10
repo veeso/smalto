@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: scala highlighting
+file: ./test/languages_test.gleam
+test_name: scala_highlighting_test
 ---
 <span class="hl-comment">// Comment</span>
 <span class="hl-keyword">object</span> <span class="hl-class-name">Main</span> <span class="hl-punctuation">{</span>

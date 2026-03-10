@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: markdown highlighting
+file: ./test/languages_test.gleam
+test_name: markdown_highlighting_test
 ---
 <span class="hl-important"># Heading</span>
 <span class="hl-important">## Subheading</span>

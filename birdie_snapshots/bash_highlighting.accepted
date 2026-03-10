@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: bash highlighting
+file: ./test/languages_test.gleam
+test_name: bash_highlighting_test
 ---
 <span class="hl-important">#!/bin/bash</span>
 <span class="hl-comment"># Comment</span>

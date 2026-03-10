@@ -6,7 +6,7 @@ nav_order: 4
 
 # Grammars
 
-A grammar defines how source code is tokenized for a particular language. Smalto ships with 29 built-in grammars and supports custom grammar definitions.
+A grammar defines how source code is tokenized for a particular language. Smalto ships with 30 built-in grammars and supports custom grammar definitions.
 
 ## Grammar structure
 

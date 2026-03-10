@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: swift highlighting
+file: ./test/languages_test.gleam
+test_name: swift_highlighting_test
 ---
 <span class="hl-comment">// Comment</span>
 <span class="hl-keyword">func</span> <span class="hl-function">greet</span><span class="hl-punctuation">(</span><span class="hl-keyword">_</span> name<span class="hl-punctuation">:</span> <span class="hl-class-name">String</span><span class="hl-punctuation">)</span> <span class="hl-operator">-&gt;</span> <span class="hl-class-name">String</span> <span class="hl-punctuation">{</span>

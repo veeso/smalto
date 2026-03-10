@@ -21,7 +21,7 @@ Convert specific languages:
 node src/index.js python rust javascript
 ```
 
-Convert all 29 supported languages:
+Convert all 29 supported Prism.js languages (Gleam is hand-written):
 
 ```sh
 node src/index.js --all

@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: javascript highlighting
+file: ./test/languages_test.gleam
+test_name: javascript_highlighting_test
 ---
 <span class="hl-comment">// Comment</span>
 <span class="hl-keyword">const</span> <span class="hl-function">greet</span> <span class="hl-operator">=</span> <span class="hl-punctuation">(</span><span class="hl-parameter">name</span><span class="hl-punctuation">)</span> <span class="hl-operator">=&gt;</span> <span class="hl-punctuation">{</span>

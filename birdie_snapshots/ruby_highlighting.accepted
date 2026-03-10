@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: ruby highlighting
+file: ./test/languages_test.gleam
+test_name: ruby_highlighting_test
 ---
 <span class="hl-comment"># Comment</span>
 <span class="hl-keyword">class</span> <span class="hl-class-name">Greeter</span>

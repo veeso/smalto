@@ -21,6 +21,7 @@ import smalto/languages/dart
 import smalto/languages/dockerfile
 import smalto/languages/elixir
 import smalto/languages/erlang
+import smalto/languages/gleam
 import smalto/languages/go
 import smalto/languages/haskell
 import smalto/languages/html
@@ -102,6 +103,7 @@ fn extension_map() -> dict.Dict(String, Grammar) {
     #("erl", erlang.grammar()),
     #("ex", elixir.grammar()),
     #("exs", elixir.grammar()),
+    #("gleam", gleam.grammar()),
     #("go", go.grammar()),
     #("h", c.grammar()),
     #("hpp", cpp.grammar()),

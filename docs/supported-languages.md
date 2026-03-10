@@ -6,7 +6,7 @@ nav_order: 6
 
 # Supported languages
 
-Smalto ships with grammars for 29 languages. Each language module exports a `grammar()` function.
+Smalto ships with grammars for 30 languages. Each language module exports a `grammar()` function.
 
 ## Language list
 
@@ -20,6 +20,7 @@ Smalto ships with grammars for 29 languages. Each language module exports a `gra
 | Dockerfile | `smalto/languages/dockerfile` | |
 | Elixir | `smalto/languages/elixir` | |
 | Erlang | `smalto/languages/erlang` | |
+| Gleam | `smalto/languages/gleam` | |
 | Go | `smalto/languages/go` | clike |
 | Haskell | `smalto/languages/haskell` | |
 | HTML | `smalto/languages/html` | |

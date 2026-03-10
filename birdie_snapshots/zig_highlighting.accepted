@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: zig highlighting
+file: ./test/languages_test.gleam
+test_name: zig_highlighting_test
 ---
 <span class="hl-comment">// Comment</span>
 <span class="hl-keyword">const</span> std <span class="hl-operator">=</span> <span class="hl-builtin">@import</span><span class="hl-punctuation">(</span><span class="hl-string">&quot;std&quot;</span><span class="hl-punctuation">)</span><span class="hl-punctuation">;</span>

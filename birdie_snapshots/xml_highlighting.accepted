@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: xml highlighting
+file: ./test/languages_test.gleam
+test_name: xml_highlighting_test
 ---
 <span class="hl-prolog">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="hl-comment">&lt;!-- Comment --&gt;</span>

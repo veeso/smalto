@@ -82,10 +82,15 @@ if (!flags.all && requestedLanguages.length === 0) {
     processedLanguages.push(lang);
   }
 
-  // Write registry
-  const registrySource = renderRegistry(processedLanguages);
+  // Languages with hand-written grammars (not from Prism.js) that must always
+  // appear in the registry.
+  const MANUAL_LANGUAGES = ['gleam'];
+
+  // Write registry — include both converted and hand-written languages
+  const allRegistryLanguages = [...new Set([...processedLanguages, ...MANUAL_LANGUAGES])];
+  const registrySource = renderRegistry(allRegistryLanguages);
   fs.writeFileSync(flags.registry, registrySource);
-  logger.info(`Wrote registry: ${flags.registry} (${processedLanguages.length} languages)`);
+  logger.info(`Wrote registry: ${flags.registry} (${allRegistryLanguages.length} languages)`);
 
   logger.info('Done!');
 }

@@ -1,7 +1,7 @@
 //// A general-purpose syntax highlighting library for Gleam.
 ////
 //// Smalto uses regex-based grammars inspired by Prism.js to tokenize source
-//// code for 29 programming languages, with output to structured tokens,
+//// code for 30 programming languages, with output to structured tokens,
 //// ANSI terminal colors, or HTML.
 ////
 //// ## Usage

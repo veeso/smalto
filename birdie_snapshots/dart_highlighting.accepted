@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: dart highlighting
+file: ./test/languages_test.gleam
+test_name: dart_highlighting_test
 ---
 <span class="hl-comment">// Comment</span>
 <span class="hl-keyword">class</span> <span class="hl-class-name">Person</span> <span class="hl-punctuation">{</span>

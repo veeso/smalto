@@ -1,6 +1,6 @@
 name = "smalto"
 version = "1.0.0"
-description = "A general-purpose syntax highlighting library for Gleam, with regex-based grammars for 29 languages."
+description = "A general-purpose syntax highlighting library for Gleam, with regex-based grammars for 30 languages."
 repository = { type = "github", user = "veeso", repo = "smalto" }
 licenses = ["MIT"]
 target = "erlang"

@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: typescript highlighting
+file: ./test/languages_test.gleam
+test_name: typescript_highlighting_test
 ---
 <span class="hl-comment">// Comment</span>
 <span class="hl-keyword">interface</span> Person <span class="hl-punctuation">{</span>

@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: cpp highlighting
+file: ./test/languages_test.gleam
+test_name: cpp_highlighting_test
 ---
 <span class="hl-directive-hash">#</span><span class="hl-keyword">include</span> <span class="hl-string">&lt;iostream&gt;</span>
 <span class="hl-comment">// Comment</span>

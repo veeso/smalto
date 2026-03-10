@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Supported languages
-nav_order: 6
+nav_order: 7
 ---
 
 # Supported languages

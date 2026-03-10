@@ -7,6 +7,7 @@
 [![codeberg](https://img.shields.io/badge/Codeberg-2185D0?&logo=Codeberg&logoColor=white)](https://codeberg.org/veeso/smalto)
 
 [![test](https://github.com/veeso/smalto/actions/workflows/test.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/test.yml)
+[![smalto_lustre](https://github.com/veeso/smalto/actions/workflows/smalto-lustre.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/smalto-lustre.yml)
 [![js-tools](https://github.com/veeso/smalto/actions/workflows/js-tools.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/js-tools.yml)
 
 A general-purpose syntax highlighting library for Gleam, with regex-based grammars for 30+ languages.
@@ -21,6 +22,7 @@ Smalto tokenizes source code using regex-based grammar definitions inspired by [
 - Language inheritance (e.g., TypeScript extends JavaScript)
 - Nested tokenization for embedded languages (e.g., CSS inside HTML)
 - Hybrid token types: well-known semantic variants plus a `Custom` escape hatch
+- [Lustre integration](#lustre-integration) via the [`smalto_lustre`](https://hex.pm/packages/smalto_lustre) package
 
 ## Installation
 
@@ -105,6 +107,25 @@ pre code .smalto-property { color: #ffd596; }
 | XML | `smalto/languages/xml` | |
 | YAML | `smalto/languages/yaml` | |
 | Zig | `smalto/languages/zig` | |
+
+## Lustre integration
+
+The [`smalto_lustre`](https://hex.pm/packages/smalto_lustre) package renders tokens as [Lustre](https://hexdocs.pm/lustre/) `Element` nodes:
+
+```sh
+gleam add smalto smalto_lustre
+```
+
+```gleam
+import smalto
+import smalto/languages/python
+import smalto/lustre as smalto_lustre
+
+let tokens = smalto.to_tokens("print('hello')", python.grammar())
+let elements = smalto_lustre.to_lustre(tokens, smalto_lustre.default_config())
+```
+
+The default config uses inline-styled `<span>` elements matching smalto's ANSI color scheme. Customize individual token renderers with the builder functions. See the [`smalto_lustre` README](smalto_lustre/) for full details.
 
 ## Try it out
 

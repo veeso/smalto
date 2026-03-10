@@ -36,6 +36,7 @@ Smalto tokenizes source code using Prism.js-inspired grammars and renders the re
 | Guide | Description |
 |-------|-------------|
 | [Getting started](getting-started) | Installation, quick examples |
+| [Lustre integration](lustre) | Render highlighted tokens as Lustre elements |
 | [Tokens](tokens) | Token types, names, and values |
 | [Grammars](grammars) | Grammar structure, rules, and custom grammars |
 | [ANSI themes](ansi-themes) | Configuring terminal color themes |

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: ANSI themes
-nav_order: 5
+nav_order: 6
 ---
 
 # ANSI themes

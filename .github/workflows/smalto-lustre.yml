@@ -1,0 +1,24 @@
+name: smalto_lustre
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: smalto_lustre
+    steps:
+      - uses: actions/checkout@v6
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: "28"
+          gleam-version: "1.14.0"
+          rebar3-version: "3"
+      - name: Use local smalto dependency
+        run: sed -i 's|smalto = ">= 1.0.0 and < 2.0.0"|smalto = { path = ".." }|' gleam.toml
+      - run: gleam deps download
+      - run: gleam test
+      - run: gleam format --check src test

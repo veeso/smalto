@@ -22,7 +22,8 @@ A general-purpose syntax highlighting library for Gleam, using regex-based gramm
 - `src/regex_ffi.erl` — Erlang FFI for regex compile/find/slice operations
 
 ### Tools
-- `tools/prism_converter/src/index.js` — Node.js script to generate Gleam grammar modules from Prism.js
+- `tools/prism_converter/` — Node.js tool to generate Gleam grammar modules from Prism.js
+- `tools/fetch_themes/` — Node.js tool to fetch and adapt Prism.js CSS themes for Smalto
 
 ## Conventions
 
@@ -32,6 +33,7 @@ A general-purpose syntax highlighting library for Gleam, using regex-based gramm
 - HTML output uses `smalto-` prefixed CSS classes: `<span class="smalto-keyword">`
 - All HTML output must be escaped with `houdini`
 - Snapshot tests use `birdie` — one snapshot per language
+- After modifying any JS file in `tools/`, `cd` into the tool directory and run: `npm run format`, `npm run format:check`, `npm run lint`
 
 ## Dependencies
 

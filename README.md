@@ -7,7 +7,7 @@
 [![codeberg](https://img.shields.io/badge/Codeberg-2185D0?&logo=Codeberg&logoColor=white)](https://codeberg.org/veeso/smalto)
 
 [![test](https://github.com/veeso/smalto/actions/workflows/test.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/test.yml)
-[![prism-converter](https://github.com/veeso/smalto/actions/workflows/prism-converter.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/prism-converter.yml)
+[![js-tools](https://github.com/veeso/smalto/actions/workflows/js-tools.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/js-tools.yml)
 
 A general-purpose syntax highlighting library for Gleam, with regex-based grammars for 30+ languages.
 

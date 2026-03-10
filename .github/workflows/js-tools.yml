@@ -1,22 +1,30 @@
-name: Prism Converter CI
+name: JS Tools CI
 
 on:
   push:
     paths:
       - "tools/prism_converter/**"
-      - ".github/workflows/prism-converter.yml"
+      - "tools/fetch_themes/**"
+      - ".github/workflows/js-tools.yml"
   pull_request:
     paths:
       - "tools/prism_converter/**"
-      - ".github/workflows/prism-converter.yml"
-
-defaults:
-  run:
-    working-directory: tools/prism_converter
+      - "tools/fetch_themes/**"
+      - ".github/workflows/js-tools.yml"
 
 jobs:
   ci:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        tool:
+          - prism_converter
+          - fetch_themes
+
+    defaults:
+      run:
+        working-directory: tools/${{ matrix.tool }}
 
     steps:
       - uses: actions/checkout@v6
@@ -25,7 +33,7 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: tools/prism_converter/package-lock.json
+          cache-dependency-path: tools/${{ matrix.tool }}/package-lock.json
 
       - run: npm ci
 
@@ -36,4 +44,5 @@ jobs:
         run: npm run lint
 
       - name: Test
+        if: hashFiles(format('tools/{0}/test', matrix.tool)) != ''
         run: npm test

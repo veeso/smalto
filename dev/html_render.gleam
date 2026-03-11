@@ -71,8 +71,7 @@ fn render_html(source_path: String, theme: String, output_path: String) -> Nil {
               let highlighted = smalto.to_html(source, grammar)
               let html_doc = build_html(source_path, theme_css, highlighted)
               case simplifile.write(output_path, html_doc) {
-                Ok(_) ->
-                  io.println("Written HTML to " <> output_path)
+                Ok(_) -> io.println("Written HTML to " <> output_path)
                 Error(_) ->
                   io.println("Error: could not write to " <> output_path)
               }

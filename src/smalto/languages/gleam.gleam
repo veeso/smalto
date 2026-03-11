@@ -1,3 +1,5 @@
+//// Language grammar for Gleam.
+
 import gleam/option
 import smalto/grammar.{type Grammar, type Rule, Grammar}
 

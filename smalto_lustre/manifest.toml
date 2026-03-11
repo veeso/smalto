@@ -12,11 +12,11 @@ packages = [
   { name = "gleeunit", version = "1.9.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "gleeunit", source = "hex", outer_checksum = "DA9553CE58B67924B3C631F96FE3370C49EB6D6DC6B384EC4862CC4AAA718F3C" },
   { name = "houdini", version = "1.2.0", build_tools = ["gleam"], requirements = [], otp_app = "houdini", source = "hex", outer_checksum = "5DB1053F1AF828049C2B206D4403C18970ABEF5C18671CA3C2D2ED0DD64F6385" },
   { name = "lustre", version = "5.6.0", build_tools = ["gleam"], requirements = ["gleam_erlang", "gleam_json", "gleam_otp", "gleam_stdlib", "houdini"], otp_app = "lustre", source = "hex", outer_checksum = "EE558CD4DB9F09FCC16417ADF0183A3C2DAC3E4B21ED3AC0CAE859792AB810CA" },
-  { name = "smalto", version = "1.0.0", build_tools = ["gleam"], requirements = ["gleam_community_ansi", "gleam_stdlib", "houdini"], source = "local", path = ".." },
+  { name = "smalto", version = "1.0.0", build_tools = ["gleam"], requirements = ["gleam_community_ansi", "gleam_stdlib", "houdini"], otp_app = "smalto", source = "hex", outer_checksum = "34DC05F81AA0966DA4A2B6B6889B0EC2C5A5DED279B158063E1CA7F6D8B3550B" },
 ]
 
 [requirements]
 gleam_stdlib = { version = ">= 0.44.0 and < 2.0.0" }
 gleeunit = { version = ">= 1.0.0 and < 2.0.0" }
 lustre = { version = ">= 5.4.0 and < 6.0.0" }
-smalto = { path = ".." }
+smalto = { version = ">= 1.0.0 and < 2.0.0" }

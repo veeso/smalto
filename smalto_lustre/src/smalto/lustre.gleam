@@ -64,7 +64,9 @@ pub type Config(msg) {
 ///
 /// Each token is rendered as `<span style="color: ...">value</span>`.
 /// Comments additionally receive `font-style: italic`.
-/// Punctuation and custom tokens are rendered as plain text.
+/// Markup tokens (`important`, `bold`, `italic`, `strike`, `code`, `url`)
+/// are styled with appropriate formatting. Other custom tokens are rendered
+/// as plain text.
 pub fn default_config() -> Config(msg) {
   Config(
     keyword: colored_span("#b8860b"),
@@ -81,7 +83,7 @@ pub fn default_config() -> Config(msg) {
     },
     function: colored_span("#0000ff"),
     operator: colored_span("#800080"),
-    punctuation: fn(value) { element.text(value) },
+    punctuation: colored_span("#808080"),
     type_: colored_span("#008b8b"),
     module: colored_span("#008b8b"),
     variable: colored_span("#ffd700"),
@@ -92,7 +94,7 @@ pub fn default_config() -> Config(msg) {
     selector: colored_span("#008b8b"),
     property: colored_span("#b8860b"),
     regex: colored_span("#008000"),
-    custom: fn(_name, value) { element.text(value) },
+    custom: default_custom_renderer,
   )
 }
 
@@ -279,5 +281,37 @@ fn token_to_element(tok: Token, config: Config(msg)) -> Element(msg) {
 fn colored_span(color: String) -> fn(String) -> Element(msg) {
   fn(value) {
     html.span([attribute.style("color", color)], [element.text(value)])
+  }
+}
+
+fn default_custom_renderer(name: String, value: String) -> Element(msg) {
+  case name {
+    "important" ->
+      html.span(
+        [
+          attribute.style("font-weight", "bold"),
+          attribute.style("color", "#b8860b"),
+        ],
+        [element.text(value)],
+      )
+    "bold" ->
+      html.span([attribute.style("font-weight", "bold")], [element.text(value)])
+    "italic" ->
+      html.span([attribute.style("font-style", "italic")], [element.text(value)])
+    "strike" ->
+      html.span([attribute.style("text-decoration", "line-through")], [
+        element.text(value),
+      ])
+    "code" ->
+      html.span([attribute.style("color", "#008000")], [element.text(value)])
+    "url" ->
+      html.span(
+        [
+          attribute.style("text-decoration", "underline"),
+          attribute.style("color", "#008b8b"),
+        ],
+        [element.text(value)],
+      )
+    _ -> element.text(value)
   }
 }

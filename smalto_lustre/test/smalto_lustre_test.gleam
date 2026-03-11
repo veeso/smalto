@@ -82,7 +82,7 @@ pub fn to_lustre_punctuation_default_config_test() {
   let result = smalto_lustre.to_lustre(tokens, smalto_lustre.default_config())
   result
   |> elements_to_string
-  |> should.equal("(")
+  |> should.equal("<span style=\"color:#808080;\">(</span>")
 }
 
 pub fn to_lustre_type_default_config_test() {
@@ -171,6 +171,60 @@ pub fn to_lustre_custom_default_config_test() {
   result
   |> elements_to_string
   |> should.equal("val")
+}
+
+pub fn to_lustre_custom_important_default_config_test() {
+  let tokens = [token.Custom("important", "# Heading")]
+  let result = smalto_lustre.to_lustre(tokens, smalto_lustre.default_config())
+  result
+  |> elements_to_string
+  |> should.equal(
+    "<span style=\"font-weight:bold;;color:#b8860b;\"># Heading</span>",
+  )
+}
+
+pub fn to_lustre_custom_bold_default_config_test() {
+  let tokens = [token.Custom("bold", "**text**")]
+  let result = smalto_lustre.to_lustre(tokens, smalto_lustre.default_config())
+  result
+  |> elements_to_string
+  |> should.equal("<span style=\"font-weight:bold;\">**text**</span>")
+}
+
+pub fn to_lustre_custom_italic_default_config_test() {
+  let tokens = [token.Custom("italic", "*text*")]
+  let result = smalto_lustre.to_lustre(tokens, smalto_lustre.default_config())
+  result
+  |> elements_to_string
+  |> should.equal("<span style=\"font-style:italic;\">*text*</span>")
+}
+
+pub fn to_lustre_custom_strike_default_config_test() {
+  let tokens = [token.Custom("strike", "~~text~~")]
+  let result = smalto_lustre.to_lustre(tokens, smalto_lustre.default_config())
+  result
+  |> elements_to_string
+  |> should.equal(
+    "<span style=\"text-decoration:line-through;\">~~text~~</span>",
+  )
+}
+
+pub fn to_lustre_custom_code_default_config_test() {
+  let tokens = [token.Custom("code", "`code`")]
+  let result = smalto_lustre.to_lustre(tokens, smalto_lustre.default_config())
+  result
+  |> elements_to_string
+  |> should.equal("<span style=\"color:#008000;\">`code`</span>")
+}
+
+pub fn to_lustre_custom_url_default_config_test() {
+  let tokens = [token.Custom("url", "[link](url)")]
+  let result = smalto_lustre.to_lustre(tokens, smalto_lustre.default_config())
+  result
+  |> elements_to_string
+  |> should.equal(
+    "<span style=\"text-decoration:underline;;color:#008b8b;\">[link](url)</span>",
+  )
 }
 
 pub fn to_lustre_mixed_tokens_test() {

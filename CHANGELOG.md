@@ -19,6 +19,14 @@ Released on 2026-03-11
   >   unicode mode, redundant in UTF-8)
   > - Update README and docs to mention dual-target support
 
+### Fixed
+
+- add default styles for markup tokens (Markdown highlighting)
+  > Markup tokens (important, bold, italic, strike, code, url) produced by the
+  > Markdown grammar were unstyled across all renderers. Added default styles to
+  > the ANSI theme, Lustre default config, and CSS theme fallback rules.
+  > Also added punctuation styling (gray) to the ANSI and Lustre default themes.
+
 ### Documentation
 
 - added heading comments for languages modules

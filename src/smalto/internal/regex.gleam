@@ -11,6 +11,7 @@ pub type Regex
 ///
 /// Returns `Ok(Regex)` on success, or `Error(Nil)` if the pattern is invalid.
 @external(erlang, "regex_ffi", "compile")
+@external(javascript, "../../regex_ffi.mjs", "compile")
 pub fn compile(pattern: String) -> Result(Regex, Nil)
 
 /// Find the first match starting from the given byte offset.
@@ -19,6 +20,7 @@ pub fn compile(pattern: String) -> Result(Regex, Nil)
 /// absolute byte position of the match in the input string.
 /// Returns `Error(Nil)` if no match is found.
 @external(erlang, "regex_ffi", "find")
+@external(javascript, "../../regex_ffi.mjs", "find")
 pub fn find(
   regex: Regex,
   text: String,
@@ -30,8 +32,10 @@ pub fn find(
 /// The caller must ensure that `start` and `start + length` fall on
 /// valid UTF-8 character boundaries.
 @external(erlang, "regex_ffi", "byte_slice")
+@external(javascript, "../../regex_ffi.mjs", "byte_slice")
 pub fn byte_slice(text: String, start: Int, length: Int) -> String
 
 /// Get the byte length of a UTF-8 string.
 @external(erlang, "regex_ffi", "byte_length")
+@external(javascript, "../../regex_ffi.mjs", "byte_length")
 pub fn byte_length(text: String) -> Int

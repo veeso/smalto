@@ -1,13 +1,11 @@
 ---
 version: 1.5.4
 title: yaml highlighting
-file: ./test/languages_test.gleam
-test_name: yaml_highlighting_test
 ---
 <span class="smalto-comment"># Comment</span>
-name<span class="smalto-punctuation">:</span> smalto
-version<span class="smalto-punctuation">:</span> 1.0.0
-enabled<span class="smalto-punctuation">:</span> <span class="smalto-important">true</span>
-tags<span class="smalto-punctuation">:</span>
+<span class="smalto-atrule">name</span><span class="smalto-punctuation">:</span> smalto
+<span class="smalto-atrule">version</span><span class="smalto-punctuation">:</span> 1.0.0
+<span class="smalto-atrule">enabled</span><span class="smalto-punctuation">:</span> <span class="smalto-important">true</span>
+<span class="smalto-atrule">tags</span><span class="smalto-punctuation">:</span>
   <span class="smalto-punctuation">-</span> gleam
   <span class="smalto-punctuation">-</span> syntax

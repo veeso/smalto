@@ -16,6 +16,13 @@ function regexToString(regex) {
   source = source.replace(/\\u\{([0-9a-fA-F]+)\}/g, '\\x{$1}');
   source = source.replace(/\\u([0-9a-fA-F]{4})/g, '\\x{$1}');
 
+  // Strip surrogate and noncharacter code point ranges that are invalid in
+  // PCRE unicode mode and redundant in valid UTF-8 text.
+  source = source.replace(/\\x\{[dD][89a-fA-F][0-9a-fA-F]{2}\}-\\x\{[dD][fF][0-9a-fA-F]{2}\}/g, '');
+  source = source.replace(/\\x\{[fF]{2}[fF][eE]\}\\x\{[fF]{4}\}/g, '');
+  source = source.replace(/\\x\{[fF]{2}[fF][eE]\}/g, '');
+  source = source.replace(/\\x\{[fF]{4}\}/g, '');
+
   // Convert named groups (?<name>...) to (?P<name>...) for PCRE
   // Must not match lookbehinds (?<=...) or (?<!...)
   source = source.replace(/\(\?<(?![=!])([a-zA-Z_]\w*)>/g, '(?P<$1>');

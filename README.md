@@ -3,7 +3,8 @@
 [![Package Version](https://img.shields.io/hexpm/v/smalto)](https://hex.pm/packages/smalto)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/smalto/)
 [![conventional-commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
-[![target-erlang](https://img.shields.io/badge/target-erlang-b83998)](https://www.erlang.org/)
+[![Erlang Compatible](https://img.shields.io/badge/target-erlang-b83998)](https://www.erlang.org/)
+![JavaScript Compatible](https://img.shields.io/badge/target-javascript-f3e155)
 [![codeberg](https://img.shields.io/badge/Codeberg-2185D0?&logo=Codeberg&logoColor=white)](https://codeberg.org/veeso/smalto)
 
 [![test](https://github.com/veeso/smalto/actions/workflows/smalto.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/smalto.yml)
@@ -16,6 +17,7 @@ Smalto tokenizes source code using regex-based grammar definitions inspired by [
 
 ## Features
 
+- Works on both Erlang and JavaScript targets
 - Regex-based tokenizer engine with greedy matching and nested grammar support
 - 30 built-in languages including Gleam, Rust, Python, JavaScript, HTML, CSS, and more
 - Three output formats: tokens, ANSI terminal colors, HTML with CSS classes
@@ -27,7 +29,7 @@ Smalto tokenizes source code using regex-based grammar definitions inspired by [
 ## Installation
 
 ```sh
-gleam add smalto@1
+gleam add smalto@2
 ```
 
 ## Quick start
@@ -148,9 +150,10 @@ API reference is available on [HexDocs](https://hexdocs.pm/smalto/).
 ## Development
 
 ```sh
-gleam build   # Compile the project
-gleam test    # Run the tests
-gleam format src test  # Format code
+gleam build                        # Compile the project
+gleam test                         # Run the tests (Erlang)
+gleam test --target javascript     # Run the tests (JavaScript)
+gleam format src test              # Format code
 ```
 
 ### Prism.js converter

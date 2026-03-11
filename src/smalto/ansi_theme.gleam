@@ -51,6 +51,7 @@ pub fn default() -> AnsiTheme {
   |> module(ansi.cyan)
   |> type_(ansi.cyan)
   |> operator(ansi.magenta)
+  |> punctuation(ansi.gray)
   |> tag(ansi.red)
   |> builtin(ansi.bright_blue)
   |> attribute(ansi.yellow)
@@ -59,6 +60,13 @@ pub fn default() -> AnsiTheme {
   |> regex(ansi.green)
   |> constant(ansi.bright_magenta)
   |> variable(ansi.bright_yellow)
+  // Markup tokens (used by Markdown, HTML, etc.)
+  |> custom("important", fn(val) { ansi.bold(ansi.bright_yellow(val)) })
+  |> custom("bold", ansi.bold)
+  |> custom("italic", ansi.italic)
+  |> custom("strike", ansi.strikethrough)
+  |> custom("code", ansi.green)
+  |> custom("url", fn(val) { ansi.underline(ansi.cyan(val)) })
 }
 
 /// Look up the styling function for a token type.

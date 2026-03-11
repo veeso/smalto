@@ -140,3 +140,13 @@ pre > code.diff-highlight.diff-highlight .smalto-inserted:not(.prefix) {
 	background-color: rgba(0, 255, 128, .3);
 	display: inline;
 }
+
+/* Smalto fallback rules for markup tokens */
+.smalto-strike {
+  text-decoration: line-through;
+}
+
+.smalto-code {
+  font-family: monospace; background: rgba(128, 128, 128, 0.1); padding: 0.1em 0.3em; border-radius: 3px;
+}
+

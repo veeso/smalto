@@ -84,7 +84,7 @@ The default config uses inline `style="color: ..."` attributes with these colors
 | comment | `#808080` (gray, italic) |
 | function | `#0000ff` (blue) |
 | operator | `#800080` (magenta) |
-| punctuation | plain text |
+| punctuation | `#808080` (gray) |
 | type | `#008b8b` (cyan) |
 | module | `#008b8b` (cyan) |
 | variable | `#ffd700` (bright yellow) |
@@ -95,7 +95,20 @@ The default config uses inline `style="color: ..."` attributes with these colors
 | selector | `#008b8b` (cyan) |
 | property | `#b8860b` (dark yellow) |
 | regex | `#008000` (green) |
-| custom | plain text |
+| custom | plain text (see below) |
+
+The default config also styles markup tokens commonly produced by the Markdown grammar:
+
+| Custom token | Style |
+|-------------|-------|
+| `important` | bold, `#b8860b` (dark yellow) |
+| `bold` | bold |
+| `italic` | italic |
+| `strike` | line-through |
+| `code` | `#008000` (green) |
+| `url` | underline, `#008b8b` (cyan) |
+
+Other custom tokens are rendered as plain text.
 
 `Whitespace` and `Other` tokens are always rendered as plain text nodes, regardless of the config.
 

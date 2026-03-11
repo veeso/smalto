@@ -22,6 +22,7 @@ The default theme applies these colors:
 | Module | Cyan |
 | Type | Cyan |
 | Operator | Magenta |
+| Punctuation | Gray |
 | Tag | Red |
 | Builtin | Bright blue |
 | Attribute | Yellow |
@@ -30,10 +31,20 @@ The default theme applies these colors:
 | Regex | Green |
 | Constant | Bright magenta |
 | Variable | Bright yellow |
-| Punctuation | No styling |
 | Whitespace | No styling |
 | Other | No styling |
-| Custom | No styling |
+| Custom | No styling (see below) |
+
+The default theme also includes styles for markup tokens commonly produced by the Markdown grammar:
+
+| Custom token | Style |
+|-------------|-------|
+| `important` | Bold bright yellow |
+| `bold` | Bold |
+| `italic` | Italic |
+| `strike` | Strikethrough |
+| `code` | Green |
+| `url` | Underline cyan |
 
 Use `smalto.to_ansi()` to render with the default theme:
 

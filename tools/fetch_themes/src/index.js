@@ -175,7 +175,29 @@ function convertCss(css, filename) {
 
 `;
 
-  return `${header}${result.trim()}\n`;
+  result = result.trim();
+
+  // Add fallback rules for markup tokens (used by Markdown grammar) when
+  // the original Prism theme does not define them.
+  const fallbacks = [
+    ['.smalto-bold', 'font-weight: bold;'],
+    ['.smalto-italic', 'font-style: italic;'],
+    ['.smalto-strike', 'text-decoration: line-through;'],
+    [
+      '.smalto-code',
+      'font-family: monospace; background: rgba(128, 128, 128, 0.1); padding: 0.1em 0.3em; border-radius: 3px;',
+    ],
+  ];
+
+  const missing = fallbacks
+    .filter(([selector]) => !result.includes(selector))
+    .map(([selector, rules]) => `${selector} {\n  ${rules}\n}`);
+
+  if (missing.length > 0) {
+    result += `\n\n/* Smalto fallback rules for markup tokens */\n${missing.join('\n\n')}\n`;
+  }
+
+  return `${header}${result}\n`;
 }
 
 async function main() {

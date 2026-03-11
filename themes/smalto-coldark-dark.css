@@ -327,3 +327,9 @@ pre > code.diff-highlight .smalto-token.inserted:not(.prefix) {
 .command-line .command-line-prompt > span:before {
 	color: #8da1b9da;
 }
+
+/* Smalto fallback rules for markup tokens */
+.smalto-strike {
+  text-decoration: line-through;
+}
+

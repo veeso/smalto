@@ -286,3 +286,17 @@ code[class*="language-html"] {
 	box-shadow: inset 5px 0 0 #f7d87c;
 	z-index: 0;
 }
+
+/* Smalto fallback rules for markup tokens */
+.smalto-bold {
+  font-weight: bold;
+}
+
+.smalto-strike {
+  text-decoration: line-through;
+}
+
+.smalto-code {
+  font-family: monospace; background: rgba(128, 128, 128, 0.1); padding: 0.1em 0.3em; border-radius: 3px;
+}
+

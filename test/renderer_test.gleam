@@ -1,4 +1,5 @@
 import gleam/string as gleam_string
+import gleam_community/ansi
 import gleeunit/should
 import smalto/ansi_theme
 import smalto/internal/renderer
@@ -172,9 +173,9 @@ pub fn ansi_variable_has_color_test() {
   |> should.be_true
 }
 
-pub fn ansi_punctuation_no_color_test() {
+pub fn ansi_punctuation_color_test() {
   renderer.to_ansi([Punctuation(";")], default_theme())
-  |> should.equal(";")
+  |> should.equal(ansi.gray(";"))
 }
 
 pub fn ansi_custom_no_color_test() {

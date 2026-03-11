@@ -4,7 +4,8 @@
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/smalto_lustre/)
 [![conventional-commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 [![target-erlang](https://img.shields.io/badge/target-erlang-b83998)](https://www.erlang.org/)
-[![codeberg](https://img.shields.io/badge/Codeberg-2185D0?&logo=Codeberg&logoColor=white)](https://codeberg.org/veeso/smalto)
+[![Erlang Compatible](https://img.shields.io/badge/target-erlang-b83998)](https://www.erlang.org/)
+![JavaScript Compatible](https://img.shields.io/badge/target-javascript-f3e155)
 
 [Lustre](https://hexdocs.pm/lustre/) element renderer for [smalto](https://hex.pm/packages/smalto) syntax-highlighted tokens.
 

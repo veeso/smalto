@@ -21,7 +21,7 @@ Convert specific languages:
 node src/index.js python rust javascript
 ```
 
-Convert all 29 supported Prism.js languages (Gleam is hand-written):
+Convert all 35 supported Prism.js languages (Gleam is hand-written):
 
 ```sh
 node src/index.js --all
@@ -71,7 +71,7 @@ CLI args -> fetcher (load Prism.js) -> parser (normalize to IR) -> renderer (Gle
 
 ## Supported languages
 
-Bash, C, C++, CSS, Dart, Dockerfile, Elixir, Erlang, Go, Haskell, HTML, Java, JavaScript, JSON, Kotlin, Lua, Markdown, PHP, Python, Ruby, Rust, Scala, SQL, Swift, TOML, TypeScript, XML, YAML, Zig
+Bash, C, C++, C#, CSS, Dart, Dockerfile, Elixir, Erlang, F#, Go, Haskell, HTML, Java, JavaScript, JSON, Kotlin, Lua, Markdown, Nginx, PHP, Python, Razor (cshtml), React JSX, React TSX, Ruby, Rust, Scala, SQL, Swift, TOML, TypeScript, XML, YAML, Zig
 
 Gleam is not available in Prism.js and must be handled separately.
 

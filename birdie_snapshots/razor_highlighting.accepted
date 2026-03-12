@@ -1,0 +1,28 @@
+---
+version: 1.5.4
+title: razor highlighting
+file: ./test/languages_test.gleam
+test_name: razor_highlighting_test
+---
+<span class="smalto-comment">&lt;!-- Single statement block --&gt;</span>
+  <span class="smalto-keyword">@</span><span class="smalto-punctuation">{</span> <span class="smalto-class-name">var</span> myMessage <span class="smalto-operator">=</span> <span class="smalto-string">&quot;Hello World&quot;</span><span class="smalto-punctuation">;</span> <span class="smalto-punctuation">}</span>
+
+  <span class="smalto-comment">&lt;!-- Inline expression or variable --&gt;</span>
+  <span class="smalto-tag">&lt;p&gt;</span>The value of myMessage is: <span class="smalto-variable">@myMessage</span><span class="smalto-tag">&lt;/p&gt;</span>
+
+  <span class="smalto-comment">&lt;!-- Multi-statement block --&gt;</span>
+  <span class="smalto-keyword">@</span><span class="smalto-punctuation">{</span>
+  <span class="smalto-class-name">var</span> totalMessage <span class="smalto-operator">=</span> <span class="smalto-string">&quot;&quot;</span><span class="smalto-punctuation">;</span>
+  <span class="smalto-keyword">if</span><span class="smalto-punctuation">(</span>IsPost<span class="smalto-punctuation">)</span>
+      <span class="smalto-punctuation">{</span>
+      <span class="smalto-class-name">var</span> num1 <span class="smalto-operator">=</span> Request<span class="smalto-punctuation">[</span><span class="smalto-string">&quot;text1&quot;</span><span class="smalto-punctuation">]</span><span class="smalto-punctuation">;</span>
+      <span class="smalto-class-name">var</span> num2 <span class="smalto-operator">=</span> Request<span class="smalto-punctuation">[</span><span class="smalto-string">&quot;text2&quot;</span><span class="smalto-punctuation">]</span><span class="smalto-punctuation">;</span>
+      <span class="smalto-class-name">var</span> total <span class="smalto-operator">=</span> num1<span class="smalto-punctuation">.</span><span class="smalto-function">AsInt</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span> <span class="smalto-operator">+</span> num2<span class="smalto-punctuation">.</span><span class="smalto-function">AsInt</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+      totalMessage <span class="smalto-operator">=</span> <span class="smalto-string">&quot;Total = &quot;</span> <span class="smalto-operator">+</span> total<span class="smalto-punctuation">;</span>
+      <span class="smalto-punctuation">}</span>
+  <span class="smalto-punctuation">}</span>
+  <span class="smalto-tag">&lt;body&gt;</span>
+    <span class="smalto-tag">&lt;main class=&quot;main-area&quot;&gt;</span>
+      <span class="smalto-tag">&lt;p&gt;</span>The greeting is: <span class="smalto-variable">@totalMessage</span><span class="smalto-tag">&lt;/p&gt;</span>
+    <span class="smalto-tag">&lt;/main&gt;</span>
+ <span class="smalto-tag">&lt;/body&gt;</span> 

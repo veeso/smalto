@@ -1,0 +1,16 @@
+---
+version: 1.5.4
+title: reacttsx highlighting
+file: ./test/languages_test.gleam
+test_name: reacttsx_highlighting_test
+---
+<span class="smalto-keyword">interface</span> <span class="smalto-class-name">MyButtonProps</span> <span class="smalto-punctuation">{</span>
+    title<span class="smalto-operator">:</span> <span class="smalto-builtin">string</span><span class="smalto-punctuation">;</span>
+    disabled<span class="smalto-operator">:</span> <span class="smalto-builtin">boolean</span><span class="smalto-punctuation">;</span>
+  <span class="smalto-punctuation">}</span>
+
+  <span class="smalto-keyword">function</span> <span class="smalto-function">MyButton</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">{</span> title<span class="smalto-punctuation">,</span> disabled <span class="smalto-punctuation">}</span><span class="smalto-operator">:</span> MyButtonProps<span class="smalto-punctuation">)</span> <span class="smalto-punctuation">{</span>
+    <span class="smalto-keyword">return</span> <span class="smalto-punctuation">(</span>
+      <span class="smalto-tag">&lt;button disabled={disabled}&gt;</span><span class="smalto-punctuation">{</span>title<span class="smalto-punctuation">}</span><span class="smalto-tag">&lt;/button&gt;</span>
+    <span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+  <span class="smalto-punctuation">}</span>

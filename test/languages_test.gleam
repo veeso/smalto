@@ -24,6 +24,7 @@ import smalto/languages/nginx
 import smalto/languages/php
 import smalto/languages/python
 import smalto/languages/reactjsx
+import smalto/languages/reacttsx
 import smalto/languages/ruby
 import smalto/languages/rust
 import smalto/languages/scala
@@ -379,6 +380,21 @@ pub fn reactjsx_highlighting_test() {
  }"
   |> smalto.to_html(reactjsx.grammar())
   |> birdie.snap(title: "reactjsx highlighting")
+}
+
+pub fn reacttsx_highlighting_test() {
+  "interface MyButtonProps {
+    title: string;
+    disabled: boolean;
+  }
+
+  function MyButton({ title, disabled }: MyButtonProps) {
+    return (
+      <button disabled={disabled}>{title}</button>
+    );
+  }"
+  |> smalto.to_html(reacttsx.grammar())
+  |> birdie.snap(title: "reacttsx highlighting")
 }
 
 pub fn ruby_highlighting_test() {

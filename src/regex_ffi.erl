@@ -1,12 +1,30 @@
 -module(regex_ffi).
--export([compile/1, find/3, byte_slice/3, byte_length/1]).
+-export([compile/1, find/3, byte_slice/3, byte_length/1, is_cached/1]).
 
 %% Compile a PCRE pattern with unicode support.
+%% Caches compiled regexes in persistent_term for reuse.
 %% Returns {ok, CompiledRegex} or {error, nil}.
 compile(Pattern) ->
-    case re:compile(Pattern, [unicode, ucp]) of
-        {ok, MP} -> {ok, MP};
-        {error, _} -> {error, nil}
+    Key = {smalto_regex_cache, Pattern},
+    case persistent_term:get(Key, undefined) of
+        undefined ->
+            case re:compile(Pattern, [unicode, ucp]) of
+                {ok, MP} ->
+                    persistent_term:put(Key, MP),
+                    {ok, MP};
+                {error, _} ->
+                    {error, nil}
+            end;
+        MP ->
+            {ok, MP}
+    end.
+
+%% Check if a pattern is in the regex cache.
+is_cached(Pattern) ->
+    Key = {smalto_regex_cache, Pattern},
+    case persistent_term:get(Key, undefined) of
+        undefined -> false;
+        _ -> true
     end.
 
 %% Find the first match starting from the given byte offset.

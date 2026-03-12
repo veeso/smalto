@@ -39,3 +39,8 @@ pub fn byte_slice(text: String, start: Int, length: Int) -> String
 @external(erlang, "regex_ffi", "byte_length")
 @external(javascript, "../../regex_ffi.mjs", "byte_length")
 pub fn byte_length(text: String) -> Int
+
+/// Check if a pattern is already in the compiled regex cache.
+@external(erlang, "regex_ffi", "is_cached")
+@external(javascript, "../../regex_ffi.mjs", "is_cached")
+pub fn is_cached(pattern: String) -> Bool

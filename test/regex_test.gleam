@@ -137,3 +137,21 @@ pub fn byte_length_mixed_test() {
   regex.byte_length("a😀b")
   |> should.equal(6)
 }
+
+// -- cache tests --
+
+pub fn compile_caches_regex_test() {
+  // Use a unique pattern unlikely to be compiled by other tests
+  let pattern = "^CACHE_TEST_UNIQUE_42$"
+
+  // Pattern should not be cached before first compile
+  regex.is_cached(pattern)
+  |> should.equal(False)
+
+  // Compile the pattern
+  let assert Ok(_) = regex.compile(pattern)
+
+  // Pattern should now be cached
+  regex.is_cached(pattern)
+  |> should.equal(True)
+}

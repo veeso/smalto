@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: gleam highlighting
+file: ./test/languages_test.gleam
+test_name: gleam_highlighting_test
 ---
 <span class="smalto-comment">// A module comment</span>
 <span class="smalto-keyword">import</span> <span class="smalto-module">gleam/io</span>

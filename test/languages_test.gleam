@@ -3,6 +3,7 @@ import smalto
 import smalto/languages/bash
 import smalto/languages/c
 import smalto/languages/cpp
+import smalto/languages/csharp
 import smalto/languages/css
 import smalto/languages/dart
 import smalto/languages/dockerfile
@@ -53,6 +54,22 @@ int main() {
 }"
   |> smalto.to_html(c.grammar())
   |> birdie.snap(title: "c highlighting")
+}
+
+pub fn csharp_highlighting_test() {
+  "// Comment
+  using System;
+
+  public class Program
+  {
+      public static void Main()
+      {
+          var name = \"Lucy\";
+		Console.WriteLine($\"Hello {name}\");
+      }
+  }"
+  |> smalto.to_html(csharp.grammar())
+  |> birdie.snap(title: "csharp highlighting")
 }
 
 pub fn cpp_highlighting_test() {

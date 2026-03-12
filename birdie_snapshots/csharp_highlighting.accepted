@@ -1,0 +1,17 @@
+---
+version: 1.5.4
+title: csharp highlighting
+file: ./test/languages_test.gleam
+test_name: csharp_highlighting_test
+---
+<span class="smalto-comment">// Comment</span>
+  <span class="smalto-keyword">using</span> <span class="smalto-namespace">System</span><span class="smalto-punctuation">;</span>
+
+  <span class="smalto-keyword">public</span> <span class="smalto-keyword">class</span> <span class="smalto-class-name">Program</span>
+  <span class="smalto-punctuation">{</span>
+      <span class="smalto-keyword">public</span> <span class="smalto-keyword">static</span> <span class="smalto-class-name">void</span> <span class="smalto-function">Main</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span>
+      <span class="smalto-punctuation">{</span>
+          <span class="smalto-class-name">var</span> name <span class="smalto-operator">=</span> <span class="smalto-string">&quot;Lucy&quot;</span><span class="smalto-punctuation">;</span>
+		Console<span class="smalto-punctuation">.</span><span class="smalto-function">WriteLine</span><span class="smalto-punctuation">(</span><span class="smalto-interpolation-string">$&quot;Hello {name}&quot;</span><span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+      <span class="smalto-punctuation">}</span>
+  <span class="smalto-punctuation">}</span>

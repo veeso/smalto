@@ -1,0 +1,17 @@
+---
+version: 1.5.4
+title: nginx highlighting
+file: ./test/languages_test.gleam
+test_name: nginx_highlighting_test
+---
+<span class="smalto-keyword">http</span> <span class="smalto-punctuation">{</span>
+      <span class="smalto-keyword">server</span> <span class="smalto-punctuation">{</span>
+          <span class="smalto-keyword">listen</span> <span class="smalto-number">80</span><span class="smalto-punctuation">;</span>
+          <span class="smalto-keyword">add_header</span> X-Clacks-Overhead &quot;GNU Terry Pratchett&quot;<span class="smalto-punctuation">;</span>
+
+          <span class="smalto-keyword">location</span> / <span class="smalto-punctuation">{</span>
+              <span class="smalto-keyword">root</span> /var/www/html<span class="smalto-punctuation">;</span>
+          <span class="smalto-punctuation">}</span>
+      <span class="smalto-punctuation">}</span>
+  <span class="smalto-punctuation">}</span>
+

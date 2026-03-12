@@ -9,6 +9,7 @@ import smalto/languages/dart
 import smalto/languages/dockerfile
 import smalto/languages/elixir
 import smalto/languages/erlang
+import smalto/languages/fsharp
 import smalto/languages/gleam
 import smalto/languages/go
 import smalto/languages/haskell
@@ -143,6 +144,54 @@ hello(Name) ->
     io:format(\"Hello ~s~n\", [Name])."
   |> smalto.to_html(erlang.grammar())
   |> birdie.snap(title: "erlang highlighting")
+}
+
+pub fn fsharp_highlighting_test() {
+  "open System
+
+  // Comment
+  (* Multi
+     line
+  *)
+
+  type SyncReply =
+    | Value of obj
+    | Exception of Exception
+
+  type Message =
+    | AsyncCall of (obj->unit) * obj
+    | SyncCall of (obj->obj) * obj * AsyncReplyChannel<SyncReply>
+
+  type Agent() =
+     let agent = MailboxProcessor.Start( fun inbox ->
+        async {
+           while true do
+              let! msg = inbox.Receive()
+              match msg with
+              | AsyncCall(f, args) ->
+                  try
+                      f args
+                  with
+                      | ex -> printfn \"Warning: exception in asynchronous call (%A)\" ex
+              | SyncCall(f, args, replyChannel) ->
+                  try
+                      f args |> Value |> replyChannel.Reply
+                  with
+                      | ex -> ex |> Exception |> replyChannel.Reply
+        })
+
+     member x.Async (f:'T->unit) (args:'T) =
+        let f' (o:obj) = f (o :?> 'T)
+        agent.Post( AsyncCall(f', args) )
+
+     member x.Sync (f:'T->'U) (args:'T) : 'U =
+        let f' (o:obj) = f (o :?> 'T) :> obj
+        let reply = agent.PostAndReply( fun replyChannel -> SyncCall (f', args, replyChannel) )
+        match reply with
+        | Exception ex -> raise ex
+        | Value v -> v :?> 'U"
+  |> smalto.to_html(fsharp.grammar())
+  |> birdie.snap(title: "fsharp highlighting")
 }
 
 pub fn gleam_highlighting_test() {

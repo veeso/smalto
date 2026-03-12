@@ -1,0 +1,49 @@
+---
+version: 1.5.4
+title: fsharp highlighting
+file: ./test/languages_test.gleam
+test_name: fsharp_highlighting_test
+---
+<span class="smalto-keyword">open</span> System
+
+  <span class="smalto-comment">// Comment</span>
+  <span class="smalto-comment">(* Multi
+     line
+  *)</span>
+
+  <span class="smalto-keyword">type</span> <span class="smalto-class-name">SyncReply</span> <span class="smalto-operator">=</span>
+    <span class="smalto-operator">|</span> Value <span class="smalto-keyword">of</span> <span class="smalto-class-name">obj</span>
+    <span class="smalto-operator">|</span> Exception <span class="smalto-keyword">of</span> <span class="smalto-class-name">Exception</span>
+
+  <span class="smalto-keyword">type</span> <span class="smalto-class-name">Message</span> <span class="smalto-operator">=</span>
+    <span class="smalto-operator">|</span> AsyncCall <span class="smalto-keyword">of</span> <span class="smalto-punctuation">(</span>obj<span class="smalto-operator">-&gt;</span>unit<span class="smalto-punctuation">)</span> <span class="smalto-operator">*</span> obj
+    <span class="smalto-operator">|</span> SyncCall <span class="smalto-keyword">of</span> <span class="smalto-punctuation">(</span>obj<span class="smalto-operator">-&gt;</span>obj<span class="smalto-punctuation">)</span> <span class="smalto-operator">*</span> obj <span class="smalto-operator">*</span> AsyncReplyChannel<span class="smalto-operator">&lt;</span>SyncReply<span class="smalto-operator">&gt;</span>
+
+  <span class="smalto-keyword">type</span> <span class="smalto-class-name">Agent</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span> <span class="smalto-operator">=</span>
+     <span class="smalto-keyword">let</span> agent <span class="smalto-operator">=</span> MailboxProcessor<span class="smalto-punctuation">.</span><span class="smalto-function">Start</span><span class="smalto-punctuation">(</span> <span class="smalto-keyword">fun</span> inbox <span class="smalto-operator">-&gt;</span>
+        <span class="smalto-keyword">async</span> <span class="smalto-punctuation">{</span>
+           <span class="smalto-keyword">while</span> <span class="smalto-keyword">true</span> <span class="smalto-keyword">do</span>
+              <span class="smalto-keyword">let!</span> msg <span class="smalto-operator">=</span> inbox<span class="smalto-punctuation">.</span><span class="smalto-function">Receive</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span>
+              <span class="smalto-keyword">match</span> msg <span class="smalto-keyword">with</span>
+              <span class="smalto-operator">|</span> <span class="smalto-function">AsyncCall</span><span class="smalto-punctuation">(</span>f<span class="smalto-punctuation">,</span> args<span class="smalto-punctuation">)</span> <span class="smalto-operator">-&gt;</span>
+                  <span class="smalto-keyword">try</span>
+                      f args
+                  <span class="smalto-keyword">with</span>
+                      <span class="smalto-operator">|</span> ex <span class="smalto-operator">-&gt;</span> printfn <span class="smalto-string">&quot;Warning: exception in asynchronous call (%A)&quot;</span> ex
+              <span class="smalto-operator">|</span> <span class="smalto-function">SyncCall</span><span class="smalto-punctuation">(</span>f<span class="smalto-punctuation">,</span> args<span class="smalto-punctuation">,</span> replyChannel<span class="smalto-punctuation">)</span> <span class="smalto-operator">-&gt;</span>
+                  <span class="smalto-keyword">try</span>
+                      f args <span class="smalto-operator">|&gt;</span> Value <span class="smalto-operator">|&gt;</span> replyChannel<span class="smalto-punctuation">.</span>Reply
+                  <span class="smalto-keyword">with</span>
+                      <span class="smalto-operator">|</span> ex <span class="smalto-operator">-&gt;</span> ex <span class="smalto-operator">|&gt;</span> Exception <span class="smalto-operator">|&gt;</span> replyChannel<span class="smalto-punctuation">.</span>Reply
+        <span class="smalto-punctuation">}</span><span class="smalto-punctuation">)</span>
+
+     <span class="smalto-keyword">member</span> x<span class="smalto-punctuation">.</span>Async <span class="smalto-punctuation">(</span>f<span class="smalto-punctuation">:</span>&#39;T<span class="smalto-operator">-&gt;</span>unit<span class="smalto-punctuation">)</span> <span class="smalto-punctuation">(</span>args<span class="smalto-punctuation">:</span>&#39;T<span class="smalto-punctuation">)</span> <span class="smalto-operator">=</span>
+        <span class="smalto-keyword">let</span> f&#39; <span class="smalto-punctuation">(</span>o<span class="smalto-punctuation">:</span><span class="smalto-class-name">obj</span><span class="smalto-punctuation">)</span> <span class="smalto-operator">=</span> f <span class="smalto-punctuation">(</span>o <span class="smalto-operator">:?&gt;</span> &#39;T<span class="smalto-punctuation">)</span>
+        agent<span class="smalto-punctuation">.</span><span class="smalto-function">Post</span><span class="smalto-punctuation">(</span> <span class="smalto-function">AsyncCall</span><span class="smalto-punctuation">(</span>f&#39;<span class="smalto-punctuation">,</span> args<span class="smalto-punctuation">)</span> <span class="smalto-punctuation">)</span>
+
+     <span class="smalto-keyword">member</span> x<span class="smalto-punctuation">.</span>Sync <span class="smalto-punctuation">(</span>f<span class="smalto-punctuation">:</span>&#39;T<span class="smalto-operator">-&gt;</span>&#39;U<span class="smalto-punctuation">)</span> <span class="smalto-punctuation">(</span>args<span class="smalto-punctuation">:</span>&#39;T<span class="smalto-punctuation">)</span> <span class="smalto-punctuation">:</span> &#39;U <span class="smalto-operator">=</span>
+        <span class="smalto-keyword">let</span> f&#39; <span class="smalto-punctuation">(</span>o<span class="smalto-punctuation">:</span><span class="smalto-class-name">obj</span><span class="smalto-punctuation">)</span> <span class="smalto-operator">=</span> f <span class="smalto-punctuation">(</span>o <span class="smalto-operator">:?&gt;</span> &#39;T<span class="smalto-punctuation">)</span> <span class="smalto-operator">:&gt;</span> <span class="smalto-class-name">obj</span>
+        <span class="smalto-keyword">let</span> reply <span class="smalto-operator">=</span> agent<span class="smalto-punctuation">.</span><span class="smalto-function">PostAndReply</span><span class="smalto-punctuation">(</span> <span class="smalto-keyword">fun</span> replyChannel <span class="smalto-operator">-&gt;</span> SyncCall <span class="smalto-punctuation">(</span>f&#39;<span class="smalto-punctuation">,</span> args<span class="smalto-punctuation">,</span> replyChannel<span class="smalto-punctuation">)</span> <span class="smalto-punctuation">)</span>
+        <span class="smalto-keyword">match</span> reply <span class="smalto-keyword">with</span>
+        <span class="smalto-operator">|</span> Exception ex <span class="smalto-operator">-&gt;</span> raise ex
+        <span class="smalto-operator">|</span> Value v <span class="smalto-operator">-&gt;</span> v <span class="smalto-operator">:?&gt;</span> &#39;U

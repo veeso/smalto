@@ -54,19 +54,33 @@ function convertBackslashK(pattern) {
   return `(?<=${prefix})${rest}`;
 }
 
+// Cache for compiled regex patterns, keyed by original pattern string.
+const regexCache = new Map();
+
 // Compile a regex pattern with unicode support.
 // Applies PCRE-to-JS transformations: inline flags, hex escapes, \K.
+// Caches compiled regexes for reuse.
 // Returns Ok(regex) or Error(Nil).
 export function compile(pattern) {
+  const cached = regexCache.get(pattern);
+  if (cached !== undefined) {
+    return Result$Ok(cached);
+  }
   try {
     const [stripped, inlineFlags] = stripInlineFlags(pattern);
     const converted = convertBackslashK(convertHexEscapes(stripped));
     const flags = `gu${inlineFlags}`;
     const regex = new RegExp(converted, flags);
+    regexCache.set(pattern, regex);
     return Result$Ok(regex);
   } catch {
     return Result$Error(Nil);
   }
+}
+
+// Check if a pattern is in the regex cache.
+export function is_cached(pattern) {
+  return regexCache.has(pattern);
 }
 
 // Convert a byte offset to a character index in a string.

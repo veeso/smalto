@@ -1,0 +1,20 @@
+---
+version: 1.5.4
+title: reactjsx highlighting
+file: ./test/languages_test.gleam
+test_name: reactjsx_highlighting_test
+---
+<span class="smalto-keyword">import</span> React<span class="smalto-punctuation">,</span> <span class="smalto-punctuation">{</span> useState <span class="smalto-punctuation">}</span> <span class="smalto-keyword">from</span> <span class="smalto-string">&#39;react&#39;</span><span class="smalto-punctuation">;</span>
+
+ <span class="smalto-keyword">function</span> <span class="smalto-function">Example</span><span class="smalto-punctuation">(</span><span class="smalto-punctuation">)</span> <span class="smalto-punctuation">{</span>
+   <span class="smalto-keyword">const</span> <span class="smalto-punctuation">[</span>count<span class="smalto-punctuation">,</span> setCount<span class="smalto-punctuation">]</span> <span class="smalto-operator">=</span> <span class="smalto-function">useState</span><span class="smalto-punctuation">(</span><span class="smalto-number">0</span><span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+
+ <span class="smalto-keyword">return</span> <span class="smalto-punctuation">(</span>
+     <span class="smalto-tag">&lt;div&gt;</span>
+       <span class="smalto-tag">&lt;p&gt;</span>You clicked <span class="smalto-punctuation">{</span>count<span class="smalto-punctuation">}</span> times<span class="smalto-tag">&lt;/p&gt;</span>
+       <span class="smalto-tag">&lt;button onClick={() =&gt; setCount(count + 1)}&gt;</span>
+         Click me
+       <span class="smalto-tag">&lt;/button&gt;</span>
+     <span class="smalto-tag">&lt;/div&gt;</span>
+   <span class="smalto-punctuation">)</span><span class="smalto-punctuation">;</span>
+ <span class="smalto-punctuation">}</span>

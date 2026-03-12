@@ -20,6 +20,7 @@ import smalto/languages/json
 import smalto/languages/kotlin
 import smalto/languages/lua
 import smalto/languages/markdown
+import smalto/languages/nginx
 import smalto/languages/php
 import smalto/languages/python
 import smalto/languages/ruby
@@ -320,6 +321,22 @@ This is **bold** and *italic*.
 - Another item"
   |> smalto.to_html(markdown.grammar())
   |> birdie.snap(title: "markdown highlighting")
+}
+
+pub fn nginx_highlighting_test() {
+  "http {
+      server {
+          listen 80;
+          add_header X-Clacks-Overhead \"GNU Terry Pratchett\";
+
+          location / {
+              root /var/www/html;
+          }
+      }
+  }
+"
+  |> smalto.to_html(nginx.grammar())
+  |> birdie.snap(title: "nginx highlighting")
 }
 
 pub fn php_highlighting_test() {

@@ -23,6 +23,7 @@ import smalto/languages/markdown
 import smalto/languages/nginx
 import smalto/languages/php
 import smalto/languages/python
+import smalto/languages/razor
 import smalto/languages/reactjsx
 import smalto/languages/reacttsx
 import smalto/languages/ruby
@@ -361,6 +362,33 @@ x = 42
 print(greet('world'))"
   |> smalto.to_html(python.grammar())
   |> birdie.snap(title: "python highlighting")
+}
+
+pub fn razor_highlighting_test() {
+  "<!-- Single statement block -->
+  @{ var myMessage = \"Hello World\"; }
+
+  <!-- Inline expression or variable -->
+  <p>The value of myMessage is: @myMessage</p>
+
+  <!-- Multi-statement block -->
+  @{
+  var totalMessage = \"\";
+  if(IsPost)
+      {
+      var num1 = Request[\"text1\"];
+      var num2 = Request[\"text2\"];
+      var total = num1.AsInt() + num2.AsInt();
+      totalMessage = \"Total = \" + total;
+      }
+  }
+  <body>
+    <main class=\"main-area\">
+      <p>The greeting is: @totalMessage</p>
+    </main>
+ </body> "
+  |> smalto.to_html(razor.grammar())
+  |> birdie.snap(title: "razor highlighting")
 }
 
 pub fn reactjsx_highlighting_test() {

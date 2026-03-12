@@ -23,6 +23,7 @@ import smalto/languages/markdown
 import smalto/languages/nginx
 import smalto/languages/php
 import smalto/languages/python
+import smalto/languages/reactjsx
 import smalto/languages/ruby
 import smalto/languages/rust
 import smalto/languages/scala
@@ -359,6 +360,25 @@ x = 42
 print(greet('world'))"
   |> smalto.to_html(python.grammar())
   |> birdie.snap(title: "python highlighting")
+}
+
+pub fn reactjsx_highlighting_test() {
+  "import React, { useState } from 'react';
+
+ function Example() {
+   const [count, setCount] = useState(0);
+
+ return (
+     <div>
+       <p>You clicked {count} times</p>
+       <button onClick={() => setCount(count + 1)}>
+         Click me
+       </button>
+     </div>
+   );
+ }"
+  |> smalto.to_html(reactjsx.grammar())
+  |> birdie.snap(title: "reactjsx highlighting")
 }
 
 pub fn ruby_highlighting_test() {

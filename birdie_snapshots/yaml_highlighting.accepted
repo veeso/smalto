@@ -1,6 +1,8 @@
 ---
 version: 1.5.4
 title: yaml highlighting
+file: ./test/languages_test.gleam
+test_name: yaml_highlighting_test
 ---
 <span class="smalto-comment"># Comment</span>
 <span class="smalto-atrule">name</span><span class="smalto-punctuation">:</span> smalto

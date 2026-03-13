@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.0.1
+
+Released on 2026-03-13
+
+### CI
+
+- always run js tools
+
+### Performance
+
+- cache compiled regexes at the FFI layer
+  > Regex patterns are now memoized on first compile — via persistent_term
+  > on Erlang and a module-level Map on JavaScript — so repeated calls to
+  > regex.compile with the same pattern skip recompilation.
+
 ## 2.0.0
 
 Released on 2026-03-11

@@ -2,15 +2,7 @@ name: JS Tools CI
 
 on:
   push:
-    paths:
-      - "tools/prism_converter/**"
-      - "tools/fetch_themes/**"
-      - ".github/workflows/js-tools.yml"
   pull_request:
-    paths:
-      - "tools/prism_converter/**"
-      - "tools/fetch_themes/**"
-      - ".github/workflows/js-tools.yml"
 
 jobs:
   ci:

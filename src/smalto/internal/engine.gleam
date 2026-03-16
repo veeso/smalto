@@ -312,23 +312,29 @@ fn walk_greedy_span(nodes: List(Node), match_end: Int) -> #(Bool, List(Node)) {
       walk_greedy_span(rest, match_end)
     [TextNode(text, node_start, node_len), ..rest] -> {
       let node_end = node_start + node_len
-      case match_end <= node_end {
-        True -> {
-          // Match ends within this text node
-          let after_len = node_end - match_end
-          let after_nodes = case after_len > 0 {
-            True -> {
-              let after_text =
-                regex.byte_slice(text, match_end - node_start, after_len)
-              [TextNode(after_text, match_end, after_len), ..rest]
-            }
-            False -> rest
-          }
-          #(True, after_nodes)
-        }
+      case match_end <= node_start {
+        // Match ended before this text node (within a skipped TokenNode).
+        // Keep this text node intact as remaining content.
+        True -> #(True, [TextNode(text, node_start, node_len), ..rest])
         False ->
-          // Match spans past this text node
-          walk_greedy_span(rest, match_end)
+          case match_end <= node_end {
+            True -> {
+              // Match ends within this text node
+              let after_len = node_end - match_end
+              let after_nodes = case after_len > 0 {
+                True -> {
+                  let after_text =
+                    regex.byte_slice(text, match_end - node_start, after_len)
+                  [TextNode(after_text, match_end, after_len), ..rest]
+                }
+                False -> rest
+              }
+              #(True, after_nodes)
+            }
+            False ->
+              // Match spans past this text node
+              walk_greedy_span(rest, match_end)
+          }
       }
     }
   }

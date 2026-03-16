@@ -24,7 +24,7 @@ Smalto tokenizes source code using regex-based grammar definitions inspired by [
 - Language inheritance (e.g., TypeScript extends JavaScript)
 - Nested tokenization for embedded languages (e.g., CSS inside HTML)
 - Hybrid token types: well-known semantic variants plus a `Custom` escape hatch
-- [Lustre integration](#lustre-integration) via the [`smalto_lustre`](https://hex.pm/packages/smalto_lustre) package
+- [Lustre integration](#lustre-integration) via the [`smalto_lustre`](https://hex.pm/packages/smalto_lustre) package, with [45 pre-built themes](#pre-built-themes)
 
 ## Installation
 
@@ -128,6 +128,26 @@ let elements = smalto_lustre.to_lustre(tokens, smalto_lustre.default_config())
 ```
 
 The default config uses inline-styled `<span>` elements matching smalto's ANSI color scheme. Customize individual token renderers with the builder functions. See the [`smalto_lustre` README](smalto_lustre/) for full details.
+
+### Pre-built themes
+
+The [`smalto_lustre_themes`](https://hex.pm/packages/smalto_lustre_themes) package provides 45 ready-to-use inline-styled theme configs ported from [Prism.js](https://prismjs.com/) — no CSS files needed:
+
+```sh
+gleam add smalto smalto_lustre smalto_lustre_themes
+```
+
+```gleam
+import smalto
+import smalto/languages/python
+import smalto/lustre as smalto_lustre
+import smalto/lustre/themes
+
+let tokens = smalto.to_tokens("print('hello')", python.grammar())
+let elements = smalto_lustre.to_lustre(tokens, themes.dracula())
+```
+
+See the [`smalto_lustre_themes` README](smalto_lustre_themes/) for the full list of available themes.
 
 ## Try it out
 

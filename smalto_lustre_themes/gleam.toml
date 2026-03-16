@@ -3,7 +3,6 @@ version = "1.0.0"
 description = "Pre-built theme configurations for smalto_lustre syntax highlighting"
 repository = { type = "github", user = "veeso", repo = "smalto" }
 licenses = ["MIT"]
-target = "erlang"
 links = [{ title = "Codeberg", href = "https://codeberg.org/veeso/smalto" }]
 
 [dependencies]

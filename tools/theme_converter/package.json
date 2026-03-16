@@ -9,7 +9,8 @@
     "start": "node src/index.js",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "eslint src/"
+    "lint": "eslint src/ test/",
+    "test": "node --test 'test/**/*.test.js'"
   },
   "devDependencies": {
     "eslint": "^8.57.1",

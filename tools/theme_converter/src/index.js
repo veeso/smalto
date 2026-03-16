@@ -352,7 +352,7 @@ import gleam/list
 import lustre/attribute
 import lustre/element.{type Element}
 import lustre/element/html
-import smalto/lustre as smalto_lustre.{type Config}
+import smalto/lustre.{type Config} as smalto_lustre
 
 `;
 

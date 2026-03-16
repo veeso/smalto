@@ -11,5 +11,7 @@ smalto_lustre = ">= 2.0.0 and < 3.0.0"
 lustre = ">= 5.4.0 and < 6.0.0"
 
 [dev-dependencies]
+argv = ">= 1.0.2 and < 2.0.0"
 gleeunit = ">= 1.0.0 and < 2.0.0"
+simplifile = ">= 2.4.0 and < 3.0.0"
 smalto = ">= 2.0.0 and < 3.0.0"

@@ -1,5 +1,5 @@
 name = "smalto_lustre_themes"
-version = "1.0.0"
+version = "2.0.0"
 description = "Pre-built theme configurations for smalto_lustre syntax highlighting"
 repository = { type = "github", user = "veeso", repo = "smalto" }
 licenses = ["MIT"]

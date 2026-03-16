@@ -112,6 +112,26 @@ Other custom tokens are rendered as plain text.
 
 `Whitespace` and `Other` tokens are always rendered as plain text nodes, regardless of the config.
 
+## Pre-built themes
+
+Instead of configuring colors manually, use the [`smalto_lustre_themes`](https://hex.pm/packages/smalto_lustre_themes) package for 45 ready-to-use theme configs ported from [Prism.js](https://prismjs.com/). Each theme applies inline styles — no external CSS needed.
+
+```sh
+gleam add smalto_lustre_themes
+```
+
+```gleam
+import smalto
+import smalto/languages/python
+import smalto/lustre as smalto_lustre
+import smalto/lustre/themes
+
+let tokens = smalto.to_tokens("print('hello')", python.grammar())
+let elements = smalto_lustre.to_lustre(tokens, themes.dracula())
+```
+
+Available themes include: `dracula`, `nord`, `one_dark`, `gruvbox_dark`, `material_oceanic`, `synthwave84`, and [40 more](https://hexdocs.pm/smalto_lustre_themes/).
+
 ## API reference
 
 Full API documentation is available on [HexDocs](https://hexdocs.pm/smalto_lustre/).

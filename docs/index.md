@@ -26,6 +26,7 @@ Smalto tokenizes source code using Prism.js-inspired grammars and renders the re
 - **Custom grammars** — define your own grammars with regex patterns, greedy matching, and nested rules
 - **Language inheritance** — grammars can extend other grammars (e.g., TypeScript extends JavaScript)
 - **Configurable ANSI themes** — customize terminal colors per token type, or use the built-in default
+- **45 pre-built Lustre themes** — inline-styled theme configs via [`smalto_lustre_themes`](https://hex.pm/packages/smalto_lustre_themes), no CSS needed
 
 ## How it works
 

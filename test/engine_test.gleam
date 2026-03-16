@@ -162,6 +162,42 @@ pub fn whitespace_tokens_collapsed_test() {
   |> should.equal([Other("  "), Keyword("if"), Other("  ")])
 }
 
+pub fn greedy_match_spanning_token_node_no_panic_test() {
+  // Regression: a greedy rule whose match spans past a TokenNode (created by
+  // a prior rule) into a subsequent TextNode caused a badarg panic in
+  // byte_slice when match_end fell before the next TextNode's start offset.
+  //
+  // Setup: "aa bb cc"
+  //   Rule 1 (non-greedy): tokenizes "bb" as keyword → nodes become:
+  //     TextNode("aa ", 0, 3), TokenNode([Keyword("bb")]), TextNode(" cc", 6, 3)
+  //   Rule 2 (greedy): pattern "aa.+" matches "aa bb cc" in the original text.
+  //     match_start=0, match_end=8 spans past the TokenNode.
+  //     walk_greedy_span skips the TokenNode, then encounters TextNode(" cc",6,3).
+  //     Before the fix, match_end(8) > node_start(6) so the slice was valid here,
+  //     but a different input can trigger the negative offset.
+  //
+  // To trigger the actual bug, we need match_end to land *within* the
+  // TokenNode's byte range so it's < the next TextNode's node_start.
+  // "aabb cc" with Rule 1 matching "bb" (start=2,len=2) and
+  // Rule 2 (greedy) matching "aabb" (start=0,len=4). match_end=4, but
+  // next TextNode starts at 4 so match_end==node_start which is the boundary.
+  //
+  // Better: "XaaYZcc" where Rule 1 matches "YZ" (positions 3..5), then
+  // Rule 2 (greedy) matches "XaaY" (positions 0..4). match_end=4 < node_start=5.
+  let rules = [
+    grammar.rule("keyword", "YZ"),
+    grammar.greedy_rule("string", "XaaY"),
+  ]
+  let result = engine.tokenize("XaaYZcc", rules, no_lookup)
+  // Rule 1 tokenizes "YZ" as keyword.
+  // Rule 2 greedily matches "XaaY" in original (bytes 0..4).
+  // walk_greedy_span skips (overwrites) the TokenNode for "YZ", reaches
+  // TextNode("cc",5,2). match_end=4 < node_start=5 → TextNode kept intact.
+  // The keyword "YZ" is overwritten by the greedy match (Prism.js behavior).
+  result
+  |> should.equal([TString("XaaY"), Other("cc")])
+}
+
 pub fn empty_match_skipped_test() {
   let rules = [grammar.rule("keyword", "x*")]
   let result = engine.tokenize("ab", rules, no_lookup)

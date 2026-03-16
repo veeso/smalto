@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.0.2
+
+Released on 2026-03-16
+
+### Fixed
+
+- handle greedy match ending within a skipped TokenNode
+  > walk_greedy_span did not account for match_end falling before the next
+  > TextNode's byte_start (i.e. within a previously skipped TokenNode).
+  > This caused a negative offset in byte_slice, triggering an Erlang
+  > binary:part badarg panic.
+  >
+  > Add a guard to keep the TextNode intact when match_end <= node_start.
+
 ## 2.0.1
 
 Released on 2026-03-13

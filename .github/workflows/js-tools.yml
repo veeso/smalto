@@ -13,6 +13,7 @@ jobs:
         tool:
           - prism_converter
           - fetch_themes
+          - theme_converter
 
     defaults:
       run:

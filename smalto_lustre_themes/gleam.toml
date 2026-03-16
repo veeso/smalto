@@ -1,0 +1,16 @@
+name = "smalto_lustre_themes"
+version = "1.0.0"
+description = "Pre-built theme configurations for smalto_lustre syntax highlighting"
+repository = { type = "github", user = "veeso", repo = "smalto" }
+licenses = ["MIT"]
+target = "erlang"
+links = [{ title = "Codeberg", href = "https://codeberg.org/veeso/smalto" }]
+
+[dependencies]
+gleam_stdlib = ">= 0.44.0 and < 2.0.0"
+smalto_lustre = ">= 2.0.0 and < 3.0.0"
+lustre = ">= 5.4.0 and < 6.0.0"
+
+[dev-dependencies]
+gleeunit = ">= 1.0.0 and < 2.0.0"
+smalto = ">= 2.0.0 and < 3.0.0"

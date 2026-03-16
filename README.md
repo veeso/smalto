@@ -9,6 +9,7 @@
 
 [![test](https://github.com/veeso/smalto/actions/workflows/smalto.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/smalto.yml)
 [![smalto_lustre](https://github.com/veeso/smalto/actions/workflows/smalto-lustre.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/smalto-lustre.yml)
+[![smalto_lustre_themes](https://github.com/veeso/smalto/actions/workflows/smalto-lustre-themes.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/smalto-lustre-themes.yml)
 [![js-tools](https://github.com/veeso/smalto/actions/workflows/js-tools.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/js-tools.yml)
 
 A general-purpose syntax highlighting library for Gleam, with regex-based grammars for 30+ languages.

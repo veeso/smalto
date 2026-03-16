@@ -93,19 +93,16 @@ fn render(source_path: String, theme_name: String, output_path: String) -> Nil {
         Ok(config) -> {
           // Load the matching CSS theme for base styling (text color,
           // background, font). The Lustre inline styles override per-token.
-          let theme_css_path =
-            "../themes/smalto-" <> theme_name <> ".css"
+          let theme_css_path = "../themes/smalto-" <> theme_name <> ".css"
           let theme_css =
             simplifile.read(theme_css_path)
             |> result.unwrap("")
           case simplifile.read(source_path) {
-            Error(_) ->
-              io.println("Error: could not read file " <> source_path)
+            Error(_) -> io.println("Error: could not read file " <> source_path)
             Ok(source) -> {
               let tokens = smalto.to_tokens(source, grammar)
               let elements = smalto_lustre.to_lustre(tokens, config)
-              let document =
-                build_document(source_path, theme_css, elements)
+              let document = build_document(source_path, theme_css, elements)
               let html_string = element.to_document_string(document)
               case simplifile.write(output_path, html_string) {
                 Ok(_) -> io.println("Written HTML to " <> output_path)
@@ -184,7 +181,10 @@ fn theme_map() -> dict.Dict(String, smalto_lustre.Config(msg)) {
   dict.from_list([
     #("a11y-dark", themes.a11y_dark()),
     #("atom-dark", themes.atom_dark()),
-    #("base16-ateliersulphurpool-light", themes.base16_ateliersulphurpool_light()),
+    #(
+      "base16-ateliersulphurpool-light",
+      themes.base16_ateliersulphurpool_light(),
+    ),
     #("cb", themes.cb()),
     #("coldark-cold", themes.coldark_cold()),
     #("coldark-dark", themes.coldark_dark()),

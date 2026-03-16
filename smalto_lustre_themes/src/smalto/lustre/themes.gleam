@@ -1,7 +1,12 @@
-////  Pre-built theme configurations for smalto_lustre.
+////  Pre-built inline-styled theme configurations for smalto_lustre.
+////
+////  **Auto-generated** by `tools/theme_converter` from the CSS themes in
+////  `themes/`. Do not edit by hand — re-run the converter instead.
 ////
 ////  Each function returns a `Config(msg)` with inline-styled `<span>` elements
 ////  matching the corresponding CSS theme from the smalto themes collection.
+////  Unlike the CSS themes, these configs require no external stylesheet — all
+////  styles are applied directly to the elements.
 ////
 ////  ## Usage
 ////
@@ -14,6 +19,55 @@
 ////  let tokens = smalto.to_tokens("print('hello')", python.grammar())
 ////  let elements = smalto_lustre.to_lustre(tokens, themes.dracula())
 ////  ```
+////
+////  ## Available themes (45)
+////
+////  - `a11y_dark()`
+////  - `atom_dark()`
+////  - `base16_ateliersulphurpool_light()`
+////  - `cb()`
+////  - `coldark_cold()`
+////  - `coldark_dark()`
+////  - `coy()`
+////  - `coy_without_shadows()`
+////  - `darcula()`
+////  - `dark()`
+////  - `default()`
+////  - `dracula()`
+////  - `duotone_dark()`
+////  - `duotone_earth()`
+////  - `duotone_forest()`
+////  - `duotone_light()`
+////  - `duotone_sea()`
+////  - `duotone_space()`
+////  - `funky()`
+////  - `ghcolors()`
+////  - `gruvbox_dark()`
+////  - `gruvbox_light()`
+////  - `holi_theme()`
+////  - `hopscotch()`
+////  - `laserwave()`
+////  - `lucario()`
+////  - `material_dark()`
+////  - `material_light()`
+////  - `material_oceanic()`
+////  - `night_owl()`
+////  - `nord()`
+////  - `okaidia()`
+////  - `one_dark()`
+////  - `one_light()`
+////  - `pojoaque()`
+////  - `shades_of_purple()`
+////  - `solarized_dark_atom()`
+////  - `solarizedlight()`
+////  - `synthwave84()`
+////  - `tomorrow()`
+////  - `twilight()`
+////  - `vs()`
+////  - `vsc_dark_plus()`
+////  - `xonokai()`
+////  - `z_touch()`
+////
 
 import gleam/list
 import lustre/attribute

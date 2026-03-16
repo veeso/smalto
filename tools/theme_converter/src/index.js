@@ -331,10 +331,20 @@ function generateThemeFunction(name, parsed, description) {
  * Generate the full themes.gleam module source.
  */
 function generateModule(themes) {
-  const header = `////  Pre-built theme configurations for smalto_lustre.
+  const themeList = themes
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((t) => `////  - \`${t.name}()\``)
+    .join('\n');
+
+  const header = `////  Pre-built inline-styled theme configurations for smalto_lustre.
+////
+////  **Auto-generated** by \`tools/theme_converter\` from the CSS themes in
+////  \`themes/\`. Do not edit by hand — re-run the converter instead.
 ////
 ////  Each function returns a \`Config(msg)\` with inline-styled \`<span>\` elements
 ////  matching the corresponding CSS theme from the smalto themes collection.
+////  Unlike the CSS themes, these configs require no external stylesheet — all
+////  styles are applied directly to the elements.
 ////
 ////  ## Usage
 ////
@@ -347,6 +357,11 @@ function generateModule(themes) {
 ////  let tokens = smalto.to_tokens("print('hello')", python.grammar())
 ////  let elements = smalto_lustre.to_lustre(tokens, themes.dracula())
 ////  \`\`\`
+////
+////  ## Available themes (${themes.length})
+////
+${themeList}
+////
 
 import gleam/list
 import lustre/attribute

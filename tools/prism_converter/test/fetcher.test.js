@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { fetchGrammar, fetchAllGrammars, ALL_LANGUAGES, COMPONENT_MAP } from '../src/fetcher.js';
 
 describe('fetcher', () => {
-  it('should export ALL_LANGUAGES with 30 entries', () => {
-    assert.equal(ALL_LANGUAGES.length, 30);
+  it('should export ALL_LANGUAGES with 36 entries', () => {
+    assert.equal(ALL_LANGUAGES.length, 36);
   });
 
   it('should have a component mapping for every language', () => {

@@ -19,7 +19,7 @@ When reporting a bug, please include:
 
 ### Prerequisites
 
-- [Gleam](https://gleam.run) >= 1.15.0
+- [Gleam](https://gleam.run) >= 1.15.1
 - [Erlang/OTP](https://www.erlang.org) >= 28
 - [Rebar3](https://rebar3.org)
 - [Node.js](https://nodejs.org) (only if using the Prism converter tool)

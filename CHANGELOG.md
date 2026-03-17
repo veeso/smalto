@@ -14,7 +14,7 @@ Released on 2026-03-17
 
 ### CI
 
-- build theme_converter- smalto lustre themes workflow- gleam 1.15.0
+- build theme_converter- smalto lustre themes workflow- gleam 1.15.1
 
 ### Documentation
 

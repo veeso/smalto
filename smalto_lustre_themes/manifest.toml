@@ -15,8 +15,8 @@ packages = [
   { name = "houdini", version = "1.2.0", build_tools = ["gleam"], requirements = [], otp_app = "houdini", source = "hex", outer_checksum = "5DB1053F1AF828049C2B206D4403C18970ABEF5C18671CA3C2D2ED0DD64F6385" },
   { name = "lustre", version = "5.6.0", build_tools = ["gleam"], requirements = ["gleam_erlang", "gleam_json", "gleam_otp", "gleam_stdlib", "houdini"], otp_app = "lustre", source = "hex", outer_checksum = "EE558CD4DB9F09FCC16417ADF0183A3C2DAC3E4B21ED3AC0CAE859792AB810CA" },
   { name = "simplifile", version = "2.4.0", build_tools = ["gleam"], requirements = ["filepath", "gleam_stdlib"], otp_app = "simplifile", source = "hex", outer_checksum = "7C18AFA4FED0B4CE1FA5B0B4BAC1FA1744427054EA993565F6F3F82E5453170D" },
-  { name = "smalto", version = "2.0.2", build_tools = ["gleam"], requirements = ["gleam_community_ansi", "gleam_stdlib", "houdini"], otp_app = "smalto", source = "hex", outer_checksum = "199C1A010F4CEE6E4DBE17C74A3F42326A1C89956C0D884B2BCC611104185CD1" },
-  { name = "smalto_lustre", version = "2.0.0", build_tools = ["gleam"], requirements = ["gleam_stdlib", "lustre", "smalto"], otp_app = "smalto_lustre", source = "hex", outer_checksum = "7C00BDC91CCE90240F4746E7BA250DC725D0D05D7B17B6B622DEEF921F78196D" },
+  { name = "smalto", version = "3.0.0", build_tools = ["gleam"], requirements = ["gleam_community_ansi", "gleam_stdlib", "houdini"], otp_app = "smalto", source = "hex", outer_checksum = "13EA8935A9E60A770E326FB850F5A5B3612A62E0A6C62C3F850AD04C842E3769" },
+  { name = "smalto_lustre", version = "3.0.0", build_tools = ["gleam"], requirements = ["gleam_stdlib", "lustre", "smalto"], otp_app = "smalto_lustre", source = "hex", outer_checksum = "63C5F2CE886D7CDFEAABAAC5A0E7B3EDBF69F9776A08AACA0360B0948745EF2A" },
 ]
 
 [requirements]
@@ -25,5 +25,5 @@ gleam_stdlib = { version = ">= 0.44.0 and < 2.0.0" }
 gleeunit = { version = ">= 1.0.0 and < 2.0.0" }
 lustre = { version = ">= 5.4.0 and < 6.0.0" }
 simplifile = { version = ">= 2.4.0 and < 3.0.0" }
-smalto = { version = ">= 2.0.0 and < 3.0.0" }
-smalto_lustre = { version = ">= 2.0.0 and < 3.0.0" }
+smalto = { version = ">= 3.0.0 and < 4.0.0" }
+smalto_lustre = { version = ">= 3.0.0 and < 4.0.0" }

@@ -197,6 +197,8 @@ When adding a new language, make sure all of these files are updated:
 - [ ] `test/languages_test.gleam` - snapshot test
 - [ ] `birdie_snapshots/<lang>_highlighting.accepted` - accepted snapshot
 - [ ] `dev/cat.gleam` - extension mapping
+- [ ] `dev/html_render.gleam` - extension mapping
+- [ ] `smalto_lustre_themes/dev/lustre_html_render.gleam` - extension mapping
 - [ ] `src/smalto.gleam` - language count in module doc
 - [ ] `docs/supported-languages.md` - count and table row
 - [ ] `docs/index.md` - language count

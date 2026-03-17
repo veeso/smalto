@@ -54,11 +54,79 @@ function convertBackslashK(pattern) {
   return `(?<=${prefix})${rest}`;
 }
 
+// Escape lone curly braces that aren't part of valid quantifiers.
+// In PCRE, bare { and } are literals. In JS with the `u` flag they must be
+// escaped unless they form a quantifier like {3}, {3,}, or {3,5}.
+// Braces inside character classes [...] are always literal and left alone.
+function escapeLoneBraces(pattern) {
+  let result = "";
+  let inCharClass = false;
+  let i = 0;
+
+  while (i < pattern.length) {
+    const ch = pattern[i];
+
+    // Skip escaped characters.
+    if (ch === "\\") {
+      result += pattern.slice(i, i + 2);
+      i += 2;
+      continue;
+    }
+
+    // Track character class boundaries.
+    if (ch === "[" && !inCharClass) {
+      inCharClass = true;
+      result += ch;
+      i += 1;
+      continue;
+    }
+    if (ch === "]" && inCharClass) {
+      inCharClass = false;
+      result += ch;
+      i += 1;
+      continue;
+    }
+
+    // Inside character classes, braces are literal — keep as-is.
+    if (inCharClass) {
+      result += ch;
+      i += 1;
+      continue;
+    }
+
+    // Check opening brace for valid quantifier: {n}, {n,}, {n,m}.
+    if (ch === "{") {
+      const rest = pattern.slice(i);
+      const quantifier = rest.match(/^\{(\d+(?:,\d*)?)\}/);
+      if (quantifier) {
+        result += quantifier[0];
+        i += quantifier[0].length;
+      } else {
+        result += "\\{";
+        i += 1;
+      }
+      continue;
+    }
+
+    // Escape lone closing brace.
+    if (ch === "}") {
+      result += "\\}";
+      i += 1;
+      continue;
+    }
+
+    result += ch;
+    i += 1;
+  }
+
+  return result;
+}
+
 // Cache for compiled regex patterns, keyed by original pattern string.
 const regexCache = new Map();
 
 // Compile a regex pattern with unicode support.
-// Applies PCRE-to-JS transformations: inline flags, hex escapes, \K.
+// Applies PCRE-to-JS transformations: inline flags, hex escapes, \K, lone braces.
 // Caches compiled regexes for reuse.
 // Returns Ok(regex) or Error(Nil).
 export function compile(pattern) {
@@ -68,7 +136,9 @@ export function compile(pattern) {
   }
   try {
     const [stripped, inlineFlags] = stripInlineFlags(pattern);
-    const converted = convertBackslashK(convertHexEscapes(stripped));
+    const converted = escapeLoneBraces(
+      convertBackslashK(convertHexEscapes(stripped)),
+    );
     const flags = `gu${inlineFlags}`;
     const regex = new RegExp(converted, flags);
     regexCache.set(pattern, regex);

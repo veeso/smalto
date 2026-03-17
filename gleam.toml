@@ -1,5 +1,5 @@
 name = "smalto"
-version = "2.0.2"
+version = "3.0.0"
 description = "A general-purpose syntax highlighting library for Gleam, with regex-based grammars for 30 languages."
 repository = { type = "github", user = "veeso", repo = "smalto" }
 licenses = ["MIT"]

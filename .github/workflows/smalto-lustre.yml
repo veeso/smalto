@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: "24"
       - name: Use local smalto dependency
-        run: sed -i 's|smalto = ">= 2.0.0 and < 3.0.0"|smalto = { path = ".." }|' gleam.toml
+        run: sed -i 's|smalto = ">= 3.0.0 and < 4.0.0"|smalto = { path = ".." }|' gleam.toml
 
       - run: gleam deps download
       - run: gleam test

@@ -27,11 +27,13 @@ import smalto/grammar.{type Grammar}
 import smalto/languages/bash
 import smalto/languages/c
 import smalto/languages/cpp
+import smalto/languages/csharp
 import smalto/languages/css
 import smalto/languages/dart
 import smalto/languages/dockerfile
 import smalto/languages/elixir
 import smalto/languages/erlang
+import smalto/languages/fsharp
 import smalto/languages/gleam
 import smalto/languages/go
 import smalto/languages/haskell
@@ -42,8 +44,12 @@ import smalto/languages/json
 import smalto/languages/kotlin
 import smalto/languages/lua
 import smalto/languages/markdown
+import smalto/languages/nginx
 import smalto/languages/php
 import smalto/languages/python
+import smalto/languages/razor
+import smalto/languages/reactjsx
+import smalto/languages/reacttsx
 import smalto/languages/ruby
 import smalto/languages/rust
 import smalto/languages/scala
@@ -236,7 +242,10 @@ fn extension_map() -> dict.Dict(String, Grammar) {
     #("c", c.grammar()),
     #("cc", cpp.grammar()),
     #("cjs", javascript.grammar()),
+    #("conf", nginx.grammar()),
     #("cpp", cpp.grammar()),
+    #("cs", csharp.grammar()),
+    #("cshtml", razor.grammar()),
     #("css", css.grammar()),
     #("cxx", cpp.grammar()),
     #("dart", dart.grammar()),
@@ -244,6 +253,8 @@ fn extension_map() -> dict.Dict(String, Grammar) {
     #("erl", erlang.grammar()),
     #("ex", elixir.grammar()),
     #("exs", elixir.grammar()),
+    #("fs", fsharp.grammar()),
+    #("fsx", fsharp.grammar()),
     #("gleam", gleam.grammar()),
     #("go", go.grammar()),
     #("h", c.grammar()),
@@ -255,6 +266,7 @@ fn extension_map() -> dict.Dict(String, Grammar) {
     #("java", java.grammar()),
     #("js", javascript.grammar()),
     #("json", json.grammar()),
+    #("jsx", reactjsx.grammar()),
     #("kt", kotlin.grammar()),
     #("kts", kotlin.grammar()),
     #("lua", lua.grammar()),
@@ -273,7 +285,7 @@ fn extension_map() -> dict.Dict(String, Grammar) {
     #("swift", swift.grammar()),
     #("toml", toml.grammar()),
     #("ts", typescript.grammar()),
-    #("tsx", typescript.grammar()),
+    #("tsx", reacttsx.grammar()),
     #("xml", xml.grammar()),
     #("yaml", yaml.grammar()),
     #("yml", yaml.grammar()),

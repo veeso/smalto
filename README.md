@@ -12,7 +12,7 @@
 [![smalto_lustre_themes](https://github.com/veeso/smalto/actions/workflows/smalto-lustre-themes.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/smalto-lustre-themes.yml)
 [![js-tools](https://github.com/veeso/smalto/actions/workflows/js-tools.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/js-tools.yml)
 
-A general-purpose syntax highlighting library for Gleam, with regex-based grammars for 30+ languages.
+A general-purpose syntax highlighting library for Gleam, with regex-based grammars for 36+ languages.
 
 Smalto tokenizes source code using regex-based grammar definitions inspired by [Prism.js](https://prismjs.com/), with output to structured tokens, ANSI terminal colors, or HTML with CSS classes.
 
@@ -20,7 +20,7 @@ Smalto tokenizes source code using regex-based grammar definitions inspired by [
 
 - Works on both Erlang and JavaScript targets
 - Regex-based tokenizer engine with greedy matching and nested grammar support
-- 30 built-in languages including Gleam, Rust, Python, JavaScript, HTML, CSS, and more
+- 36 built-in languages including Gleam, Rust, Python, JavaScript, C#, F#, HTML, CSS, and more
 - Three output formats: tokens, ANSI terminal colors, HTML with CSS classes
 - Language inheritance (e.g., TypeScript extends JavaScript)
 - Nested tokenization for embedded languages (e.g., CSS inside HTML)
@@ -83,11 +83,13 @@ pre code .smalto-property { color: #ffd596; }
 | Bash | `smalto/languages/bash` | |
 | C | `smalto/languages/c` | |
 | C++ | `smalto/languages/cpp` | C |
+| C# | `smalto/languages/csharp` | |
 | CSS | `smalto/languages/css` | |
 | Dart | `smalto/languages/dart` | |
 | Dockerfile | `smalto/languages/dockerfile` | |
 | Elixir | `smalto/languages/elixir` | |
 | Erlang | `smalto/languages/erlang` | |
+| F# | `smalto/languages/fsharp` | |
 | Gleam | `smalto/languages/gleam` | |
 | Go | `smalto/languages/go` | |
 | Haskell | `smalto/languages/haskell` | |
@@ -98,8 +100,12 @@ pre code .smalto-property { color: #ffd596; }
 | Kotlin | `smalto/languages/kotlin` | |
 | Lua | `smalto/languages/lua` | |
 | Markdown | `smalto/languages/markdown` | |
+| Nginx | `smalto/languages/nginx` | |
 | PHP | `smalto/languages/php` | |
 | Python | `smalto/languages/python` | |
+| Razor | `smalto/languages/razor` | |
+| React JSX | `smalto/languages/reactjsx` | |
+| React TSX | `smalto/languages/reacttsx` | |
 | Ruby | `smalto/languages/ruby` | |
 | Rust | `smalto/languages/rust` | |
 | Scala | `smalto/languages/scala` | |

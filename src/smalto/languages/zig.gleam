@@ -23,7 +23,7 @@ fn rules() -> List(Rule) {
     ),
     grammar.greedy_rule(
       "char",
-      "(?:^|[^\\\\])\\K'(?:[^'\\\\\\r\\n]|[\\x{D800}-\\x{DFFF}]{2}|\\\\(?:.|x[a-fA-F\\d]{2}|u\\{[a-fA-F\\d]{1,6}\\}))'",
+      "(?:^|[^\\\\])\\K'(?:[^'\\\\\\r\\n]|[]{2}|\\\\(?:.|x[a-fA-F\\d]{2}|u\\{[a-fA-F\\d]{1,6}\\}))'",
     ),
     grammar.rule("builtin", "\\B@(?!\\d)\\w+(?=\\s*\\()"),
     grammar.rule(
@@ -50,7 +50,7 @@ fn rules() -> List(Rule) {
         ),
         grammar.greedy_rule(
           "char",
-          "(?:^|[^\\\\])\\K'(?:[^'\\\\\\r\\n]|[\\x{D800}-\\x{DFFF}]{2}|\\\\(?:.|x[a-fA-F\\d]{2}|u\\{[a-fA-F\\d]{1,6}\\}))'",
+          "(?:^|[^\\\\])\\K'(?:[^'\\\\\\r\\n]|[]{2}|\\\\(?:.|x[a-fA-F\\d]{2}|u\\{[a-fA-F\\d]{1,6}\\}))'",
         ),
         grammar.rule("builtin", "\\B@(?!\\d)\\w+(?=\\s*\\()"),
         grammar.rule(

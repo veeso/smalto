@@ -86,8 +86,8 @@ if (!flags.all && requestedLanguages.length === 0) {
   // appear in the registry.
   const MANUAL_LANGUAGES = ['gleam'];
 
-  // Write registry — include both converted and hand-written languages
-  const allRegistryLanguages = [...new Set([...processedLanguages, ...MANUAL_LANGUAGES])];
+  // Write registry — include all known languages, not just the ones converted in this run
+  const allRegistryLanguages = [...new Set([...ALL_LANGUAGES, ...MANUAL_LANGUAGES])];
   const registrySource = renderRegistry(allRegistryLanguages);
   fs.writeFileSync(flags.registry, registrySource);
   logger.info(`Wrote registry: ${flags.registry} (${allRegistryLanguages.length} languages)`);

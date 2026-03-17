@@ -6,7 +6,7 @@ nav_order: 7
 
 # Supported languages
 
-Smalto ships with grammars for 30 languages. Each language module exports a `grammar()` function.
+Smalto ships with grammars for 36 languages. Each language module exports a `grammar()` function.
 
 ## Language list
 
@@ -15,11 +15,13 @@ Smalto ships with grammars for 30 languages. Each language module exports a `gra
 | Bash | `smalto/languages/bash` | |
 | C | `smalto/languages/c` | clike |
 | C++ | `smalto/languages/cpp` | C |
+| C# | `smalto/languages/csharp` | clike |
 | CSS | `smalto/languages/css` | |
 | Dart | `smalto/languages/dart` | clike |
 | Dockerfile | `smalto/languages/dockerfile` | |
 | Elixir | `smalto/languages/elixir` | |
 | Erlang | `smalto/languages/erlang` | |
+| F# | `smalto/languages/fsharp` | clike |
 | Gleam | `smalto/languages/gleam` | |
 | Go | `smalto/languages/go` | clike |
 | Haskell | `smalto/languages/haskell` | |
@@ -30,8 +32,12 @@ Smalto ships with grammars for 30 languages. Each language module exports a `gra
 | Kotlin | `smalto/languages/kotlin` | clike |
 | Lua | `smalto/languages/lua` | |
 | Markdown | `smalto/languages/markdown` | |
+| Nginx | `smalto/languages/nginx` | clike |
 | PHP | `smalto/languages/php` | clike |
 | Python | `smalto/languages/python` | |
+| Razor | `smalto/languages/razor` | HTML |
+| React JSX | `smalto/languages/reactjsx` | JavaScript |
+| React TSX | `smalto/languages/reacttsx` | TypeScript |
 | Ruby | `smalto/languages/ruby` | clike |
 | Rust | `smalto/languages/rust` | |
 | Scala | `smalto/languages/scala` | Java |

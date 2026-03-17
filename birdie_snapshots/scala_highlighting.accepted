@@ -5,11 +5,11 @@ file: ./test/languages_test.gleam
 test_name: scala_highlighting_test
 ---
 <span class="smalto-comment">// Comment</span>
-<span class="smalto-keyword">object</span> Main <span class="smalto-punctuation">{</span>
+<span class="smalto-keyword">object</span> <span class="smalto-class-name">Main</span> <span class="smalto-punctuation">{</span>
   <span class="smalto-keyword">def</span> greet<span class="smalto-punctuation">(</span>name<span class="smalto-operator">:</span> <span class="smalto-builtin">String</span><span class="smalto-punctuation">)</span><span class="smalto-operator">:</span> <span class="smalto-builtin">String</span> <span class="smalto-operator">=</span> <span class="smalto-punctuation">{</span>
     <span class="smalto-string">&quot;Hello&quot;</span>
   <span class="smalto-punctuation">}</span>
-  <span class="smalto-keyword">def</span> main<span class="smalto-punctuation">(</span>args<span class="smalto-operator">:</span> Array<span class="smalto-punctuation">[</span><span class="smalto-builtin">String</span><span class="smalto-punctuation">]</span><span class="smalto-punctuation">)</span><span class="smalto-operator">:</span> <span class="smalto-builtin">Unit</span> <span class="smalto-operator">=</span> <span class="smalto-punctuation">{</span>
+  <span class="smalto-keyword">def</span> main<span class="smalto-punctuation">(</span>args<span class="smalto-operator">:</span> <span class="smalto-class-name">Array</span><span class="smalto-punctuation">[</span><span class="smalto-builtin">String</span><span class="smalto-punctuation">]</span><span class="smalto-punctuation">)</span><span class="smalto-operator">:</span> <span class="smalto-builtin">Unit</span> <span class="smalto-operator">=</span> <span class="smalto-punctuation">{</span>
     println<span class="smalto-punctuation">(</span>greet<span class="smalto-punctuation">(</span><span class="smalto-string">&quot;world&quot;</span><span class="smalto-punctuation">)</span><span class="smalto-punctuation">)</span>
   <span class="smalto-punctuation">}</span>
 <span class="smalto-punctuation">}</span>

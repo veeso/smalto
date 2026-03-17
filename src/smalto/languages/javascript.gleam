@@ -47,11 +47,11 @@ fn rules() -> List(Rule) {
     ),
     grammar.rule(
       "class-name",
-      "(?:^|[^$\\w\\xA0-\\x{FFFF}])\\K(?!\\s)[_$A-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*(?=\\.(?:constructor|prototype))",
+      "(?:^|[^$\\w\\xA0-])\\K(?!\\s)[_$A-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*(?=\\.(?:constructor|prototype))",
     ),
     grammar.greedy_rule_with_inside(
       "regex",
-      "(?:(?:^|[^$\\w\\xA0-\\x{FFFF}.\"'\\])\\s]|\\b(?:return|yield))\\s*)\\K\\/(?:(?:\\[(?:[^\\]\\\\\\r\\n]|\\\\.)*\\]|\\\\.|[^/\\\\\\[\\r\\n])+\\/[dgimyus]{0,7}|(?:\\[(?:[^[\\]\\\\\\r\\n]|\\\\.|\\[(?:[^[\\]\\\\\\r\\n]|\\\\.|\\[(?:[^[\\]\\\\\\r\\n]|\\\\.)*\\])*\\])*\\]|\\\\.|[^/\\\\\\[\\r\\n])+\\/[dgimyus]{0,7}v[dgimyus]{0,7})(?=(?:\\s|\\/\\*(?:[^*]|\\*(?!\\/))*\\*\\/)*(?:$|[\\r\\n,.;:})\\]]|\\/\\/))",
+      "(?:(?:^|[^$\\w\\xA0-.\"'\\])\\s]|\\b(?:return|yield))\\s*)\\K\\/(?:(?:\\[(?:[^\\]\\\\\\r\\n]|\\\\.)*\\]|\\\\.|[^/\\\\\\[\\r\\n])+\\/[dgimyus]{0,7}|(?:\\[(?:[^[\\]\\\\\\r\\n]|\\\\.|\\[(?:[^[\\]\\\\\\r\\n]|\\\\.|\\[(?:[^[\\]\\\\\\r\\n]|\\\\.)*\\])*\\])*\\]|\\\\.|[^/\\\\\\[\\r\\n])+\\/[dgimyus]{0,7}v[dgimyus]{0,7})(?=(?:\\s|\\/\\*(?:[^*]|\\*(?!\\/))*\\*\\/)*(?:$|[\\r\\n,.;:})\\]]|\\/\\/))",
       [
         grammar.rule("language-regex", "^(?<=\\/)[\\s\\S]+(?=\\/[a-z]*$)"),
         grammar.rule("regex-delimiter", "^\\/|\\/$"),
@@ -60,11 +60,11 @@ fn rules() -> List(Rule) {
     ),
     grammar.rule(
       "function",
-      "#?(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*(?=\\s*[=:]\\s*(?:async\\s*)?(?:\\bfunction\\b|(?:\\((?:[^()]|\\([^()]*\\))*\\)|(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*)\\s*=>))",
+      "#?(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*(?=\\s*[=:]\\s*(?:async\\s*)?(?:\\bfunction\\b|(?:\\((?:[^()]|\\([^()]*\\))*\\)|(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*)\\s*=>))",
     ),
     grammar.rule_with_inside(
       "parameter",
-      "(?:function(?:\\s+(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*)?\\s*\\(\\s*)\\K(?!\\s)(?:[^()\\s]|\\s+(?![\\s)])|\\([^()]*\\))+(?=\\s*\\))",
+      "(?:function(?:\\s+(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*)?\\s*\\(\\s*)\\K(?!\\s)(?:[^()\\s]|\\s+(?![\\s)])|\\([^()]*\\))+(?=\\s*\\))",
       [
         grammar.greedy_rule(
           "comment",
@@ -90,23 +90,23 @@ fn rules() -> List(Rule) {
         ),
         grammar.rule(
           "class-name",
-          "(?:^|[^$\\w\\xA0-\\x{FFFF}])\\K(?!\\s)[_$A-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*(?=\\.(?:constructor|prototype))",
+          "(?:^|[^$\\w\\xA0-])\\K(?!\\s)[_$A-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*(?=\\.(?:constructor|prototype))",
         ),
         grammar.greedy_rule(
           "regex",
-          "(?:(?:^|[^$\\w\\xA0-\\x{FFFF}.\"'\\])\\s]|\\b(?:return|yield))\\s*)\\K\\/(?:(?:\\[(?:[^\\]\\\\\\r\\n]|\\\\.)*\\]|\\\\.|[^/\\\\\\[\\r\\n])+\\/[dgimyus]{0,7}|(?:\\[(?:[^[\\]\\\\\\r\\n]|\\\\.|\\[(?:[^[\\]\\\\\\r\\n]|\\\\.|\\[(?:[^[\\]\\\\\\r\\n]|\\\\.)*\\])*\\])*\\]|\\\\.|[^/\\\\\\[\\r\\n])+\\/[dgimyus]{0,7}v[dgimyus]{0,7})(?=(?:\\s|\\/\\*(?:[^*]|\\*(?!\\/))*\\*\\/)*(?:$|[\\r\\n,.;:})\\]]|\\/\\/))",
+          "(?:(?:^|[^$\\w\\xA0-.\"'\\])\\s]|\\b(?:return|yield))\\s*)\\K\\/(?:(?:\\[(?:[^\\]\\\\\\r\\n]|\\\\.)*\\]|\\\\.|[^/\\\\\\[\\r\\n])+\\/[dgimyus]{0,7}|(?:\\[(?:[^[\\]\\\\\\r\\n]|\\\\.|\\[(?:[^[\\]\\\\\\r\\n]|\\\\.|\\[(?:[^[\\]\\\\\\r\\n]|\\\\.)*\\])*\\])*\\]|\\\\.|[^/\\\\\\[\\r\\n])+\\/[dgimyus]{0,7}v[dgimyus]{0,7})(?=(?:\\s|\\/\\*(?:[^*]|\\*(?!\\/))*\\*\\/)*(?:$|[\\r\\n,.;:})\\]]|\\/\\/))",
         ),
         grammar.rule(
           "function",
-          "#?(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*(?=\\s*[=:]\\s*(?:async\\s*)?(?:\\bfunction\\b|(?:\\((?:[^()]|\\([^()]*\\))*\\)|(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*)\\s*=>))",
+          "#?(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*(?=\\s*[=:]\\s*(?:async\\s*)?(?:\\bfunction\\b|(?:\\((?:[^()]|\\([^()]*\\))*\\)|(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*)\\s*=>))",
         ),
         grammar.rule(
           "parameter",
-          "(?:function(?:\\s+(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*)?\\s*\\(\\s*)\\K(?!\\s)(?:[^()\\s]|\\s+(?![\\s)])|\\([^()]*\\))+(?=\\s*\\))",
+          "(?:function(?:\\s+(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*)?\\s*\\(\\s*)\\K(?!\\s)(?:[^()\\s]|\\s+(?![\\s)])|\\([^()]*\\))+(?=\\s*\\))",
         ),
         grammar.rule(
           "parameter",
-          "(?i)(?:^|[^$\\w\\xA0-\\x{FFFF}])\\K(?!\\s)[_$a-z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*(?=\\s*=>)",
+          "(?i)(?:^|[^$\\w\\xA0-])\\K(?!\\s)[_$a-z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*(?=\\s*=>)",
         ),
         grammar.rule(
           "parameter",
@@ -114,18 +114,18 @@ fn rules() -> List(Rule) {
         ),
         grammar.rule(
           "parameter",
-          "(?:(?:\\b|\\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\\w\\xA0-\\x{FFFF}]))(?:(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*\\s*)\\(\\s*|\\]\\s*\\(\\s*)\\K(?!\\s)(?:[^()\\s]|\\s+(?![\\s)])|\\([^()]*\\))+(?=\\s*\\)\\s*\\{)",
+          "(?:(?:\\b|\\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\\w\\xA0-]))(?:(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*\\s*)\\(\\s*|\\]\\s*\\(\\s*)\\K(?!\\s)(?:[^()\\s]|\\s+(?![\\s)])|\\([^()]*\\))+(?=\\s*\\)\\s*\\{)",
         ),
         grammar.rule("constant", "\\b[A-Z](?:[A-Z_]|\\dx?)*\\b"),
         grammar.rule("keyword", "(?:(?:^|\\})\\s*)\\Kcatch\\b"),
         grammar.rule(
           "keyword",
-          "(?:^|[^.]|\\.\\.\\.\\s*)\\K\\b(?:as|assert(?=\\s*\\{)|async(?=\\s*(?:function\\b|\\(|[$\\w\\xA0-\\x{FFFF}]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\\s*(?:\\{|$))|for|from(?=\\s*(?:['\"]|$))|function|(?:get|set)(?=\\s*(?:[#\\[$\\w\\xA0-\\x{FFFF}]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\\b",
+          "(?:^|[^.]|\\.\\.\\.\\s*)\\K\\b(?:as|assert(?=\\s*\\{)|async(?=\\s*(?:function\\b|\\(|[$\\w\\xA0-]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\\s*(?:\\{|$))|for|from(?=\\s*(?:['\"]|$))|function|(?:get|set)(?=\\s*(?:[#\\[$\\w\\xA0-]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\\b",
         ),
         grammar.rule("boolean", "\\b(?:false|true)\\b"),
         grammar.rule(
           "function",
-          "#?(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*(?=\\s*(?:\\.\\s*(?:apply|bind|call)\\s*)?\\()",
+          "#?(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*(?=\\s*(?:\\.\\s*(?:apply|bind|call)\\s*)?\\()",
         ),
         grammar.rule(
           "number",
@@ -133,7 +133,7 @@ fn rules() -> List(Rule) {
         ),
         grammar.rule(
           "property",
-          "(?m)(?:(?:^|[,{])[ \\t]*)\\K(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*(?=\\s*:)",
+          "(?m)(?:(?:^|[,{])[ \\t]*)\\K(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*(?=\\s*:)",
         ),
         grammar.rule(
           "operator",
@@ -144,7 +144,7 @@ fn rules() -> List(Rule) {
     ),
     grammar.rule(
       "parameter",
-      "(?i)(?:^|[^$\\w\\xA0-\\x{FFFF}])\\K(?!\\s)[_$a-z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*(?=\\s*=>)",
+      "(?i)(?:^|[^$\\w\\xA0-])\\K(?!\\s)[_$a-z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*(?=\\s*=>)",
     ),
     grammar.rule(
       "parameter",
@@ -152,18 +152,18 @@ fn rules() -> List(Rule) {
     ),
     grammar.rule(
       "parameter",
-      "(?:(?:\\b|\\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\\w\\xA0-\\x{FFFF}]))(?:(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*\\s*)\\(\\s*|\\]\\s*\\(\\s*)\\K(?!\\s)(?:[^()\\s]|\\s+(?![\\s)])|\\([^()]*\\))+(?=\\s*\\)\\s*\\{)",
+      "(?:(?:\\b|\\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\\w\\xA0-]))(?:(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*\\s*)\\(\\s*|\\]\\s*\\(\\s*)\\K(?!\\s)(?:[^()\\s]|\\s+(?![\\s)])|\\([^()]*\\))+(?=\\s*\\)\\s*\\{)",
     ),
     grammar.rule("constant", "\\b[A-Z](?:[A-Z_]|\\dx?)*\\b"),
     grammar.rule("keyword", "(?:(?:^|\\})\\s*)\\Kcatch\\b"),
     grammar.rule(
       "keyword",
-      "(?:^|[^.]|\\.\\.\\.\\s*)\\K\\b(?:as|assert(?=\\s*\\{)|async(?=\\s*(?:function\\b|\\(|[$\\w\\xA0-\\x{FFFF}]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\\s*(?:\\{|$))|for|from(?=\\s*(?:['\"]|$))|function|(?:get|set)(?=\\s*(?:[#\\[$\\w\\xA0-\\x{FFFF}]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\\b",
+      "(?:^|[^.]|\\.\\.\\.\\s*)\\K\\b(?:as|assert(?=\\s*\\{)|async(?=\\s*(?:function\\b|\\(|[$\\w\\xA0-]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\\s*(?:\\{|$))|for|from(?=\\s*(?:['\"]|$))|function|(?:get|set)(?=\\s*(?:[#\\[$\\w\\xA0-]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\\b",
     ),
     grammar.rule("boolean", "\\b(?:false|true)\\b"),
     grammar.rule(
       "function",
-      "#?(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*(?=\\s*(?:\\.\\s*(?:apply|bind|call)\\s*)?\\()",
+      "#?(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*(?=\\s*(?:\\.\\s*(?:apply|bind|call)\\s*)?\\()",
     ),
     grammar.rule(
       "number",
@@ -171,7 +171,7 @@ fn rules() -> List(Rule) {
     ),
     grammar.rule(
       "property",
-      "(?m)(?:(?:^|[,{])[ \\t]*)\\K(?!\\s)[_$a-zA-Z\\xA0-\\x{FFFF}](?:(?!\\s)[$\\w\\xA0-\\x{FFFF}])*(?=\\s*:)",
+      "(?m)(?:(?:^|[,{])[ \\t]*)\\K(?!\\s)[_$a-zA-Z\\xA0-](?:(?!\\s)[$\\w\\xA0-])*(?=\\s*:)",
     ),
     grammar.rule(
       "operator",

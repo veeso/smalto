@@ -12,17 +12,31 @@ pub fn grammar() -> Grammar {
 fn rules() -> List(Rule) {
   [
     grammar.greedy_rule("comment", "(?:^|[\\s{};])\\K#.*"),
-    grammar.greedy_rule_with_inside("directive", "(?:^|\\s)\\K\\w(?:[^;{}\"'\\\\\\s]|\\\\.|\"(?:[^\"\\\\]|\\\\.)*\"|'(?:[^'\\\\]|\\\\.)*'|\\s+(?:#.*(?!.)|(?![#\\s])))*?(?=\\s*[;{])", [
-      grammar.greedy_rule_with_inside("string", "(?:(?:^|[^\\\\])(?:\\\\\\\\)*)\\K(?:\"(?:[^\"\\\\]|\\\\.)*\"|'(?:[^'\\\\]|\\\\.)*')", [
-        grammar.rule("entity", "\\\\[\"'\\\\nrt]"),
-        grammar.rule("variable", "(?i)\\$(?:\\w[a-z\\d]*(?:_[^\\x00-\\x1F\\s\"'\\\\()$]*)?|\\{[^}\\s\"'\\\\]+\\})"),
-      ]),
-      grammar.greedy_rule("comment", "(?<=\\s)#.*"),
-      grammar.greedy_rule("keyword", "^\\S+"),
-      grammar.rule("boolean", "(?<=\\s)(?:off|on)(?!\\S)"),
-      grammar.rule("number", "(?i)(?<=\\s)\\d+[a-z]*(?!\\S)"),
-      grammar.rule("variable", "(?i)\\$(?:\\w[a-z\\d]*(?:_[^\\x00-\\x1F\\s\"'\\\\()$]*)?|\\{[^}\\s\"'\\\\]+\\})"),
-    ]),
+    grammar.greedy_rule_with_inside(
+      "directive",
+      "(?:^|\\s)\\K\\w(?:[^;{}\"'\\\\\\s]|\\\\.|\"(?:[^\"\\\\]|\\\\.)*\"|'(?:[^'\\\\]|\\\\.)*'|\\s+(?:#.*(?!.)|(?![#\\s])))*?(?=\\s*[;{])",
+      [
+        grammar.greedy_rule_with_inside(
+          "string",
+          "(?:(?:^|[^\\\\])(?:\\\\\\\\)*)\\K(?:\"(?:[^\"\\\\]|\\\\.)*\"|'(?:[^'\\\\]|\\\\.)*')",
+          [
+            grammar.rule("entity", "\\\\[\"'\\\\nrt]"),
+            grammar.rule(
+              "variable",
+              "(?i)\\$(?:\\w[a-z\\d]*(?:_[^\\x00-\\x1F\\s\"'\\\\()$]*)?|\\{[^}\\s\"'\\\\]+\\})",
+            ),
+          ],
+        ),
+        grammar.greedy_rule("comment", "(?<=\\s)#.*"),
+        grammar.greedy_rule("keyword", "^\\S+"),
+        grammar.rule("boolean", "(?<=\\s)(?:off|on)(?!\\S)"),
+        grammar.rule("number", "(?i)(?<=\\s)\\d+[a-z]*(?!\\S)"),
+        grammar.rule(
+          "variable",
+          "(?i)\\$(?:\\w[a-z\\d]*(?:_[^\\x00-\\x1F\\s\"'\\\\()$]*)?|\\{[^}\\s\"'\\\\]+\\})",
+        ),
+      ],
+    ),
     grammar.rule("punctuation", "[{};]"),
   ]
 }

@@ -39,7 +39,7 @@ fn rules() -> List(Rule) {
     ),
     grammar.rule(
       "property",
-      "(?i)(?:^|[^-\\w\\xA0-\\x{FFFF}])\\K(?!\\s)[-_a-z\\xA0-\\x{FFFF}](?:(?!\\s)[-\\w\\xA0-\\x{FFFF}])*(?=\\s*:)",
+      "(?i)(?:^|[^-\\w\\xA0-])\\K(?!\\s)[-_a-z\\xA0-](?:(?!\\s)[-\\w\\xA0-])*(?=\\s*:)",
     ),
     grammar.rule("important", "(?i)!important\\b"),
     grammar.rule("function", "(?i)(?:^|[^-a-z0-9])\\K[-a-z0-9]+(?=\\()"),

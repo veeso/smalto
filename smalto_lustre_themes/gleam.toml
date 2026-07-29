@@ -3,7 +3,6 @@ version = "3.0.0"
 description = "Pre-built theme configurations for smalto_lustre syntax highlighting"
 repository = { type = "github", user = "veeso", repo = "smalto" }
 licenses = ["MIT"]
-links = [{ title = "Codeberg", href = "https://codeberg.org/veeso/smalto" }]
 
 [dependencies]
 gleam_stdlib = ">= 0.44.0 and < 2.0.0"

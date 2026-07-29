@@ -6,7 +6,7 @@ Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) before particip
 
 ## Reporting Issues
 
-You can report bugs and request features on [GitHub Issues](https://github.com/veeso/smalto/issues) or on [Codeberg](https://codeberg.org/veeso/smalto/issues). Issues are typically tracked and resolved on GitHub.
+You can report bugs and request features on [GitHub Issues](https://github.com/veeso/smalto/issues). Issues are typically tracked and resolved on GitHub.
 
 When reporting a bug, please include:
 

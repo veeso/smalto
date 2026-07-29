@@ -4,7 +4,6 @@ description = "A general-purpose syntax highlighting library for Gleam, with reg
 repository = { type = "github", user = "veeso", repo = "smalto" }
 licenses = ["MIT"]
 internal_modules = ["smalto/internal", "smalto/internal/*"]
-links = [{ title = "Codeberg", href = "https://codeberg.org/veeso/smalto" }]
 
 [dependencies]
 gleam_stdlib = ">= 0.44.0 and < 2.0.0"

@@ -5,7 +5,6 @@
 [![conventional-commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 [![Erlang Compatible](https://img.shields.io/badge/target-erlang-b83998)](https://www.erlang.org/)
 ![JavaScript Compatible](https://img.shields.io/badge/target-javascript-f3e155)
-[![codeberg](https://img.shields.io/badge/Codeberg-2185D0?&logo=Codeberg&logoColor=white)](https://codeberg.org/veeso/smalto)
 
 [![test](https://github.com/veeso/smalto/actions/workflows/smalto.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/smalto.yml)
 [![smalto_lustre](https://github.com/veeso/smalto/actions/workflows/smalto-lustre.yml/badge.svg)](https://github.com/veeso/smalto/actions/workflows/smalto-lustre.yml)

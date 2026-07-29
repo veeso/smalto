@@ -4,7 +4,6 @@ description = "Syntax highlighting to Lustre element conversion"
 repository = { type = "github", user = "veeso", repo = "smalto" }
 licenses = ["MIT"]
 target = "erlang"
-links = [{ title = "Codeberg", href = "https://codeberg.org/veeso/smalto" }]
 
 [dependencies]
 gleam_stdlib = ">= 0.44.0 and < 2.0.0"
